@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZMwI1tA+BWnvq+JedjS43+VuvqYGRGu1sCXqehQGVlCPKYRPyKhpXmCrv6GUGyvRqJZOORmZgckVTPskehWP9Q==",
+  "success": true,
+  "projectFilePath": "D:\\Project\\Graduation_Thesis\\timekeeping\\timekeeping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Thi\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Thi\\.nuget\\packages\\npgsql\\5.0.3\\npgsql.5.0.3.nupkg.sha512",
+    "C:\\Users\\Thi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

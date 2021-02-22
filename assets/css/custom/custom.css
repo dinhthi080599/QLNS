@@ -1,0 +1,78 @@
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+[class*="col-"], .slimScrollDiv, .slimscroll {
+    height: 100% !important;
+}
+.slimscroll {
+    max-height: 375px !important;
+}
+svg {
+    margin: 0 auto;
+}
+.app-page-title .page-title-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.app-page-title .page-title-heading {
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.app-page-title .page-title-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: .83333rem;
+    margin: 0 30px 0 0;
+    background: #fff;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+    border-radius: .25rem;
+    width: 60px;
+    height: 60px;
+}
+.app-page-title .page-title-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    word-spacing: 0px;
+}
+.app-page-title .page-title-subheading {
+    padding: 3px 0 0;
+    font-size: .88rem;
+    opacity: .6;
+}
+
+.time-working tr td:not(:first-child):hover {
+    background-color: #5d5959;
+    cursor: pointer;
+}
+.no-select, label {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
+    color: #002147;
+}
+.btn.btn-primary {
+    background: #002147;
+    color: #ffffff;
+}

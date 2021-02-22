@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Locifa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- plugins -->
+        <link href="../assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/custom/custom.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+        <!-- Begin page -->
+        <div id="wrapper">
+            <!-- Topbar Start -->
+            <div class="navbar navbar-expand flex-column flex-md-row navbar-custom">
+                <div class="container-fluid">
+                    <!-- LOGO -->
+                    <a href="index.html" class="navbar-brand mr-0 mr-md-2 logo">
+                        <span class="logo-lg">
+                            <img src="assets/images/logo.png" alt="" height="24" />
+                            <span class="d-inline h5 ml-1 text-logo">Locifa</span>
+                        </span>
+                        <span class="logo-sm">
+                            <img src="assets/images/logo.png" alt="" height="24">
+                        </span>
+                    </a>
+
+                    <ul class="navbar-nav bd-navbar-nav flex-row list-unstyled menu-left mb-0">
+                        <li class="">
+                            <button class="button-menu-mobile open-left disable-btn">
+                                <i data-feather="menu" class="menu-icon"></i>
+                                <i data-feather="x" class="close-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu">
+                <div class="media user-profile mt-2 mb-2">
+                    <img src="assets/images/users/avatar-7.jpg" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
+                    <img src="assets/images/users/avatar-7.jpg" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
+
+                    <div class="media-body">
+                        <h6 class="pro-user-name mt-0 mb-0">User two</h6>
+                        <span class="pro-user-desc">Administrator</span>
+                    </div>
+                    <div class="dropdown align-self-center profile-dropdown-menu">
+                        <a class="dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                            aria-expanded="false">
+                            <span data-feather="chevron-down"></span>
+                        </a>
+                        <div class="dropdown-menu profile-dropdown">
+                            <a href="pages-profile.html" class="dropdown-item notify-item">
+                                <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
+                                <span>My Account</span>
+                            </a>
+
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i data-feather="settings" class="icon-dual icon-xs mr-2"></i>
+                                <span>Settings</span>
+                            </a>
+
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i data-feather="help-circle" class="icon-dual icon-xs mr-2"></i>
+                                <span>Support</span>
+                            </a>
+
+                            <a href="pages-lock-screen.html" class="dropdown-item notify-item">
+                                <i data-feather="lock" class="icon-dual icon-xs mr-2"></i>
+                                <span>Lock Screen</span>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i data-feather="log-out" class="icon-dual icon-xs mr-2"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu" class="slimscroll-menu">
+                        <ul class="metismenu" id="menu-bar">
+                            <li class="menu-title">Navigation</li>
+                            <li>
+                                <a href="index.html">
+                                    <i data-feather="home"></i>
+                                    <span class="badge badge-success float-right">1</span>
+                                    <span> Dashboard </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="javascript: void(0);" aria-expanded="false" class="active mm-collapsed">
+                                    <i data-feather="calendar"></i>
+                                    <span> Quản lý chấm công </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+    
+                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                                    <li class="mm-active">
+                                        <a href="email-inbox.html" class="active">Thiết lập thời gian làm việc</a>
+                                    </li>
+                                    <li>
+                                        <a href="email-read.html">Thiết lập thời gian nghỉ lễ, tết</a>
+                                    </li>
+                                    <li>
+                                        <a href="email-compose.html">Lập đơn xin nghỉ phép</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row page-title align-items-center">
+                            <div class="col-sm-12 col-xl-12">
+                                <div class="app-page-title">
+                                    <div class="page-title-wrapper">
+                                        <div class="page-title-heading">
+                                            <div class="page-title-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                            </div>
+                                            <div>Thời gian làm việc
+                                                <div class="page-title-subheading">Thiết lập thời gian làm việc cho từng bộ phận theo các ngày trong tuần.</div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- content -->
+
+                        <!-- stats + charts -->
+                        <div class="row row-flex">
+                            <div class="col-xl-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title header-title border-bottom p-0 pb-3">Bộ phận</h5>
+                                        <div class="slimscroll" style="max-height: 360px;">
+                                            <!-- stat 1 -->
+                                            <div class="media px-3 py-4 border-bottom">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Hành chính</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">12 nhân viên</h4>
+                                                </div>
+                                                <i data-feather="users" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+
+                                            <!-- stat 2 -->
+                                            <div class="media px-3 py-4 border-bottom">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Sale</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">369 nhân viên</h4>
+                                                </div>
+                                                <i data-feather="image" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+
+                                            <!-- stat 3 -->
+                                            <div class="media px-3 py-4">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Hành chính</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">30 nhân viên</h4>
+                                                </div>
+                                                <i data-feather="shopping-bag" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+
+                                            <!-- stat 3 -->
+                                            <div class="media px-3 py-4">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Kế toán</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">5 nhân viên</h4>
+                                                </div>
+                                                <i data-feather="shopping-bag" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+
+                                            <!-- stat 3 -->
+                                            <div class="media px-3 py-4">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Revenue Per Visitor</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal"></h4>
+                                                </div>
+                                                <i data-feather="shopping-bag" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+
+                                            <!-- stat 3 -->
+                                            <div class="media px-3 py-4">
+                                                <div class="media-body">
+                                                    <span class="text-muted font-size-12">Revenue Per Visitor</span>
+                                                    <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">$21.5</h4>
+                                                </div>
+                                                <i data-feather="shopping-bag" class="align-self-center icon-dual icon-lg"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <label href="" class="float-right">
+                                            <p class="sub-header ">Từ: 01/28/2021 [- đến: 08/05/2222]</p>
+                                        </label>
+                                        <h5 class="card-title mt-0 pb-0 header-title">Thời gian làm việc bộ phận: Hành chính</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-dark mb-0 table-bordered time-working">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center">Sáng</th>
+                                                        <th class="text-center">Chiều</th>
+                                                        <th class="text-center">Tối</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">T2</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">T3</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">T4</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">T5</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">T6</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">T7</td>
+                                                        <td class="text-center">08:00 - 12:00</td>
+                                                        <td class="text-center">13:30 - 17:30</td>
+                                                        <td class="text-center">19:00 - 20:00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">CN</td>
+                                                        <td class="text-center">OFF</td>
+                                                        <td class="text-center">OFF</td>
+                                                        <td class="text-center">OFF</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- row -->
+                    </div>
+                </div> <!-- content -->
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+        <!-- modals -->
+        <!-- Add New Event MODAL -->
+        <div class="modal fade" id="time-working-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                        <h5 class="modal-title" id="modal-title">Thời gian làm việc</h5>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                            <div class="row">
+                                <div class="col-12"> 
+                                    <div class="custom-control custom-switch mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="working" checked  data-off="Nghỉ" data-on="Làm việc">
+                                        <label class="custom-control-label no-select" for="working" id="label-working">
+                                            Làm việc
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Bắt đầu</label>
+                                        <input class="form-control" id="example-time" type="time" name="time">
+                                        <div class="invalid-feedback">Please provide a valid event name</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Kết thúc</label>
+                                        <input class="form-control" id="example-time" type="time" name="time">
+                                        <div class="invalid-feedback">Please provide a valid event name</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12 text-right">
+                                    <button type="button" class="btn btn-light mr-1" data-dismiss="modal">Đóng</button>
+                                    <button type="submit" class="btn btn-success" id="btn-save-event">Lưu lại</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- end modal-content-->
+            </div> <!-- end modal dialog-->
+        </div>
+        <!-- end modal-->
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- optional plugins -->
+        <script src="assets/libs/moment/moment.min.js"></script>
+        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+        <!-- page js -->
+        <script src="assets/js/pages/dashboard.init.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.time-working tr td:not(:first-child)').on('click', function(){
+                    $('#time-working-modal').modal('show');
+                });
+                $('#working').on('change', function(){
+                    console.log($(this).attr('data-off'));
+                    if ($(this).prop('checked')) {
+                        $('#label-working').text($(this).attr('data-on'));
+                    } else {
+                        $('#label-working').text($(this).attr('data-off'));
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
