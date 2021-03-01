@@ -7,6 +7,41 @@ function pr($a) {
     die();
 }
 
+function default_timeworking() {
+    $data['tthoigianbatdausang'] =  "00:00:00";
+    $data['tthoigiankethucsang'] = "00:00:00";
+    $data['tthoigianbatdauchieu'] = "00:00:00";
+    $data['tthoigiankethucchieu'] = "00:00:00";
+    $data['tthoigianbatdautoi'] = "00:00:00";
+    $data['tthoigiankethuctoi'] = "00:00:00";
+    return $data;
+}
+
+function year_arr($year = ''){
+    $year_arr = [];
+    if ($year == '') {
+        $year = date("Y");
+    }
+    for ($i = date("Y")-5; $i < date("Y")+5; $i++) {
+        if ($i == $year) {
+            $year_arr[$i] = 'selected';
+        } else {
+            $year_arr[$i] = '';
+        }
+    }
+    return $year_arr;
+}
+
+function get_current_year() {
+    return date("Y");
+}
+
+function formatDate($date) {
+    $time = strtotime($date);
+    $new_date = date('d-m-Y', $time);
+    return $new_date;
+}
+
 function dm_thu($id = -1) {
     $dm_thu = array (
         0 => 'T2',
@@ -25,6 +60,16 @@ function dm_thu($id = -1) {
 }
 
 function get($name) {
+    $url = parse_url($_SERVER['REQUEST_URI']);
+    if (!empty($url['query']))
+    parse_str($url['query'], $output);
+    if ($url != '/') {
+        if ($name == ''){
+            return $output;
+        } elseif (isset($output[$name])) {
+            return $output[$name];
+        }
+    }
     return isset($_GET[$name]) ? $_GET[$name] : '';
 }
 

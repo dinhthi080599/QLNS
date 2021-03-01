@@ -22,10 +22,9 @@ namespace timekeeping.Controllers
             return Ok( new {timeWorkingList});
         }
         [HttpPost]
-        public ActionResult Post([FromBody]dynamic value)
+        public ActionResult Post([FromBody]TimeWorking value)
         {
-            dynamic data = JsonConvert.DeserializeObject<dynamic>(value.ToString());
-            return this.Ok(value);
+            return this.Ok(value.AddUpdateTime());
         }
     }
 }

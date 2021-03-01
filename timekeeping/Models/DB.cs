@@ -61,16 +61,19 @@ namespace timekeeping.Models
             return dr;
         }
 
-        public void query(string sql_command) {
+        public int query(string sql_command) {
             Console.OutputEncoding = Encoding.UTF8;
             Connect();
             try {
                 NpgsqlCommand command = new NpgsqlCommand(sql_command, conn);
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine(sql_command);
-                command.ExecuteNonQuery();
+                Console.ForegroundColor = ConsoleColor.White;
+                return command.ExecuteNonQuery();
             } catch (Exception msg) {
                 Console.WriteLine(msg);
             }
+            return 0;
         }
     }
 }

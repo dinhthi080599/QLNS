@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-02-19 10:02:34
+/* Smarty version 3.1.38, created on 2021-03-01 04:04:16
   from 'D:\Project\Graduation_Thesis\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_602f7eaa268978_33062392',
+  'unifunc' => 'content_603c59b0ab0684_63944820',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecb26cfc84f2d64c6a2e75726fc702c30a066a66' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Layout\\Header.php',
-      1 => 1613725290,
+      1 => 1614567796,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_602f7eaa268978_33062392 (Smarty_Internal_Template $_smarty_tpl) {
+function content_603c59b0ab0684_63944820 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,18 +53,15 @@ function content_602f7eaa268978_33062392 (Smarty_Internal_Template $_smarty_tpl)
  src="assets/libs/moment/moment.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
- src="assets/libs/apexcharts/apexcharts.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
  src="assets/libs/flatpickr/flatpickr.min.js"><?php echo '</script'; ?>
 >
         <!-- page js -->
-        <?php echo '<script'; ?>
- src="assets/js/pages/dashboard.init.js"><?php echo '</script'; ?>
->
         <!-- App js -->
         <?php echo '<script'; ?>
  src="assets/js/app.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="assets/js/sweetalert.min.js"><?php echo '</script'; ?>
 >
     </head>
 
