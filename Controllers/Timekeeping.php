@@ -12,7 +12,8 @@ class Timekeeping
             $action = post('action');
         }
         $data['timeWorkingList'] = array();
-        $data['partList'] = GetAPI('GET', HURL.'Part')['partList'];
+        $data['partList'] = GetAPI('GET', URLLLL.'Part')['partList'];
+        $data['NV_PB'] = GetAPI('GET', URLLLL.'Part/NV_PB');
         switch ($action) {
             case 'get_data': {
                 $this->get_data();
@@ -46,6 +47,7 @@ class Timekeeping
             'FK_iNguoiTao' => (int) session('id'),
             'tthoigiantao' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
             'dNgayApdung' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
+            'ca' => (int) $ca
         );
         $data = array_merge($data, default_timeworking());
         switch ($ca) {

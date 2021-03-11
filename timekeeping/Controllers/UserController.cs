@@ -10,29 +10,22 @@ namespace timekeeping.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class DayOffController : ControllerBase
+    public class UserController : ControllerBase
     {
-        public DayOffController(){
+        public UserController(){
         }
         [HttpGet]
-        public ActionResult Get(int year, string search)
+        public ActionResult Get()
         {
-            DayOff dayOff = new DayOff();
-            List<DayOff> dayOffs = dayOff.getByID(year, search);
+            User user = new User();
+            List<User> Users = user.getByID();
             //part.Insert();
-            return Ok( new {dayOffs});
+            return Ok( new {Users});
         }
         [HttpPost]
         public ActionResult Post([FromBody]DayOff value)
         {
             return this.Ok(value.Add());
-        }
-
-        [Route("Del")]
-        [HttpPost]
-        public ActionResult Del([FromBody]DayOff value) 
-        {
-            return Ok(value.Del());
         }
     }
 }

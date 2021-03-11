@@ -54,6 +54,9 @@ namespace timekeeping.Models
             NpgsqlDataReader dr = null;
             try {
                 NpgsqlCommand command = new NpgsqlCommand(sql_command, conn);
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine(sql_command);
+                Console.ForegroundColor = ConsoleColor.White;
                 dr = command.ExecuteReader();
             } catch (Exception msg) {
                 Console.WriteLine(msg);

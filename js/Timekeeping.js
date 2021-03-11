@@ -11,20 +11,28 @@ $(document).ready(function(){
             time_end = text.substr(8, 9);
             $('#tthoigianbatdau').val(time_start);
             $('#tthoigiankethuc').val(time_end);
+            $('#working').prop('checked', true);
+        } else {
+            time_start = '00:00';
+            time_end = '00:00';
+            $('#working').prop('checked', false);
         }
         $('#time-working-modal').modal('show');
     });
     $('#working').on('change', function(){
-        console.log($(this).attr('data-off'));
         if ($(this).prop('checked')) {
             $('#label-working').text($(this).attr('data-on'));
         } else {
             $('#label-working').text($(this).attr('data-off'));
+            $('[name="tthoigianbatdau"]').val('');
+            $('[name="tthoigiankethuc"]').val('');
         }
     });
     $(document).on('click', '.media', function(){
         $('.loader-bg').fadeIn();
         var PartID = $(this).attr('data-part-id');
+        var PartName = $(this).children().find('h4.PartName').text();
+        $('.TitleTable').text('Thời gian làm việc bộ phận: ' + PartName);
         $('#fk_ibophanid').val(PartID);
         var data = {
             action: 'get_data',
@@ -34,7 +42,7 @@ $(document).ready(function(){
             method: "POST",
             data: data,
             dataType:'json',
-            url: "/",
+            url: "/thoi-gian-lam-viec",
         }).done(function (res) {
             html = '';
             if (res.length >= 7) {
@@ -52,6 +60,8 @@ $(document).ready(function(){
                             <td class="text-center" id='`+id+`1'>` + (value.tThoigianBatdauChieu).substring(0, 5)+ ` - ` + (value.tThoigianKethucChieu).substring(0, 5) + `</td>
                             <td class="text-center" id='`+id+`2'>` + (value.tThoigianBatdauToi).substring(0, 5)+  ` - ` + (value.tThoigianKethucToi).substring(0, 5) + `</td>
                         </tr>`;
+                        $("#StartTime").val(value.tThoigianBatdauSang);
+                        $("#EndTime").val(value.tThoigianBatdauSang);
                 });
             } else {
                 html += '<tr><td colspan="100%" class="text-center">Bộ phận chưa được sắp xếp thời gian</td></tr>';
@@ -63,19 +73,21 @@ $(document).ready(function(){
         });
     });
     $('#btn-save').on('click', function(){
+        var tthoigianbatdau = $('#tthoigianbatdau').val() == '' ? '00:00' : $('#tthoigianbatdau').val();
+        var tthoigiankethuc = $('#tthoigiankethuc').val() == '' ? '00:00' : $('#tthoigiankethuc').val();
         var data = {
             action: 'add_new',
             fk_ibophanid: $('#fk_ibophanid').val(),
             sngaytrongtuan: $('#sngaytrongtuan').val(),
-            tthoigianbatdau: $('#tthoigianbatdau').val(),
-            tthoigiankethuc: $('#tthoigiankethuc').val(),
+            tthoigianbatdau: tthoigianbatdau,
+            tthoigiankethuc: tthoigiankethuc,
             ca: $('#ca').val()
         };
         $.ajax({
             method: "POST",
             data: data,
             dataType:'json',
-            url: "/",
+            url: "/thoi-gian-lam-viec",
         }).done(function (res) {
             td = $('#id-' + data.sngaytrongtuan + data.ca);
             if (res == 1) {
@@ -84,6 +96,11 @@ $(document).ready(function(){
                 } else {
                     $(td).text(data.tthoigianbatdau + ' : ' + data.tthoigiankethuc);
                 }
+                $('#time-working-modal').modal('hide');
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Cập nhật thời gian làm việc thành công!'
+                })
             }
         });
     });

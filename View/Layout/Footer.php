@@ -12,12 +12,21 @@
                     </div>
                 </footer>
                 <!-- end Footer -->
-
             </div>
-
+            {$mes = getMes()}
+            {if $mes != null}
+                <script>
+                    Swal.fire(
+                        "{$mes.title}",
+                        '{$mes.body}',
+                        '{$mes.type}'
+                    )
+                </script>
+            {/if}
             <!-- ============================================================== -->
             <!-- End Page content -->
             <!-- ============================================================== -->
         <!-- Right bar overlay-->
     </body>
+    <script src="assets/js/app.min.js"></script>
 </html>

@@ -76,3 +76,6 @@ h2 {
     background: #002147;
     color: #ffffff;
 }
+.form-control:disabled {
+    background-color: #d8d8d8;
+}

@@ -28,5 +28,11 @@ namespace timekeeping.Controllers
             dynamic data = JsonConvert.DeserializeObject<dynamic>(value.ToString());
             return this.Ok(value);
         }
+
+        [HttpGet, HttpPost]
+        [Route("NV_PB")]
+        public ActionResult NV_PB() {
+            return Ok(new Part().get_sonhanvien());
+        }
     }
 }

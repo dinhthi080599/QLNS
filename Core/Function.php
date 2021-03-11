@@ -37,8 +37,20 @@ function get_current_year() {
 }
 
 function formatDate($date) {
+    if ($date == "") {
+        return "";
+    }
     $time = strtotime($date);
     $new_date = date('d-m-Y', $time);
+    return $new_date;
+}
+
+function formatDateMDY($date) {
+    if ($date == "") {
+        return "";
+    }
+    $time = strtotime($date);
+    $new_date = date('m-d-Y', $time);
     return $new_date;
 }
 
@@ -57,6 +69,26 @@ function dm_thu($id = -1) {
     } else {
         return $dm_thu;
     }
+}
+
+function get_action($type) {
+    $arr_tacvu = [
+        'ok' => '<button type="submit" class="btn btn-sm btn-success" value="ok" name="action">Duyệt</button>',
+        'cancel' => '<button type="submit" class="btn btn-sm btn-warning" value="cancel" name="action">Hủy</button>',
+        'del'> '<button type="submit" class="btn btn-sm btn-danger" value="del" name="action">Xóa</button>'
+    ];
+    return $arr_tacvu[$type];
+}
+
+function get_user($id = 0) {
+    $Value = GetAPI('GET', URLLLL.'User')['users'];
+    $User = [
+        0 => ''
+    ];
+    foreach ($Value as $k => $v) {
+        $User[$v['pK_iNhanvienID']] = $v;
+    }
+    return $User;
 }
 
 function get($name) {
@@ -121,4 +153,26 @@ function ShowView($data, $view) {
     }
     $smarty->display('view/' . $view . '.php');
     $smarty->display('view/Layout/Footer.php');
+}
+
+function setMes($type, $title, $body) {
+    $_SESSION['mes'] = [
+        'type' => $type,
+        'title' => $title,
+        'body' => $body
+    ];
+}
+
+function getMes() {
+    if (empty($_SESSION['mes'])) {
+        return null;
+    } else {
+        $mes = $_SESSION['mes'];
+        unset($_SESSION['mes']);
+        return $mes;
+    }
+}
+
+function getURL() {
+    return "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 }

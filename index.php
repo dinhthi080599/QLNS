@@ -11,4 +11,5 @@ include_once PATH_ROOT . '/Core/Function.php';
 $request_url = !empty($_GET['url']) ? '/' . $_GET['url'] : '/';
 $method_url = !empty($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
 
+session_start();
 $router->map($request_url, $method_url);

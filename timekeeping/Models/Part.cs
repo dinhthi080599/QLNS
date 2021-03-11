@@ -37,6 +37,26 @@ namespace timekeeping.Models
             return part;
         }
 
+        public Dictionary<string, string> get_sonhanvien() {
+            string sql_command = "SELECT PK_iBophanID, count(PK_iBophanID) as SL, PK_iBophanID FROM tbl_bophan " +
+            "JOIN tbl_vitri_congviec ON \"FK_iBophanID\" = tbl_bophan.PK_iBophanID " +
+            "JOIN tbl_quatrinh_lamviec ON \"FK_iVitriCongviecID\" = \"PK_iVitriCongviecID\"" + 
+            "WHERE \"dNgayKethuc\" IS NULL GROUP BY PK_iBophanID";
+            DB db = new DB();
+            NpgsqlDataReader dr = db.get(sql_command);
+            Dictionary<string, string> NV_PB = new Dictionary<string, string>();
+            if (dr.HasRows) { 
+                while (dr.Read()) {
+                    NV_PB.Add(
+                        dr["PK_iBophanID"].ToString(),
+                        dr["SL"].ToString()
+                    );
+                }
+            }
+            db.Close();
+            return NV_PB;
+        }
+
         public void Insert() {
             // string sql_command = "insert into tbl_bophan (pK_iBophanID, sTenBophan, iThutuBoPhan) values (1, 'Tuyển dụng', 1), (2, 'Lương thưởng & phúc lợi', 2), (3, 'Hành chính', 3), (4, 'Kế hoạch', 4), (5, 'Kế toán', 5), (6, 'Marketing', 6), (7, 'Sale', 7), (8, 'Kho', 8), (9, 'Chăm sóc khách hàng', 9)";
             string sql_command = "insert into tbl_thoigian_lamviec" + 

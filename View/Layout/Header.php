@@ -7,32 +7,34 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        
-        <!-- App favicon -->
+
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- plugins -->
         <link href="/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- App css -->
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/custom/custom.css" rel="stylesheet" type="text/css" />
 
-        <div class="rightbar-overlay"></div>
-        <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
-        <!-- optional plugins -->
         <script src="assets/libs/moment/moment.min.js"></script>
         <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
-        <!-- page js -->
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
         <script src="assets/js/sweetalert.min.js"></script>
     </head>
-
+    
     <body>
+        <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        </script>
         <!-- Begin page -->
         <div id="wrapper">
             <!-- Topbar Start -->
@@ -111,29 +113,24 @@
                     <div id="sidebar-menu" class="slimscroll-menu">
                         <ul class="metismenu" id="menu-bar">
                             <li class="menu-title">Navigation</li>
-                            <li>
-                                <a href="index.html">
-                                    <i data-feather="home"></i>
-                                    <span class="badge badge-success float-right">1</span>
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
                             <li class="">
-                                <a href="javascript: void(0);" aria-expanded="false" class="active mm-collapsed">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
                                     <i data-feather="calendar"></i>
                                     <span> Quản lý chấm công </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-    
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false">
                                     <li class="mm-active">
-                                        <a href="email-inbox.html" class="active">Thiết lập thời gian làm việc</a>
+                                        <a href="thoi-gian-lam-viec">Thiết lập thời gian làm việc</a>
                                     </li>
                                     <li>
-                                        <a href="email-read.html">Thiết lập thời gian nghỉ lễ, tết</a>
+                                        <a href="ngay-nghi">Thời gian nghỉ lễ, tết</a>
                                     </li>
                                     <li>
-                                        <a href="email-compose.html">Lập đơn xin nghỉ phép</a>
+                                        <a href="don-xin-nghi-phep">DS đơn xin nghỉ phép</a>
+                                    </li>
+                                    <li>
+                                        <a href="lap-don-xin-nghi-phep">Lập đơn xin nghỉ phép</a>
                                     </li>
                                 </ul>
                             </li>

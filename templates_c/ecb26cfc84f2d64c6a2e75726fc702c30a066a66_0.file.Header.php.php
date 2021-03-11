@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-01 04:04:16
+/* Smarty version 3.1.38, created on 2021-03-08 13:18:02
   from 'D:\Project\Graduation_Thesis\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_603c59b0ab0684_63944820',
+  'unifunc' => 'content_604615fa802767_34504978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecb26cfc84f2d64c6a2e75726fc702c30a066a66' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Layout\\Header.php',
-      1 => 1614567796,
+      1 => 1615205881,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_603c59b0ab0684_63944820 (Smarty_Internal_Template $_smarty_tpl) {
+function content_604615fa802767_34504978 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,42 +30,44 @@ function content_603c59b0ab0684_63944820 (Smarty_Internal_Template $_smarty_tpl)
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        
-        <!-- App favicon -->
+
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- plugins -->
         <link href="/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- App css -->
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/custom/custom.css" rel="stylesheet" type="text/css" />
 
-        <div class="rightbar-overlay"></div>
-        <!-- Vendor js -->
         <?php echo '<script'; ?>
  src="assets/js/vendor.min.js"><?php echo '</script'; ?>
 >
-        <!-- optional plugins -->
         <?php echo '<script'; ?>
  src="assets/libs/moment/moment.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  src="assets/libs/flatpickr/flatpickr.min.js"><?php echo '</script'; ?>
 >
-        <!-- page js -->
-        <!-- App js -->
-        <?php echo '<script'; ?>
- src="assets/js/app.min.js"><?php echo '</script'; ?>
->
         <?php echo '<script'; ?>
  src="assets/js/sweetalert.min.js"><?php echo '</script'; ?>
 >
     </head>
-
+    
     <body>
+        <?php echo '<script'; ?>
+>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        <?php echo '</script'; ?>
+>
         <!-- Begin page -->
         <div id="wrapper">
             <!-- Topbar Start -->
@@ -144,29 +146,24 @@ function content_603c59b0ab0684_63944820 (Smarty_Internal_Template $_smarty_tpl)
                     <div id="sidebar-menu" class="slimscroll-menu">
                         <ul class="metismenu" id="menu-bar">
                             <li class="menu-title">Navigation</li>
-                            <li>
-                                <a href="index.html">
-                                    <i data-feather="home"></i>
-                                    <span class="badge badge-success float-right">1</span>
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
                             <li class="">
-                                <a href="javascript: void(0);" aria-expanded="false" class="active mm-collapsed">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
                                     <i data-feather="calendar"></i>
                                     <span> Quản lý chấm công </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-    
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false">
                                     <li class="mm-active">
-                                        <a href="email-inbox.html" class="active">Thiết lập thời gian làm việc</a>
+                                        <a href="thoi-gian-lam-viec">Thiết lập thời gian làm việc</a>
                                     </li>
                                     <li>
-                                        <a href="email-read.html">Thiết lập thời gian nghỉ lễ, tết</a>
+                                        <a href="ngay-nghi">Thời gian nghỉ lễ, tết</a>
                                     </li>
                                     <li>
-                                        <a href="email-compose.html">Lập đơn xin nghỉ phép</a>
+                                        <a href="don-xin-nghi-phep">DS đơn xin nghỉ phép</a>
+                                    </li>
+                                    <li>
+                                        <a href="lap-don-xin-nghi-phep">Lập đơn xin nghỉ phép</a>
                                     </li>
                                 </ul>
                             </li>

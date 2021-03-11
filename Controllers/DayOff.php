@@ -12,19 +12,22 @@ class DayOff
             $action = post('action');
         }
         $nam = get('nam');
+        $search = get('search-text');
         if ($nam == '') {
             $current_year = get_current_year();
         } else {
             $current_year = $nam;
         }
         $data['year_arr'] = year_arr($nam);
-        $dayOffs = GetAPI('GET', URLLLL.'DayOff?year='.$current_year)['dayOffs'];
+        $dayOffs = GetAPI('GET', URLLLL.'DayOff?year='.$current_year.'&search='.$search)['dayOffs'];
         $dayOffList = [
             'daqua' => [],
             'chuaqua' => []
         ];
         $now = time();
         foreach ($dayOffs as $k => $v) {
+            $v['dNgayBatdau'] = str_replace('/', '-', $v['dNgayBatdau']);
+            $v['dNgayKethuc'] = str_replace('/', '-', $v['dNgayKethuc']);
             $_ngaynghi = strtotime($v['dNgayBatdau']);
             if ((int)$now > (int)$_ngaynghi) {
                 $dayOffList['daqua'][] = $v;
@@ -39,8 +42,15 @@ class DayOff
                 header("Refresh:0");
                 break;
             }
+            case 'del': {
+                $data_del['pK_iNgaynghiTrongnamID'] = (int)post('del');
+                $del = AddAPI('POST', URLLLL.'DayOff/Del', $data_del);
+                setMes('success', 'Đã xóa', 'Ngày nghỉ đã được xóa');
+                die(header("Location: ". getURL()));
+            }
         }
         $data['dm_thu'] = dm_thu();
+        $data['search'] = $search;
         ShowView($data, 'DayOff');
     }
 

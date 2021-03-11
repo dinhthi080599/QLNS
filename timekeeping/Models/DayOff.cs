@@ -15,16 +15,24 @@ namespace timekeeping.Models
         public int FK_iNguoitaoID { get; set; }
         public DateTime dThoigianTao { get; set; }
         public DayOff() { }
-        public List<DayOff> getByID(int id = 0) {
+        public List<DayOff> getByID(int id = 0, string search = "") {
             /**
             *   Id = 0 return all
             *   Id != 0 return by id
             */
-            string sql_command = "SELECT * FROM tbl_ngaynghi_trongnam";
+            string sql_command = "SELECT * FROM tbl_ngaynghi_trongnam ";
+            string where = "";
             if (id != 0) {
-                sql_command += " WHERE date_part('year', \"dNgayBatdau\") = ";
-                sql_command += id;
+                where += "WHERE date_part('year', \"dNgayBatdau\") = " + id;
             }
+            if (search != "") {
+                if (where == "") {
+                    where += "WHERE \"sTenNgaynghi\" like '%" + search + "%'";
+                } else {
+                    where += " AND \"sTenNgaynghi\" like '%" + search + "%'";
+                }
+            }
+            sql_command += where;
             List<DayOff> dayOffs = new List<DayOff>();
             DB db = new DB();
             NpgsqlDataReader dr = db.get(sql_command);
@@ -59,6 +67,15 @@ namespace timekeeping.Models
                     this.dNgayKethuc,
                     this.dThoigianTao
                 );
+            DB db = new DB();
+            return db.query(sql_command);
+        }
+        public int Del()
+        {
+            this.dThoigianTao = DateTime.Now;
+            string sql_command = "";
+            // DELETE
+            sql_command = "DELETE FROM tbl_ngaynghi_trongnam WHERE \"PK_iNgaynghiTrongnamID\" = " + this.PK_iNgaynghiTrongnamID;
             DB db = new DB();
             return db.query(sql_command);
         }
