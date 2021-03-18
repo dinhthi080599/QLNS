@@ -132,6 +132,36 @@
                                     <li>
                                         <a href="lap-don-xin-nghi-phep">Lập đơn xin nghỉ phép</a>
                                     </li>
+                                    <li>
+                                        <a href="lap-bang-cham-cong">Lập bảng chấm công</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
+                                    <i data-feather="calendar"></i>
+                                    <span>Lương thưởng & phúc lợi </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                                    <li class="mm-active">
+                                        <a href="luong-co-ban">Lương cơ bản</a>
+                                    </li>
+                                    <li class="mm-active">
+                                        <a href="muc-thuong-phat">Thiết lập mức thưởng, phạt</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
+                                    <i data-feather="calendar"></i>
+                                    <span>Quản lý công việc </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                                    <li class="mm-active">
+                                        <a href="phan-cong-cong-viec">Lương cơ bản</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

@@ -222,30 +222,32 @@
                         <h5 class="modal-title" id="modal-title">Thêm thời gian nghỉ lễ, tết</h5>
                     </div>
                     <div class="modal-body p-4">
-                        <form action="" method="POST">
+                        <form action="" class="needs-validation" novalidate="" method="POST" name="add-day-off">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="row">
-                                        <div class="col">    
-                                            <div class="form-group">
-                                                <label class="control-label">Tên </label>
-                                                <input class="form-control" id="tthoigianbatdau" type="text" name="sTenNgaynghi">
-                                            </div>
-                                        </div>
+                                    <div class="form-group mb-3">
+                                        <label class="control-label">Tên </label>
+                                        <input class="form-control" id="sTenNgayNghi" type="text" name="sTenNgaynghi" required="">
+                                        <div class="valid-feedback">Chính xác!</div>
+                                        <div class="invalid-feedback">Bạn cần nhập dữ liệu cho trường này!</div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label">Từ ngày</label>
-                                        <input class="form-control" id="tthoigianbatdau" type="date" name="dNgayBatdau">
-                                        <div class="invalid-feedback">Please provide a valid event name</div>
+                                        <input class="form-control flatpickr-input" id="tthoigianbatdau" type="text" name="dNgayBatdau" required="">
+                                        <div class="valid-feedback">Chính xác!</div>
+                                        <div class="invalid-feedback">Thời gian bắt đầu không được để trống</div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label">Đến ngày</label>
-                                        <input class="form-control" id="tthoigiankethuc" type="date" name="dNgayKethuc">
-                                        <div class="invalid-feedback">Please provide a valid event name</div>
+                                        <input class="form-control flatpickr-input" id="tthoigiankethuc" type="text" name="dNgayKethuc" required="">
+                                        <div class="valid-feedback">Chính xác!</div>
+                                        <div class="invalid-feedback">Thời gian kết thúc không được để trống</div>
                                     </div>
                                 </div>
                             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-08 13:18:02
+/* Smarty version 3.1.38, created on 2021-03-18 17:27:20
   from 'D:\Project\Graduation_Thesis\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_604615fa802767_34504978',
+  'unifunc' => 'content_60532b083e1601_19627777',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecb26cfc84f2d64c6a2e75726fc702c30a066a66' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Layout\\Header.php',
-      1 => 1615205881,
+      1 => 1616063238,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_604615fa802767_34504978 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60532b083e1601_19627777 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -164,6 +164,36 @@ function content_604615fa802767_34504978 (Smarty_Internal_Template $_smarty_tpl)
                                     </li>
                                     <li>
                                         <a href="lap-don-xin-nghi-phep">Lập đơn xin nghỉ phép</a>
+                                    </li>
+                                    <li>
+                                        <a href="lap-bang-cham-cong">Lập bảng chấm công</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
+                                    <i data-feather="calendar"></i>
+                                    <span>Lương thưởng & phúc lợi </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                                    <li class="mm-active">
+                                        <a href="luong-co-ban">Lương cơ bản</a>
+                                    </li>
+                                    <li class="mm-active">
+                                        <a href="muc-thuong-phat">Thiết lập mức thưởng, phạt</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
+                                    <i data-feather="calendar"></i>
+                                    <span>Quản lý công việc </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                                    <li class="mm-active">
+                                        <a href="phan-cong-cong-viec">Lương cơ bản</a>
                                     </li>
                                 </ul>
                             </li>

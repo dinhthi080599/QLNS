@@ -12,7 +12,3 @@ $router->get('/luong-co-ban', 'Salary');
 $router->post('/luong-co-ban', 'Salary');
 $router->get('/muc-thuong-phat', 'RewardPenance');
 $router->post('/muc-thuong-phat', 'RewardPenance');
-$router->get('/phan-cong-cong-viec', 'Assignment');
-$router->post('/phan-cong-cong-viec', 'Assignment');
-$router->get('/lap-bang-cham-cong', 'MakeTimesheets');
-$router->post('/lap-bang-cham-cong', 'MakeTimesheets');

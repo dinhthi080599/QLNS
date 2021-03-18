@@ -17,16 +17,18 @@ namespace timekeeping.Models
         public string sDienthoai { get; set; }
         public string sCMND  { get; set; }
         public string sTenNV { get; set; }
+        public int FK_iBophanID { get; set; }
+        public int FK_iVitriCongviecID { get; set; }
         public User() { }
         public List<User> getByID(int id = 0) {
             /**
             *   Id = 0 return all
             *   Id != 0 return by id
             */
-            string sql_command = "SELECT * FROM tbl_nhanvien";
-            if (id != 0) {
-                sql_command += " WHERE \"PK_iNhanvienID\") = " + id;
-            }
+            string sql_command = "SELECT * FROM tbl_nhanvien " +
+            "JOIN tbl_quatrinh_lamviec ON \"FK_iNhanvienID\" = \"PK_iNhanvienID\" " +
+            "JOIN tbl_vitri_congviec ON \"PK_iVitriCongviecID\" = \"FK_iVitriCongviecID\" " + 
+            "WHERE \"dNgayKethuc\" IS NULL";
             List<User> Users = new List<User>();
             DB db = new DB();
             NpgsqlDataReader dr = db.get(sql_command);
@@ -42,6 +44,8 @@ namespace timekeeping.Models
                     user.sDienthoai = dr["sDienthoai"].ToString();
                     user.sCMND = dr["sHoten"].ToString() + " " + dr["sTen"].ToString(); 
                     user.sTenNV = dr["sHoten"].ToString() + " " + dr["sTen"].ToString(); 
+                    user.FK_iBophanID = dr.GetInt32(dr.GetOrdinal("FK_iBophanID"));
+                    user.FK_iVitriCongviecID = dr.GetInt32(dr.GetOrdinal("FK_iVitriCongviecID"));
                     Users.Add(user);
                 }
             }

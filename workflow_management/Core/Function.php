@@ -22,7 +22,7 @@ function year_arr($year = ''){
     if ($year == '') {
         $year = date("Y");
     }
-    for ($i = 2015; $i < date("Y")+5; $i++) {
+    for ($i = date("Y")-5; $i < date("Y")+5; $i++) {
         if ($i == $year) {
             $year_arr[$i] = 'selected';
         } else {
@@ -30,20 +30,6 @@ function year_arr($year = ''){
         }
     }
     return $year_arr;
-}
-function month_arr($month = ''){
-    $month_arr = [];
-    if ($month == '') {
-        $month = date("m");
-    }
-    for ($i = 1; $i < 12; $i++) {
-        if ($i == $month) {
-            $month_arr[$i] = 'selected';
-        } else {
-            $month_arr[$i] = '';
-        }
-    }
-    return $month_arr;
 }
 
 function get_current_year() {

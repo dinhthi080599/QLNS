@@ -104,4 +104,30 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).on('change', '#tthoigianbatdau', function() {
+        if ($('#tthoigiankethuc').val() == '') {
+            $('#tthoigiankethuc').val($(this).val());
+            $('#tthoigiankethuc').parent().find('.flatpickr-input').val($(this).val());
+        }
+    })
+    
+    $('[name="add-day-off"]').submit(function(e){
+        if ($('#tthoigianbatdau').val() != "" && $('#tthoigiankethuc').val() != "") {
+            // thời gian bắt đầu <= thời gian kết thúc
+            var d1 = Date.parse($('#tthoigianbatdau').val());
+            var d2 = Date.parse($('#tthoigiankethuc').val());
+            if (d1 > d2) {
+                text = "Thời gian bắt đầu không được nhỏ hơn thời gian kết thúc";
+                $('#tthoigianbatdau').parent().find('.flatpickr-input').val('');
+                $('#tthoigiankethuc').parent().find('.flatpickr-input').val('');
+                $('#tthoigianbatdau').parent().find('.invalid-feedback').text(text);
+                $('#tthoigiankethuc').parent().find('.invalid-feedback').text(text);
+                e.preventDefault();
+            }
+        } else {
+            text = 'Bạn cần nhập dữ liệu cho trường này!';
+            $('#tthoigiankethuc').parent().find('.invalid-feedback').text(text);
+            $('#tthoigiankethuc').parent().find('.invalid-feedback').text(text);
+        }
+    })
 });

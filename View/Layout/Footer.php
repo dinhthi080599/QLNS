@@ -29,4 +29,5 @@
         <!-- Right bar overlay-->
     </body>
     <script src="assets/js/app.min.js"></script>
+    <script src="js/Custom.js"></script>
 </html>
