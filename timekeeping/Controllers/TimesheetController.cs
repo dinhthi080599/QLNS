@@ -17,7 +17,6 @@ namespace timekeeping.Controllers
         [Route("Get")]
         [HttpGet, HttpPost]
         public ActionResult Get(___Get __Get)
-        // public ActionResult Get([FromBody] System.Text.Json.JsonElement ListUserID)
         {
             return Ok(new TimeSheet().get(__Get.year, __Get.month, __Get.ListUserID));
         }
@@ -27,18 +26,6 @@ namespace timekeeping.Controllers
         // public ActionResult Get([FromBody] System.Text.Json.JsonElement ListUserID)
         {
             return Ok(new TimeSheet().LoadJson(__Get.year, __Get.month, __Get.ListUserID));
-        }
-        [HttpPost]
-        public ActionResult Post([FromBody]DayOff value)
-        {
-            return this.Ok(value.Add());
-        }
-
-        [Route("Del")]
-        [HttpPost]
-        public ActionResult Del([FromBody]DayOff value) 
-        {
-            return Ok(value.Del());
         }
     }
     public class ___Get {
