@@ -38,6 +38,7 @@ namespace timekeeping.Models
                 return new List<TimeSheet>();
             }
             sql_command += where;
+            sql_command += " ORDER BY \"dNgayChamcong\"";
             List<TimeSheet> timeSheets = new List<TimeSheet>();
             DB db = new DB();
             NpgsqlDataReader dr = db.get(sql_command);

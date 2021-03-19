@@ -132,12 +132,14 @@ class MakeTimesheets
             $date = date($v['dNgayChamcong']);
             $dayofweek = date('w', strtotime($date)) == 0 ? 6 : date('w', strtotime($date)) - 1;
             $llv = $lichlamviec[$dayofweek];
-            if(strtotime($v['tThoigianVaolamSang']) > strtotime($llv['tThoigianBatdauSang'])) {
-                $thoigiandimuon += strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']);
-            } 
+            if ($llv['tThoigianBatdauSang'] != "00:00:00"){
+                if(strtotime($v['tThoigianVaolamSang']) > strtotime($llv['tThoigianBatdauSang'])) {
+                    $thoigiandimuon += strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']);
+                } 
+            }
         }
-        $timelate['gio'] = date('h', $thoigiandimuon);
-        $timelate['phut'] = date('m', $thoigiandimuon);
+        $timelate['gio'] = intval($thoigiandimuon/3600);
+        $timelate['phut'] = intval(($thoigiandimuon - $timelate['gio'] * 3600)/60);
         return $timelate;
     }
 }

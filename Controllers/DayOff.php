@@ -26,8 +26,8 @@ class DayOff
         ];
         $now = time();
         foreach ($dayOffs as $k => $v) {
-            $v['dNgayBatdau'] = str_replace('/', '-', $v['dNgayBatdau']);
-            $v['dNgayKethuc'] = str_replace('/', '-', $v['dNgayKethuc']);
+            // $v['dNgayBatdau'] = str_replace('/', '-', $v['dNgayBatdau']);
+            // $v['dNgayKethuc'] = str_replace('/', '-', $v['dNgayKethuc']);
             $_ngaynghi = strtotime($v['dNgayBatdau']);
             if ((int)$now > (int)$_ngaynghi) {
                 $dayOffList['daqua'][] = $v;

@@ -75,7 +75,6 @@ class Route
 
         // Thay the tat ca cac ki tu / bang ky tu \/ (regex) trong URL.
         $url = str_replace('/', '\/', $url);
-
         $route = [
             'url' => $url,
             'method' => $method,
@@ -122,7 +121,6 @@ class Route
             call_user_func_array($action, $params);
             return;
         }
-
         // Nếu $action là một phương thức của controller. VD: 'HomeController@index'.
         if (is_string($action)) {
             $action = explode('@', $action);
@@ -133,7 +131,6 @@ class Route
             $controller_name = 'Controllers\\' . $action[0];
             $controller = new $controller_name();
             call_user_func_array([$controller, $action[1]], $params);
-
             return;
         }
     }

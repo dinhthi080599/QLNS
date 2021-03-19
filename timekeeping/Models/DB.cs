@@ -19,7 +19,7 @@ namespace timekeeping.Models
 
         private string Host = "127.0.0.1";
         private string User = "postgres";
-        private string DBname = "QLNS";
+        private string DBname = "qlns";
         private string Password = "1";
         private string Port = "5432";
         NpgsqlConnection conn;

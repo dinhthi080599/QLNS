@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Graduation_Thesis\\timekeeping\\timekeeping.csproj": {}
+    "/var/www/doanthi/timekeeping/timekeeping.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Graduation_Thesis\\timekeeping\\timekeeping.csproj": {
+    "/var/www/doanthi/timekeeping/timekeeping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Graduation_Thesis\\timekeeping\\timekeeping.csproj",
+        "projectUniqueName": "/var/www/doanthi/timekeeping/timekeeping.csproj",
         "projectName": "timekeeping",
-        "projectPath": "D:\\Project\\Graduation_Thesis\\timekeeping\\timekeeping.csproj",
-        "packagesPath": "C:\\Users\\Thi\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Graduation_Thesis\\timekeeping\\obj\\",
+        "projectPath": "/var/www/doanthi/timekeeping/timekeeping.csproj",
+        "packagesPath": "/home/vanhung/.nuget/packages/",
+        "outputPath": "/var/www/doanthi/timekeeping/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Thi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/vanhung/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +35,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "EPPlus": {
               "target": "Package",
@@ -75,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.407/RuntimeIdentifierGraph.json"
         }
       }
     }

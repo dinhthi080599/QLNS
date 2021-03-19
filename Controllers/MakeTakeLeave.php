@@ -77,8 +77,8 @@ class MakeTakeLeave
             'FK_iNhanvienID' => (int) session('id'),
             'sLydoNghi' => post('tieu-de'),
             'sGhichuDonxinNghiphep' => post('noi-dung'),
-            'dNgayKethucNghi' => formatDateMDY($den_ngay),
-            'dNgayNghi' => formatDateMDY(post('tu-ngay'))
+            'dNgayKethucNghi' => $den_ngay,
+            'dNgayNghi' => post('tu-ngay')
         ];
         $result = AddAPI('POST', URLLLL.'TakeLeave/luu-don', $data);
         return $result;

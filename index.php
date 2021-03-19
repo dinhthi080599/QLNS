@@ -1,6 +1,10 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 define('PATH_ROOT', __DIR__);
 define('URLLLL','https://localhost:5001/');
+define('URLLLL_Staff','http://localhost:3003/');
 define('URLLLL_Salary','http://localhost:4900/');
 define('URLLLL_Work','http://workflow_management.com/');
 define('HURL','https://timekeeping-services.herokuapp.com/');

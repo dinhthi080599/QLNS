@@ -159,7 +159,7 @@ function AddAPI($method, $url, $data = false)
 }
 
 function ShowView($data, $view) {
-    require_once('lib\smarty\libs\Smarty.class.php');
+    require_once('lib/smarty/libs/Smarty.class.php');
     $smarty = new Smarty();
     $smarty->display('view/Layout/Header.php');
     foreach ($data as $k => $val) {
