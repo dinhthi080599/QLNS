@@ -11,7 +11,7 @@ while($month < 13) {
         $day = 1;
         $month++;
     }
-    $year = 2019;
+    $year = 2022;
     $hour_ = 0;
     $hour__ = 0;
     $hour___ = 0;
@@ -20,9 +20,11 @@ while($month < 13) {
     $_ = $month<10 ? "0" : $_ = "";
 
     $file_name = "$year/$month/$__$day.json";
-    $str = file_get_contents('2019/1/__.json');
+    $str = file_get_contents('__.json');
     $json = json_decode($str, true);
     $ngaychamcong = "$__$day-$_$month-$year";
+    $time = strtotime("$__$day-$_$month-$year");
+    $_______________________________________ = date('w',$time);
     $dimuon = mt_rand(0, 10);
     $dimuon_ = mt_rand(0, 2);
     foreach ($json as $k => $v) {
@@ -83,11 +85,15 @@ while($month < 13) {
         $v['dNgayChamcong'] = $ngaychamcong;
         $___json[$k] = $v;
     }
-    $data = json_encode($___json);
-    $fp = fopen($file_name, 'w');
-    fwrite($fp, json_encode($data));
-    fclose($fp);
+    if($_______________________________________ != 0 && $_______________________________________ != 6){
+        if (!file_exists("$year/$month/")) {
+            mkdir("$year/$month/", 0777, true);
+        }
+        $data = json_encode($___json, JSON_UNESCAPED_UNICODE);
+        $fp = fopen($file_name, 'w');
+        fwrite($fp, json_encode($data));
+        fclose($fp);
+    }
     $day++;
-    echo $file_name;
 }
 ?>
