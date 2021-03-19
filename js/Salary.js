@@ -1,10 +1,12 @@
 $(document).ready(function(){
     $(document).on('click', '.SalaryProcess', function(){
-        var ID = $(this).attr('data-NVID');
+        var NVID = $(this).attr('data-NVID');
+        var ID = $(this).val();
         $('#id').val(ID);
         var data = {
             action: 'get_salary_process',
             id: ID,
+            nvID: NVID,
         };
         $.ajax({
             method: "POST",

@@ -80,8 +80,13 @@
                                 </select>
                             </div>
                             <div class="col-sm-2">
+                                {if empty($mnv)}
                                 <label for="">Lọc</label><br>
                                 <button class="btn btn-success">Lọc</button>
+                                {else}
+                                <label for="">Quay lại</label><br>
+                                <button class="btn btn-success">Quay lại</button>
+                                {/if}
                             </div>
                         </div>
                     </form>
@@ -151,17 +156,23 @@
                                                             </td>
                                                             <td>
                                                                 {if isset($Users_Timesheets[$v.pK_iNhanvienID])}
+                                                                    {if isset($Payroll[$v.pK_iNhanvienID])}
+                                                                    <label class="text-success">Đã có bảng lương</label>
+                                                                    {else}
                                                                     <label class="text-warning">Chưa có bảng lương</label>
+                                                                    {/if}
                                                                 {else}
                                                                     <label class="text-danger">Chưa có bảng chấm công</label>
                                                                 {/if}
                                                             </td>
                                                             <td>
                                                                 {if isset($Users_Timesheets[$v.pK_iNhanvienID])}
-                                                                    <a href="{$URL}lap-bang-cham-cong']}"
+                                                                    {if isset($Payroll[$v.pK_iNhanvienID])}
+                                                                    <a href="/tinh-luong?nam={$nam}&thang={$thang}&bophan={$bophan}&mnv={$v.pK_iNhanvienID}"
                                                                         class="btn btn-info btn-sm"type="button">
                                                                         Chi tiết
                                                                     </a>
+                                                                    {/if}
                                                                 {else}
                                                                     <a href="/lap-bang-cham-cong?nam={$nam}&thang={$thang}&bophan={$bophan}"
                                                                         class="btn btn-success btn-sm"type="button">
@@ -180,23 +191,51 @@
                                 </div>
                                 {else}
                                 <div>
-                                    <a><h5 class="mb-0">Chi tiết bảng chấm công: {$Users[$mnv]['sTenNV']}</h5></a>
+                                    <a><h5 class="mb-0">Chi tiết bảng lương của: {$Users[$mnv]['sTenNV']}</h5></a>
                                     <div class="row mt-2">
+                                        <div class="col-sm-3">
+                                            <label for="thang">Lương cơ bản</label>
+                                            <input type="text" value="{number_format($SalaryProcess[$mnv]['iLuongCoban'], 0, '.', '.')} VND" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang">Số ngày công trong tháng</label>
+                                            <input type="text" value="24" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-danger">Thời gian đi muộn</label>
+                                            <input type="text" value="{$thoigiandimuon.gio} giờ - {$thoigiandimuon.phut} phút" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-danger">Tiền phạt đi muộn</label>
+                                            <input type="text" value="{number_format($Payroll[$mnv]['iTienphat'], 0, '.', '.')} VND" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-3">
+                                            <label for="thang">Lương nhận theo thời gian</label>
+                                            <input type="text" value="{number_format($SalaryProcess[$mnv]['iLuongCoban']*sizeof($list_ts[$mnv])/24, 0, '.', '.')} VND" class="form-control" readonly>
+                                        </div>
                                         <div class="col-sm-3">
                                             <label for="thang">Số ngày công</label>
                                             <input type="text" value="{sizeof($list_ts[$mnv])}" class="form-control" readonly>
                                         </div>
                                         <div class="col-sm-3">
-                                            <label for="thang">Thời gian đi muộn</label>
-                                            <input type="text" value="{$thoigiandimuon.gio} giờ - {$thoigiandimuon.phut} phút" class="form-control" readonly>
+                                            <label for="thang" class="text-primary">Mức lương thực tế c.ty chi trả</label>
+                                            <input type="text" value="{number_format($SalaryProcess[$mnv]['iLuongCoban']*sizeof($list_ts[$mnv])/24, 0, '.', '.')} VND" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-success">Mức lương nhân viên được nhận</label>
+                                            <input type="text" value="{number_format($SalaryProcess[$mnv]['iLuongCoban']*sizeof($list_ts[$mnv])/24 - $Payroll[$mnv]['iTienphat'], 0, '.', '.')} VND" class="form-control" readonly>
                                         </div>
                                     </div>
+                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: {$Users[$mnv]['sTenNV']}</h5></a>
                                     <div class="card mb-0 shadow-none">
                                         <div class="card-body p-0 pt-3">
                                             <div class="justify-content-sm-between">
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <thead>
                                                         <tr>
+                                                            <th class="text-center">STT</th>
                                                             <th class="text-center">Ngày</th>
                                                             <th class="text-center">Sáng</th>
                                                             <th class="text-center">Chiều</th>
@@ -204,8 +243,10 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {$stt=1}
                                                         {foreach $list_ts[$mnv] as $k => $v}
                                                         <tr>
+                                                            <td class="text-center">{$stt++}</td>
                                                             <td class="text-center">{$v.dNgayChamcong}</td>
                                                             <td class="text-center">{$v.tThoigianVaolamSang} - {$v.tThoigianNghiSang}</td>
                                                             <td class="text-center">{$v.tThoigianVaolamChieu} - {$v.tThoigianNghiChieu}</td>

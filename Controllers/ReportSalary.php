@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Payroll
+class ReportSalary
 {
     public function index()
     {
@@ -33,19 +33,19 @@ class Payroll
             $action = post('action');
         }
         switch ($action) {
-            case 'lap-bang-luong': {
-                $this->lap_bang_luong();
-                die();
-            }
-            case 'update': {
-                if ($this->update_salary() != "") {
-                    setMes('success', 'Thành công', 'Cập nhật lương cơ bản thành công!');
-                    die(header("Location: ". getURL()));
-                } else {
-                    setMes('success', 'Thất bại', 'Có lỗi xảy ra xin vui lòng thử lại');
-                    die(header("Location: ". getURL()));
-                }
-            }
+            // case 'lap-bang-luong': {
+            //     $this->lap_bang_luong();
+            //     die();
+            // }
+            // case 'update': {
+            //     if ($this->update_salary() != "") {
+            //         setMes('success', 'Thành công', 'Cập nhật lương cơ bản thành công!');
+            //         die(header("Location: ". getURL()));
+            //     } else {
+            //         setMes('success', 'Thất bại', 'Có lỗi xảy ra xin vui lòng thử lại');
+            //         die(header("Location: ". getURL()));
+            //     }
+            // }
         }
 
         // [Get data from API]
@@ -110,7 +110,7 @@ class Payroll
             $data['thoigiandimuon'] = $this->tinhthoi_gianmuon($list_ts[$mnv], get('bophan'));
         }
         // [End data send to VIEW]
-        ShowView($data, 'Payroll');
+        ShowView($data, 'ReportSalary');
     }
 
     public function update_salary() {

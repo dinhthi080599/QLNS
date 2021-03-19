@@ -98,7 +98,7 @@ class Salary
     }
 
     public function get_salary_process() {
-        $data['id'] = post('id');
+        $data['id'] = post('nvID');
         echo AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data);
         die();
     }

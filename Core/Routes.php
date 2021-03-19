@@ -18,3 +18,5 @@ $router->get('/lap-bang-cham-cong', 'MakeTimesheets');
 $router->post('/lap-bang-cham-cong', 'MakeTimesheets');
 $router->get('/tinh-luong', 'Payroll');
 $router->post('/tinh-luong', 'Payroll');
+$router->get('/thong-ke-luong', 'ReportSalary');
+$router->post('/thong-ke-luong', 'ReportSalary');

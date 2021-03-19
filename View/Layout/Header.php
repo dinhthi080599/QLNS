@@ -153,6 +153,9 @@
                                     <li>
                                         <a href="tinh-luong">Tính lương</a>
                                     </li>
+                                    <li>
+                                        <a href="thong-ke-luong">Thống kê bảng lương</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="">
