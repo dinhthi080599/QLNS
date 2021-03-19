@@ -65,11 +65,7 @@ namespace timekeeping.Models
                     this.FK_iNguoitaoID,
                     this.dNgayBatdau,
                     this.dNgayKethuc,
-<<<<<<< HEAD
-                    this.dThoigianTao.ToString("dd/MM/yyyy HH:mm:ss")
-=======
                     this.dThoigianTao.ToString("MM/dd/yyyy HH:mm:ss")
->>>>>>> origin/master
                 );
             DB db = new DB();
             return db.query(sql_command);

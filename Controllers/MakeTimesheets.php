@@ -103,6 +103,10 @@ class MakeTimesheets
         $data['mnv'] = $mnv;
         $data['list_ts'] = $list_ts;
         if ($mnv != "") {
+            foreach ($Users as $k) {
+                if ($k['pK_iNhanvienID'] == $mnv)
+                    $fK_iBophanID = $k['fK_iBophanID'];
+            }
             $data['thoigiandimuon'] = $this->tinhthoi_gianmuon($list_ts[$mnv], get('bophan'));
         }
         // [End data send to VIEW]
@@ -124,7 +128,6 @@ class MakeTimesheets
     public function tinhthoi_gianmuon($ts, $PartID) {
         $thoigiandimuon = 0;
         $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
-        $NgayTrongTuan = dm_thu();
         foreach ($data as $k => $v) {
             $lichlamviec[$v['sNgayTrongTuan']] = $v;
         }
@@ -134,7 +137,7 @@ class MakeTimesheets
             $llv = $lichlamviec[$dayofweek];
             if ($llv['tThoigianBatdauSang'] != "00:00:00"){
                 if(strtotime($v['tThoigianVaolamSang']) > strtotime($llv['tThoigianBatdauSang'])) {
-                    $thoigiandimuon += strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']);
+                    $thoigiandimuon += (strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']));
                 } 
             }
         }
