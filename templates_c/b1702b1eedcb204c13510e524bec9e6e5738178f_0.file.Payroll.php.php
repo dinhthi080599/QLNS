@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-19 13:54:14
+/* Smarty version 3.1.38, created on 2021-03-19 21:42:19
   from 'D:\Project\Graduation_Thesis\view\Payroll.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_60544a96ce8dd7_89534739',
+  'unifunc' => 'content_6054b84b8679a9_64531840',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b1702b1eedcb204c13510e524bec9e6e5738178f' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Payroll.php',
-      1 => 1616136619,
+      1 => 1616164916,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60544a96ce8dd7_89534739 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054b84b8679a9_64531840 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -134,8 +134,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </select>
                             </div>
                             <div class="col-sm-2">
+                                <?php if (empty($_smarty_tpl->tpl_vars['mnv']->value)) {?>
                                 <label for="">Lọc</label><br>
                                 <button class="btn btn-success">Lọc</button>
+                                <?php } else { ?>
+                                <label for="">Quay lại</label><br>
+                                <button class="btn btn-success">Quay lại</button>
+                                <?php }?>
                             </div>
                         </div>
                     </form>
@@ -218,18 +223,27 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
                                                             </td>
                                                             <td>
                                                                 <?php if ((isset($_smarty_tpl->tpl_vars['Users_Timesheets']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]))) {?>
+                                                                    <?php if ((isset($_smarty_tpl->tpl_vars['Payroll']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]))) {?>
+                                                                    <label class="text-success">Đã có bảng lương</label>
+                                                                    <?php } else { ?>
                                                                     <label class="text-warning">Chưa có bảng lương</label>
+                                                                    <?php }?>
                                                                 <?php } else { ?>
                                                                     <label class="text-danger">Chưa có bảng chấm công</label>
                                                                 <?php }?>
                                                             </td>
                                                             <td>
                                                                 <?php if ((isset($_smarty_tpl->tpl_vars['Users_Timesheets']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]))) {?>
-                                                                    <a href="<?php echo $_smarty_tpl->tpl_vars['URL']->value;?>
-lap-bang-cham-cong']}"
+                                                                    <?php if ((isset($_smarty_tpl->tpl_vars['Payroll']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]))) {?>
+                                                                    <a href="/tinh-luong?nam=<?php echo $_smarty_tpl->tpl_vars['nam']->value;?>
+&thang=<?php echo $_smarty_tpl->tpl_vars['thang']->value;?>
+&bophan=<?php echo $_smarty_tpl->tpl_vars['bophan']->value;?>
+&mnv=<?php echo $_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID'];?>
+"
                                                                         class="btn btn-info btn-sm"type="button">
                                                                         Chi tiết
                                                                     </a>
+                                                                    <?php }?>
                                                                 <?php } else { ?>
                                                                     <a href="/lap-bang-cham-cong?nam=<?php echo $_smarty_tpl->tpl_vars['nam']->value;?>
 &thang=<?php echo $_smarty_tpl->tpl_vars['thang']->value;?>
@@ -253,27 +267,61 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <?php } else { ?>
                                 <div>
-                                    <a><h5 class="mb-0">Chi tiết bảng chấm công: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
+                                    <a><h5 class="mb-0">Chi tiết bảng lương của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
 </h5></a>
                                     <div class="row mt-2">
+                                        <div class="col-sm-3">
+                                            <label for="thang">Lương cơ bản</label>
+                                            <input type="text" value="<?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iLuongCoban'],0,'.','.');?>
+ VND" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang">Số ngày công trong tháng</label>
+                                            <input type="text" value="24" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-danger">Thời gian đi muộn</label>
+                                            <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['thoigiandimuon']->value['gio'];?>
+ giờ - <?php echo $_smarty_tpl->tpl_vars['thoigiandimuon']->value['phut'];?>
+ phút" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-danger">Tiền phạt đi muộn</label>
+                                            <input type="text" value="<?php echo number_format($_smarty_tpl->tpl_vars['Payroll']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iTienphat'],0,'.','.');?>
+ VND" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-3">
+                                            <label for="thang">Lương nhận theo thời gian</label>
+                                            <input type="text" value="<?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iLuongCoban']*sizeof($_smarty_tpl->tpl_vars['list_ts']->value[$_smarty_tpl->tpl_vars['mnv']->value])/24,0,'.','.');?>
+ VND" class="form-control" readonly>
+                                        </div>
                                         <div class="col-sm-3">
                                             <label for="thang">Số ngày công</label>
                                             <input type="text" value="<?php echo sizeof($_smarty_tpl->tpl_vars['list_ts']->value[$_smarty_tpl->tpl_vars['mnv']->value]);?>
 " class="form-control" readonly>
                                         </div>
                                         <div class="col-sm-3">
-                                            <label for="thang">Thời gian đi muộn</label>
-                                            <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['thoigiandimuon']->value['gio'];?>
- giờ - <?php echo $_smarty_tpl->tpl_vars['thoigiandimuon']->value['phut'];?>
- phút" class="form-control" readonly>
+                                            <label for="thang" class="text-primary">Mức lương thực tế c.ty chi trả</label>
+                                            <input type="text" value="<?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iLuongCoban']*sizeof($_smarty_tpl->tpl_vars['list_ts']->value[$_smarty_tpl->tpl_vars['mnv']->value])/24,0,'.','.');?>
+ VND" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="thang" class="text-success">Mức lương nhân viên được nhận</label>
+                                            <input type="text" value="<?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iLuongCoban']*sizeof($_smarty_tpl->tpl_vars['list_ts']->value[$_smarty_tpl->tpl_vars['mnv']->value])/24-$_smarty_tpl->tpl_vars['Payroll']->value[$_smarty_tpl->tpl_vars['mnv']->value]['iTienphat'],0,'.','.');?>
+ VND" class="form-control" readonly>
                                         </div>
                                     </div>
+                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
+</h5></a>
                                     <div class="card mb-0 shadow-none">
                                         <div class="card-body p-0 pt-3">
                                             <div class="justify-content-sm-between">
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <thead>
                                                         <tr>
+                                                            <th class="text-center">STT</th>
                                                             <th class="text-center">Ngày</th>
                                                             <th class="text-center">Sáng</th>
                                                             <th class="text-center">Chiều</th>
@@ -281,6 +329,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php $_smarty_tpl->_assignInScope('stt', 1);?>
                                                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list_ts']->value[$_smarty_tpl->tpl_vars['mnv']->value], 'v', false, 'k');
 $_smarty_tpl->tpl_vars['v']->do_else = true;
@@ -288,6 +337,8 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_
 $_smarty_tpl->tpl_vars['v']->do_else = false;
 ?>
                                                         <tr>
+                                                            <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['stt']->value++;?>
+</td>
                                                             <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['v']->value['dNgayChamcong'];?>
 </td>
                                                             <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['v']->value['tThoigianVaolamSang'];?>

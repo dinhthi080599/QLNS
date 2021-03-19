@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-19 12:38:27
+/* Smarty version 3.1.38, created on 2021-03-19 21:40:28
   from 'D:\Project\Graduation_Thesis\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605438d32a9743_55127087',
+  'unifunc' => 'content_6054b7dc32cc22_94164529',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecb26cfc84f2d64c6a2e75726fc702c30a066a66' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Layout\\Header.php',
-      1 => 1616132306,
+      1 => 1616164825,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605438d32a9743_55127087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054b7dc32cc22_94164529 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -185,6 +185,9 @@ function content_605438d32a9743_55127087 (Smarty_Internal_Template $_smarty_tpl)
                                     </li>
                                     <li>
                                         <a href="tinh-luong">Tính lương</a>
+                                    </li>
+                                    <li>
+                                        <a href="thong-ke-luong">Thống kê bảng lương</a>
                                     </li>
                                 </ul>
                             </li>
