@@ -109,6 +109,27 @@ def DuyetKTKL():
 
     return "true"
 
+@app.route('/Payroll', methods = ['GET', 'POST'])
+def Payroll():
+    # Get Request
+    data = request.json
+    id = data['ListUserID']
+    nam = data['year']
+    thang = data['month']
+    hdld = HDLD.find({"FK_iNhanvienID":{"$in":id}, "dNgayHetHan": ""})
+    r = requests.get(URLLLL + "Timesheet/Get", params=data, verify=False)
+    r = r.content
+    print(r)
+    # Update
+    # query = { "PK_iKhenthuongKyluatID": int(id) }
+    # newvalues = { "$set": { "iTrangthai": 2 } }
+    # KTKL.update_one(query, newvalues)
+
+    # Parse To Json
+    list_hdld = list(hdld)
+    json_data = dumps(list_hdld)
+    return data
+
 @app.route('/AddKTKL', methods = ['GET', 'POST'])
 def AddKTKL():
     # Get Request

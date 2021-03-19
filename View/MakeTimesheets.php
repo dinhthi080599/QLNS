@@ -79,26 +79,35 @@
                                     {/foreach}
                                 </select>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                {if $mnv != ""}
+                                <label for="bophan">Tác vụ</label><br>
+                                <button class="btn btn-success">Quay lại</button>
+                                {/if}
+                            </div>
+                            <div class="col-sm-12 pt-3">
                                 <label for="">Tác vụ</label><br>
+                                {if $mnv == ""}
                                 <button class="btn btn-success">Lọc</button>
-                                <button class="btn btn-success">Lập bảng chấm công</button>
+                                <button class="btn btn-success" name="action" value="lapbangchamcong">Lập bảng chấm công</button>
+                                {/if}
                             </div>
                         </div>
                     </form>
                     <div class="row mt-4">
                         <div class="col">
+                            {if $mnv == ""}
                             <a class="text-dark" data-toggle="collapse" href="#dsnv"
                                 aria-expanded="false" aria-controls="dsnv">
                                 <h5 class="mb-0"><i class='uil uil-angle-down font-size-18'>
                                     </i> Danh sách bảng chấm công
-                                    <span class="text-muted font-size-14">({sizeof($Users)})</span>
+                                    <span class="text-muted font-size-14">({sizeof($Users_Timesheets)})</span>
                                 </h5>
                             </a>
                             <div class="collapse show" id="dsnv">
                                 <div class="card mb-0 shadow-none">
                                     <div class="card-body p-0 pt-3">
-                                        {if sizeof($Users) == 0}
+                                        {if sizeof($Users_Timesheets) == 0}
                                         <div class="row justify-content-sm-between mt-2 pt-2">
                                             <div class="col-lg-6 mb-2 mb-lg-0">
                                                 <div class="custom-control custom-checkbox">
@@ -117,28 +126,22 @@
                                                         <th><i class="uil uil-file-upload-alt"></i> STT</th>
                                                         <th><i class="uil uil-comment-alt-lines"></i> Tên nhân viên</th>
                                                         <th><i class="uil uil-calendar-alt"></i> Ngày sinh</th>
-                                                        <th><i class="uil uil-comment-alt-chart-lines"></i> Bộ phận/Vị trí</th>
-                                                        <th><i class="uil uil-comment-alt-chart-lines"></i> Lương cơ bản</th>
+                                                        <th><i class="uil uil-comment-alt-chart-lines"></i> Số ngày công</th>
                                                         <th><i class="uil uil-list-ui-alt"></i> Tác vụ</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {foreach $Users as $k => $v}
+                                                    {foreach $Users_Timesheets as $k => $v}
                                                     <tr>
-                                                        <td class="text-center">{$v.i}</td>
-                                                        <td>{$v.sTenNV}</td>
-                                                        <td class="text-center">{formatDate($v.dNgaysinh)}</td>
-                                                        <td>
-                                                            {$PartList[$v.fK_iBophanID]['sTenBophan']}/{$JobPosition[$v.fK_iVitriCongviecID]['sTenVitriCongviec']}
-                                                        </td>
-                                                        <td>
-                                                            {number_format($SalaryProcess[$v.pK_iNhanvienID]['iLuongCoban'], 0, '.', '.')} VND
-                                                        </td>
+                                                        <td class="text-center">{$v.STT}</td>
+                                                        <td>{$Users[$k]['sTenNV']}</td>
+                                                        <td>{formatDate($Users[$k]['dNgaysinh'])}</td=>
+                                                        <td>{$v.SNC}</td>
                                                         <td class="text-center">
-                                                            <button value="{$SalaryProcess[$v.pK_iNhanvienID]['PK_iHopdongLaodongID']}" data-NVID="{$v.pK_iNhanvienID}"
-                                                                class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button">
-                                                                Cập nhật
-                                                            </button>
+                                                            <a href="{$URL}&mnv={$Users[$k]['pK_iNhanvienID']}"
+                                                                class="btn btn-info btn-sm SalaryProcess"type="button">
+                                                                Xem chi tiết
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                     {/foreach}
@@ -149,6 +152,47 @@
                                     </div>
                                 </div>
                             </div>
+                            {else}
+                            <div>
+                                <a><h5 class="mb-0">Chi tiết bảng chấm công: {$Users[$mnv]['sTenNV']}</h5></a>
+                                <div class="row mt-2">
+                                    <div class="col-sm-3">
+                                        <label for="thang">Số ngày công</label>
+                                        <input type="text" value="{sizeof($list_ts[$mnv])}" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="thang">Thời gian đi muộn</label>
+                                        <input type="text" value="{$thoigiandimuon.gio} giờ - {$thoigiandimuon.phut} phút" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="card mb-0 shadow-none">
+                                    <div class="card-body p-0 pt-3">
+                                        <div class="justify-content-sm-between">
+                                            <table class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Ngày</th>
+                                                        <th class="text-center">Sáng</th>
+                                                        <th class="text-center">Chiều</th>
+                                                        <th class="text-center">Tối</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {foreach $list_ts[$mnv] as $k => $v}
+                                                    <tr>
+                                                        <td class="text-center">{$v.dNgayChamcong}</td>
+                                                        <td class="text-center">{$v.tThoigianVaolamSang} - {$v.tThoigianNghiSang}</td>
+                                                        <td class="text-center">{$v.tThoigianVaolamChieu} - {$v.tThoigianNghiChieu}</td>
+                                                        <td class="text-center">{$v.tThoigianVaolamToi} - {$v.tThoigianNghiToi}</td>
+                                                    </tr>
+                                                    {/foreach}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/if}
                         </div>
                     </div>
                     <!-- end row -->

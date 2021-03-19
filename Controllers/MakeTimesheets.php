@@ -12,10 +12,35 @@ class MakeTimesheets
         $nam = get('nam');
         $thang = get('thang');
         $bophan = get('bophan');
+        $mnv = get('mnv');
+        $Users = GetAPI('GET', URLLLL.'User')['users'];
+        $i = 1;
+        $List_Users = array();
+        foreach ($Users as $k => $v) {
+            if (($v['fK_iBophanID'] != get('bophan') and get('bophan') != "")) {
+                unset($Users[$k]);
+                continue;
+            }
+            $v['i'] = $i++;
+            $List_Users[$v['pK_iNhanvienID']] = $v;
+        }
+        $Request['year'] = (int)$nam;
+        $Request['month'] = (int)$thang;
+        $Request['ListUserID'] = array_column($List_Users, 'pK_iNhanvienID');
         if ($action == '') {
             $action = post('action');
         }
         switch ($action) {
+            case 'lapbangchamcong': {
+                $Timesheets = json_decode(AddAPI('POST', URLLLL.'Timesheet/ReadData', $Request), true);
+                if ($Timesheets != 0) {
+                    setMes('success', 'Thành công', 'Cập nhật bảng chấm công thành công!');
+                    die(header("Location: /lap-bang-cham-cong?nam=" . $nam . "&thang=" . $thang . "&bophan=" . $bophan));
+                } else {
+                    setMes('error', 'Thất bại', 'Không có dữ liệu chấm công mới tại đây!');
+                    die(header("Location: /lap-bang-cham-cong?nam=" . $nam . "&thang=" . $thang . "&bophan=" . $bophan));
+                }
+            }
             case 'update': {
                 if ($this->update_salary() != "") {
                     setMes('success', 'Thành công', 'Cập nhật lương cơ bản thành công!');
@@ -28,15 +53,26 @@ class MakeTimesheets
         }
 
         // [Get data from API]
-        $Timesheets = AddAPI('GET', URLLLL.'JobPosition/Get');
+        $Timesheets = json_decode(AddAPI('POST', URLLLL.'Timesheet/Get', $Request), true);
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
-        $Users = GetAPI('GET', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
         $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
         // [End get data from API]
 
         // [Config Data]
-        $SalaryProcess = $PartList = $JP = $Users = array();
+        $Users_Timesheets = $list_ts = array();
+        $stt = 1;
+        foreach ($Timesheets as $k => $v) {
+            if(!isset($Users_Timesheets[$v['fK_iNhanvienID']])) {
+                $Users_Timesheets[$v['fK_iNhanvienID']]['SNC'] = 1;
+                $Users_Timesheets[$v['fK_iNhanvienID']]['STT'] = $stt;
+                $stt++;
+            } else {
+                $Users_Timesheets[$v['fK_iNhanvienID']]['SNC']++;
+            }
+            $list_ts[$v['fK_iNhanvienID']][$v['pK_sBangChamcongID']] = $v;
+        }
+        $SalaryProcess = $PartList = $JP = array();
         foreach ($SP as $k => $v) {
             $SalaryProcess[$v['FK_iNhanvienID']] = $v;
         }
@@ -50,26 +86,25 @@ class MakeTimesheets
                 $JP[$v['pK_iVitriCongviecID']] = $v;
             }
         }
-        $i = 1;
-        foreach ($Users as $k => $v) {
-            if (($v['fK_iBophanID'] != get('bophan') and get('bophan') != "") or ($v['fK_iVitriCongviecID'] != get('vitri') and get('vitri') != '')) {
-                unset($Users[$k]);
-                continue;
-            }
-            $Users[$k]['i'] = $i++;
-        }
         // [End config data]
         
         // [Data send to VIEW]
         $data['SalaryProcess'] = $SalaryProcess;
         $data['bophan'] = get('bophan');
         $data['vitri'] = get('vitri');
-        $data['Users'] = $Users;
+        $data['Users'] = $List_Users;
+        $data['Users_Timesheets'] = $Users_Timesheets;
         $data['JobPosition'] = $JP;
         $data['PartList'] = $PartList;
         $data['dm_thu'] = dm_thu();
         $data['year_arr'] = year_arr($nam);
         $data['month_arr'] = month_arr($thang);
+        $data['URL'] = getURL();
+        $data['mnv'] = $mnv;
+        $data['list_ts'] = $list_ts;
+        if ($mnv != "") {
+            $data['thoigiandimuon'] = $this->tinhthoi_gianmuon($list_ts[$mnv], get('bophan'));
+        }
         // [End data send to VIEW]
         ShowView($data, 'MakeTimesheets');
     }
@@ -85,5 +120,24 @@ class MakeTimesheets
         $data['id'] = post('id');
         echo AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data);
         die();
+    }
+    public function tinhthoi_gianmuon($ts, $PartID) {
+        $thoigiandimuon = 0;
+        $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
+        $NgayTrongTuan = dm_thu();
+        foreach ($data as $k => $v) {
+            $lichlamviec[$v['sNgayTrongTuan']] = $v;
+        }
+        foreach ($ts as $k => $v) {
+            $date = date($v['dNgayChamcong']);
+            $dayofweek = date('w', strtotime($date)) == 0 ? 6 : date('w', strtotime($date)) - 1;
+            $llv = $lichlamviec[$dayofweek];
+            if(strtotime($v['tThoigianVaolamSang']) > strtotime($llv['tThoigianBatdauSang'])) {
+                $thoigiandimuon += strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']);
+            } 
+        }
+        $timelate['gio'] = date('h', $thoigiandimuon);
+        $timelate['phut'] = date('m', $thoigiandimuon);
+        return $timelate;
     }
 }

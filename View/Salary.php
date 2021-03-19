@@ -124,7 +124,9 @@
                                                             {$PartList[$v.fK_iBophanID]['sTenBophan']}/{$JobPosition[$v.fK_iVitriCongviecID]['sTenVitriCongviec']}
                                                         </td>
                                                         <td>
+                                                            {if isset($SalaryProcess[$v.pK_iNhanvienID]['iLuongCoban'])}
                                                             {number_format($SalaryProcess[$v.pK_iNhanvienID]['iLuongCoban'], 0, '.', '.')} VND
+                                                            {/if}
                                                         </td>
                                                         <td class="text-center">
                                                             <button value="{$SalaryProcess[$v.pK_iNhanvienID]['PK_iHopdongLaodongID']}" data-NVID="{$v.pK_iNhanvienID}"

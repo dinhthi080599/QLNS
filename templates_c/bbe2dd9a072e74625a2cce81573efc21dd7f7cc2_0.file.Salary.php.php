@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-13 05:43:55
+/* Smarty version 3.1.38, created on 2021-03-19 11:52:48
   from 'D:\Project\Graduation_Thesis\view\Salary.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_604c430b85f536_74878910',
+  'unifunc' => 'content_60542e20557172_29243352',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bbe2dd9a072e74625a2cce81573efc21dd7f7cc2' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Salary.php',
-      1 => 1615610634,
+      1 => 1616129566,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_604c430b85f536_74878910 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60542e20557172_29243352 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -180,8 +180,10 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 
                                                         </td>
                                                         <td>
+                                                            <?php if ((isset($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]['iLuongCoban']))) {?>
                                                             <?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]['iLuongCoban'],0,'.','.');?>
  VND
+                                                            <?php }?>
                                                         </td>
                                                         <td class="text-center">
                                                             <button value="<?php echo $_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID']]['PK_iHopdongLaodongID'];?>

@@ -16,3 +16,5 @@ $router->get('/phan-cong-cong-viec', 'Assignment');
 $router->post('/phan-cong-cong-viec', 'Assignment');
 $router->get('/lap-bang-cham-cong', 'MakeTimesheets');
 $router->post('/lap-bang-cham-cong', 'MakeTimesheets');
+$router->get('/tinh-luong', 'Payroll');
+$router->post('/tinh-luong', 'Payroll');

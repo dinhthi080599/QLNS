@@ -150,6 +150,9 @@
                                     <li class="mm-active">
                                         <a href="muc-thuong-phat">Thiết lập mức thưởng, phạt</a>
                                     </li>
+                                    <li>
+                                        <a href="tinh-luong">Tính lương</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="">

@@ -111,7 +111,7 @@ namespace timekeeping.Models
                     this.sNgayTrongTuan,
                     this.dNgayApdung,
                     this.FK_iNguoiTao,
-                    this.tThoigianTao
+                    this.tThoigianTao.ToString("MM/dd/yyyy HH:mm:ss")
                 );
             DB db = new DB();
             return db.query(sql_command);

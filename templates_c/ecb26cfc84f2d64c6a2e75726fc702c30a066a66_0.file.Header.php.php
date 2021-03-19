@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-18 17:27:20
+/* Smarty version 3.1.38, created on 2021-03-19 12:38:27
   from 'D:\Project\Graduation_Thesis\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_60532b083e1601_19627777',
+  'unifunc' => 'content_605438d32a9743_55127087',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecb26cfc84f2d64c6a2e75726fc702c30a066a66' => 
     array (
       0 => 'D:\\Project\\Graduation_Thesis\\view\\Layout\\Header.php',
-      1 => 1616063238,
+      1 => 1616132306,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60532b083e1601_19627777 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605438d32a9743_55127087 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -182,6 +182,9 @@ function content_60532b083e1601_19627777 (Smarty_Internal_Template $_smarty_tpl)
                                     </li>
                                     <li class="mm-active">
                                         <a href="muc-thuong-phat">Thiết lập mức thưởng, phạt</a>
+                                    </li>
+                                    <li>
+                                        <a href="tinh-luong">Tính lương</a>
                                     </li>
                                 </ul>
                             </li>
