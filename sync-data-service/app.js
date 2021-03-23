@@ -20,7 +20,7 @@ const program = async () => {
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'qlns'
+        password: ''
     });
 
     const instance = new MySQLEvents(connection, {
@@ -62,7 +62,7 @@ const program = async () => {
     
     // Handling
     NVStream.on("change", change => {
-        console.log(`\n\n🙄 _NV ${change.operationType} 🙄`);
+        console.log(`\n🕵 Nhân viên: ${change.operationType}`);
         switch (change.operationType) {
             case 'update': {
                 SyncMoTMy.Update(change);
@@ -72,17 +72,62 @@ const program = async () => {
                 SyncMoTMy.Insert(change);
                 break;
             }
+            case 'delete': {
+                SyncMoTMy.Delete(change);
+                break;
+            }
         }
-        console.log(`\nEnd NV ${change.operationType}!`);
     });
-    BPStream.on("change", next => {
-        console.log("\nBP change\n", next);
+    BPStream.on("change", change => {
+        console.log(`\n🪑 Bộ phận: ${change.operationType}`);
+        switch (change.operationType) {
+            case 'update': {
+                SyncMoTMy.Update(change);
+                break;
+            }
+            case 'insert': {
+                SyncMoTMy.Insert(change);
+                break;
+            }
+            case 'delete': {
+                SyncMoTMy.Delete(change);
+                break;
+            }
+        }
     });
-    QTLVStream.on("change", next => {
-        console.log("\nQTLV change: \n", next);
+    QTLVStream.on("change", change => {
+        console.log(`\n⚡ Quá trình làm việc: ${change.operationType}`);
+        switch (change.operationType) {
+            case 'update': {
+                SyncMoTMy.Update(change);
+                break;
+            }
+            case 'insert': {
+                SyncMoTMy.Insert(change);
+                break;
+            }
+            case 'delete': {
+                SyncMoTMy.Delete(change);
+                break;
+            }
+        }
     });
-    VTCVStream.on("change", next => {
-        console.log("\nVTCV change: \n", next);
+    VTCVStream.on("change", change => {
+        console.log(`\n⚡ Vị trí công việc: ${change.operationType}`);
+        switch (change.operationType) {
+            case 'update': {
+                SyncMoTMy.Update(change);
+                break;
+            }
+            case 'insert': {
+                SyncMoTMy.Insert(change);
+                break;
+            }
+            case 'delete': {
+                SyncMoTMy.Delete(change);
+                break;
+            }
+        }
     });
     // [End sync Mongodb]
 };
