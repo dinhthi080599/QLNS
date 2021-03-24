@@ -8,7 +8,7 @@ const SyncMoTMy = require("./sync/mongo-to-mysql")
 
 // [Define parameter]
 const spinner = ora({
-    text: '🛸 Waiting for database events... 🛸',
+    text: '🛸 Waiting for database events... 🛸\n',
     color: 'blue',
     spinner: 'dots2'
 });

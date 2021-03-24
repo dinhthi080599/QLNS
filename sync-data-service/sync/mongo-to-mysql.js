@@ -37,23 +37,43 @@ module.exports.Update = function (msg) {
     if (Object.keys(CHANGE).length != 0) {
         const table_name = msg.ns.coll;
         const _id = msg.documentKey._id;
-        var sql = `UPDATE ${table_name} SET `;
+        var pg_sql = `UPDATE ${table_name} SET `;
+        var my_sql = `UPDATE ${table_name} SET `;
         for (const [col, value] of Object.entries(CHANGE)) {
-            sql += `${col} = '${value}' `
+            pg_sql += `"${col.toLowerCase()}" = '${value}' `
+            my_sql += `${col} = '${value}' `
         }
-        sql += `WHERE _id = '${_id}'`;
+        pg_sql += `WHERE "_id" = '${_id}'`;
+        my_sql += `WHERE _id = '${_id}'`;
         con.connect(function(err) {
             if (err) throw err;
-            con.query(sql, function (err, result) {
+            con.query(my_sql, function (err, result) {
                 if (err) throw err;
                 console.log("🤖 _" + result.affectedRows + " Record Update_ 🤖");
             });
         });
     }
+    const { Client } = require('pg');
+    const client = new Client({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'QLNS',
+        password: '1',
+        port: 5432,
+    });
+    client.connect();
+    client.query(pg_sql.toLowerCase(), (err, res) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("🤖 _" + res.rowCount + " Record Update_ 🤖");
+        client.end();
+    });
 };
 
 // For insert
-module.exports.Insert = function (msg) { 
+module.exports.Insert = async function (msg) { 
     const column_not_sync = require('../config/database').column_not_sync;
     var mysql = require('mysql');
     var con = mysql.createConnection({
@@ -63,7 +83,9 @@ module.exports.Insert = function (msg) {
         database: "qlns"
     });
     const INSERT = msg.fullDocument;
+    // Check item exist in table 
     const table_name = msg.ns.coll;
+    const query_check = `SELECT * FROM ${table_name} WHERE _id = '${INSERT._id}'`;
     column_not_sync.forEach(
         element => {
             delete INSERT[element];
@@ -71,16 +93,52 @@ module.exports.Insert = function (msg) {
     );
     const column_name = Object.keys(INSERT);
     const column_data = Object.values(INSERT);
-    const sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES ('${column_data.join("','")}')`;
+    // For Mysql
+    var pg_sql = `INSERT INTO ${table_name} ("${column_name.join("\",\"").toLowerCase()}") VALUES ('${column_data.join("','")}')`;
+    const my_sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES ('${column_data.join("','")}')`;
     con.connect(function(err) {
         if (err) throw err;
-        con.query(sql, function (err, result) {
+        con.query(query_check, function (err, result, fields) {
             if (err) throw err;
-            console.log("🤖 _" + result.affectedRows + " Record Insert_ 🤖");
+            if (result.length == 0){
+                con.query(my_sql, function (err, result) {
+                    if (err) throw err;
+                    console.log("🤖 _" + result.affectedRows + " Record Insert_ 🤖");
+                });
+            }
         });
     });
+
+    // For postgres
+    pg_sql = pg_sql.replace(/''/g, 'NULL');
+    check(query_check, pg_sql);
 };
 
+// Check 
+
+const check = async (sql, insert) => {
+    const { Client } = require('pg');
+    const client = new Client({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'QLNS',
+        password: '1',
+        port: 5432,
+    });
+    await client.connect();
+    client.query(sql, (err, res) => {
+        if(res.rowCount == 0) {
+            client.query(insert, (err, res) => {
+                if (err) {
+                    console.log(insert);
+                    return;
+                }
+                console.log("🤖 _" + res.rowCount + " Record Install 🤖");
+                client.end();
+            });
+        }
+    });
+}
 // For Delete
 module.exports.Delete = function (msg) { 
     var mysql = require('mysql');
@@ -99,5 +157,22 @@ module.exports.Delete = function (msg) {
             if (err) throw err;
             console.log("🤖 _" + result.affectedRows + " Record Delete_ 🤖");
         });
+    });
+    const { Client } = require('pg');
+    const client = new Client({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'QLNS',
+        password: '1',
+        port: 5432,
+    });
+    client.connect();
+    client.query(sql, (err, res) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("🤖 _" + res.rowCount + " Record Delete_ 🤖");
+        client.end();
     });
 };
