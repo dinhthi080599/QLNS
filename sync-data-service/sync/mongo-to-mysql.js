@@ -18,13 +18,21 @@
  * 
  */
 
+const moment = require('moment');
+const arrayDateColumn = ['dngaysinh', 'dngaycapcmnd', 'dngaybatdau', 'dngaykethuc']
+const arrayDateTimeColumn = ['tthoigianchuyen', 'dngaycapcmnd', 'dngayky', 'dngaycohieuluc', 'dngayhethan']
+
+const convertISOtoDateTime = (strDate, format = 'YYYY-MM-DD') => {
+    return moment(String(strDate)).format(format)
+}
+
 // For update
 module.exports.Update = function (msg) { 
     const column_not_sync = require('../config/database').column_not_sync;
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "root",
+        user: "phpmyadmin",
         password: "",
         database: "qlns"
     });
@@ -40,8 +48,16 @@ module.exports.Update = function (msg) {
         var pg_sql = `UPDATE ${table_name} SET `;
         var my_sql = `UPDATE ${table_name} SET `;
         for (const [col, value] of Object.entries(CHANGE)) {
-            pg_sql += `"${col.toLowerCase()}" = '${value}' `
-            my_sql += `${col} = '${value}' `
+            if (arrayDateColumn.indexOf(col.toLowerCase())) {
+                pg_sql += `"${col.toLowerCase()}" = '${convertISOtoDateTime(value, 'YYYY-MM-DD')}' `
+                my_sql += `${col} = '${convertISOtoDateTime(value, 'YYYY-MM-DD')}' ` 
+            } else if (arrayDateTimeColumn.indexOf(col.toLowerCase())) {
+                pg_sql += `"${col.toLowerCase()}" = '${convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss')}' `
+                my_sql += `${col} = '${convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss')}' `   
+            } else {
+                pg_sql += `"${col.toLowerCase()}" = '${value}' `
+                my_sql += `${col} = '${value}' `   
+            }
         }
         pg_sql += `WHERE "_id" = '${_id}'`;
         my_sql += `WHERE _id = '${_id}'`;
@@ -78,11 +94,18 @@ module.exports.Insert = async function (msg) {
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "root",
+        user: "phpmyadmin",
         password: "",
         database: "qlns"
     });
     const INSERT = msg.fullDocument;
+    for (const [col, value] of Object.entries(INSERT)) {
+        if (arrayDateColumn.indexOf(col.toLowerCase())) {
+            INSERT[col] = convertISOtoDateTime(value, 'YYYY-MM-DD');
+        } else if (arrayDateTimeColumn.indexOf(col.toLowerCase())) {
+            INSERT[col] = convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss');
+        }
+    }
     // Check item exist in table 
     const table_name = msg.ns.coll;
     const query_check = `SELECT * FROM ${table_name} WHERE _id = '${INSERT._id}'`;
@@ -144,7 +167,7 @@ module.exports.Delete = function (msg) {
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "root",
+        user: "phpmyadmin",
         password: "",
         database: "qlns"
     });
