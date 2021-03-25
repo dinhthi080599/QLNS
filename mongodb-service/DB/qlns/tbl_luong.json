@@ -1,0 +1,206 @@
+{ 
+    "_id" : ObjectId("6054a93969f555b3541d36ed"), 
+    "PK_iLuongID" : "2021_3_2", 
+    "FK_iNhanvienID" : NumberInt(2), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "19-03-2021", 
+    "iThang" : NumberInt(3), 
+    "iNam" : NumberInt(2021), 
+    "iPhanhoi" : "", 
+    "iTongluong" : NumberInt(10135933), 
+    "iTienphat" : NumberInt(197400)
+}
+{ 
+    "_id" : ObjectId("6054a93969f555b3541d36ee"), 
+    "PK_iLuongID" : "2021_3_1", 
+    "FK_iNhanvienID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "19-03-2021", 
+    "iThang" : NumberInt(3), 
+    "iNam" : NumberInt(2021), 
+    "iPhanhoi" : "12133", 
+    "iTongluong" : NumberInt(22989400), 
+    "iTienphat" : NumberInt(260600)
+}
+{ 
+    "_id" : ObjectId("605752fbb051402ba0a4413d"), 
+    "test" : "sample movie document"
+}
+{ 
+    "_id" : ObjectId("60575696b3b0fb37807fed6a"), 
+    "test" : "sample movie document"
+}
+{ 
+    "_id" : ObjectId("60578df95e6a24b282b086bc"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578dfd5e6a24b282b086bd"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e015e6a24b282b086be"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e025e6a24b282b086bf"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e025e6a24b282b086c0"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e025e6a24b282b086c1"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e035e6a24b282b086c2"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e035e6a24b282b086c3"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578e035e6a24b282b086c4"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("60578f4fb0059a3ec44f9e0b"), 
+    "test" : "sample movie document"
+}
+{ 
+    "_id" : ObjectId("60578f5d5e6a24b282b086c5"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : ""
+}
+{ 
+    "_id" : ObjectId("605790845e6a24b282b086c6"), 
+    "PK_iLuongID" : "2021_7_2", 
+    "FK_iNhanvienID" : NumberInt(2), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "22-03-2021", 
+    "iThang" : NumberInt(7), 
+    "iNam" : NumberInt(2021), 
+    "iPhanhoi" : "", 
+    "iTongluong" : NumberInt(6984733), 
+    "iTienphat" : NumberInt(348600)
+}
+{ 
+    "_id" : ObjectId("605790845e6a24b282b086c7"), 
+    "PK_iLuongID" : "2021_7_3", 
+    "FK_iNhanvienID" : NumberInt(3), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "22-03-2021", 
+    "iThang" : NumberInt(7), 
+    "iNam" : NumberInt(2021), 
+    "iPhanhoi" : "", 
+    "iTongluong" : NumberInt(-207800), 
+    "iTienphat" : NumberInt(372800)
+}
+{ 
+    "_id" : ObjectId("605790845e6a24b282b086c8"), 
+    "PK_iLuongID" : "2021_7_1", 
+    "FK_iNhanvienID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "22-03-2021", 
+    "iThang" : NumberInt(7), 
+    "iNam" : NumberInt(2021), 
+    "iPhanhoi" : "", 
+    "iTongluong" : NumberInt(-36832), 
+    "iTienphat" : NumberInt(150000)
+}
+{ 
+    "_id" : ObjectId("605790a1d830460bf485ce21"), 
+    "1" : "333221"
+}

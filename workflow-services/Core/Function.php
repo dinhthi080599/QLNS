@@ -110,7 +110,7 @@ function post($name) {
 }
 
 function session($name) {
-    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '1';
+    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '1616206180170';
 }
 
 function GetAPI($method, $url)

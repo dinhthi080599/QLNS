@@ -60,7 +60,11 @@ class RewardPenance
             $TypeKTKL[$v['ID']] = $v;
         }
         foreach ($SP as $k => $v) {
-            $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            $_SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        foreach ($_SP as $k => $v) {
+            $SalaryProcess[$v['FK_iNhanvienID']['$oid']] = $v;
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;

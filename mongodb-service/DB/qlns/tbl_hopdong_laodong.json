@@ -1,0 +1,60 @@
+{ 
+    "_id" : ObjectId("605b73a242e545443c0f3326"), 
+    "sTenHopdong" : "Hợp đồng lao động", 
+    "sSoHopdong" : "HĐ0908", 
+    "FK_iLoaiHopdongID" : {
+        "PK_iLoaiHopdongID" : NumberInt(2), 
+        "_id" : "60539981835a3200e509e8d3", 
+        "sTenLoaiHopdong" : "Hợp đồng lao động xác định thời hạn", 
+        "__v" : NumberInt(0)
+    }, 
+    "FK_iThoihanHopdongID" : {
+        "PK_iThoihanHopdongID" : NumberInt(1), 
+        "iGiatriThoihan" : NumberInt(2), 
+        "sKieuThoihan" : "month", 
+        "_id" : "6053bdc7a915e502550f3330", 
+        "sTenThoihanHopdong" : "2 tháng", 
+        "__v" : NumberInt(0)
+    }, 
+    "dNgayKy" : "2021-03-20T03:02:27.629Z", 
+    "dNgayCoHieuluc" : "2021-03-20T03:02:27.629Z", 
+    "dNgayHetHan" : ISODate("2021-03-25T11:40:21.624+0000"), 
+    "FK_iQuatrinhLamviecID" : ObjectId("60555964d242573c7742cf35"), 
+    "iLuongCoban" : "50000000", 
+    "iLuongDongBaohiem" : "3000000", 
+    "FK_iNguoiKyID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "sGhichu" : "", 
+    "sTepDinhkem" : "", 
+    "FK_iNguoiLapID" : ObjectId("60555964d242573c7742cf34"), 
+    "PK_iHopdongLaodongID" : NumberLong(1616209386259)
+}
+{ 
+    "_id" : ObjectId("605c143578b7235fe94411af"), 
+    "sTenHopdong" : "Hợp đồng lao động", 
+    "sSoHopdong" : "HĐ0908", 
+    "FK_iLoaiHopdongID" : {
+        "PK_iLoaiHopdongID" : NumberInt(2), 
+        "_id" : "60539981835a3200e509e8d3", 
+        "sTenLoaiHopdong" : "Hợp đồng lao động xác định thời hạn", 
+        "__v" : NumberInt(0)
+    }, 
+    "FK_iThoihanHopdongID" : {
+        "PK_iThoihanHopdongID" : NumberInt(1), 
+        "iGiatriThoihan" : NumberInt(2), 
+        "sKieuThoihan" : "month", 
+        "_id" : "6053bdc7a915e502550f3330", 
+        "sTenThoihanHopdong" : "2 tháng", 
+        "__v" : NumberInt(0)
+    }, 
+    "dNgayKy" : "2021-03-20T03:02:27.629Z", 
+    "dNgayCoHieuluc" : "2021-03-20T03:02:27.629Z", 
+    "dNgayHetHan" : "", 
+    "FK_iQuatrinhLamviecID" : ObjectId("60555964d242573c7742cf35"), 
+    "iLuongCoban" : NumberInt(123), 
+    "iLuongDongBaohiem" : "3000000", 
+    "FK_iNguoiKyID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "sGhichu" : "", 
+    "sTepDinhkem" : "", 
+    "FK_iNguoiLapID" : ObjectId("60555964d242573c7742cf34"), 
+    "PK_iHopdongLaodongID" : NumberLong(1616209386259)
+}

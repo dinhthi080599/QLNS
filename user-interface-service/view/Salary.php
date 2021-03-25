@@ -118,19 +118,19 @@
                                                     {foreach $Users as $k => $v}
                                                     <tr>
                                                         <td class="text-center">{$v.i}</td>
-                                                        <td>{$v.sTenNV}</td>
+                                                        <td>{$v.sHoten}</td>
                                                         <td class="text-center">{formatDate($v.dNgaysinh)}</td>
                                                         <td>
                                                             {$PartList[$v.fK_iBophanID]['sTenBophan']}/{$JobPosition[$v.fK_iVitriCongviecID]['sTenVitriCongviec']}
                                                         </td>
                                                         <td>
-                                                            {if isset($SalaryProcess[$v.pK_iNhanvienID]['iLuongCoban'])}
-                                                            {number_format($SalaryProcess[$v.pK_iNhanvienID]['iLuongCoban'], 0, '.', '.')} VND
+                                                            {if isset($SalaryProcess[$v._id]['iLuongCoban'])}
+                                                            {number_format($SalaryProcess[$v._id]['iLuongCoban'], 0, '.', '.')} VND
                                                             {/if}
                                                         </td>
                                                         <td class="text-center">
-                                                            <button value="{$SalaryProcess[$v.pK_iNhanvienID]['PK_iHopdongLaodongID']}" data-NVID="{$v.pK_iNhanvienID}"
-                                                                class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button">
+                                                            <button value="{if isset($SalaryProcess[$v._id])}{$SalaryProcess[$v._id]['_id']['$oid']}{else}0{/if}" data-NVID="{$v._id}"
+                                                            class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button">
                                                                 Cập nhật
                                                             </button>
                                                         </td>

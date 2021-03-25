@@ -7,11 +7,12 @@ from flask import request
 from datetime import date
 from datetime import datetime
 import time
+from bson.objectid import ObjectId
 
 URLLLL = 'https://localhost:5001/'
 app = Flask(__name__)
-client = MongoClient(port=27017)
-db=client.salary
+client = MongoClient(port=27018)
+db=client.qlns
 HDLD = db.tbl_hopdong_laodong
 KTKL = db.tbl_khenthuong_kyluat
 StatusKTKL = db.dm_trangthai_khenthuong_kyluat
@@ -24,24 +25,62 @@ def UpdateSalary():
     data = request.json
     id = data['id']
     new_salary = data['salary']
-    endtime = data['endtime']
+
+    # Query
+    # Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
+
+    pipeline = [
+        {
+            u"$project": {
+                u"_id": 0,
+                u"tbl_hopdong_laodong": u"$$ROOT"
+            }
+        }, 
+        {
+            u"$lookup": {
+                u"localField": u"tbl_hopdong_laodong.FK_iQuatrinhLamviecID",
+                u"from": u"tbl_quatrinh_lamviec",
+                u"foreignField": u"_id",
+                u"as": u"tbl_quatrinh_lamviec"
+            }
+        }, 
+        {
+            u"$unwind": {
+                u"path": u"$tbl_quatrinh_lamviec",
+                u"preserveNullAndEmptyArrays": False
+            }
+        }, 
+        {
+            u"$match": {
+                u"tbl_hopdong_laodong._id": ObjectId(id),
+                u"tbl_hopdong_laodong.dNgayHetHan": u""
+            }
+        }
+    ]
+    cursor = HDLD.aggregate(
+        pipeline, 
+        allowDiskUse = True
+    )
+
+    try:
+        list_hd = list(cursor)
+    finally:
+        client.close()
 
     # Get Data
-    last_hd = HDLD.find_one({}, {"PK_iHopdongLaodongID": 1}, sort=[("PK_iHopdongLaodongID", -1)])
-    hd = HDLD.find_one({"PK_iHopdongLaodongID": int(id)})
+    hd = list_hd[0]['tbl_hopdong_laodong']
 
     # Config Data
-    hd['PK_iHopdongLaodongID'] = int(last_hd["PK_iHopdongLaodongID"]) + 1
     hd['iLuongCoban'] = int(new_salary)
-    hd.pop('_id', None)
-
+    old_id = str(hd.pop('_id', None))
+    
     # Insert New
     x = HDLD.insert_one(hd)
     
     # Update
-    query = { "PK_iHopdongLaodongID": int(id) }
-    newvalues = { "$set": { "dNgayHetHan": endtime } }
-    HDLD.update_one(query, newvalues)
+    query = { "_id": ObjectId(old_id) }
+    newvalues = { "$set": { "dNgayHetHan": datetime.now() } }
+    result = HDLD.update_one(query, newvalues)
 
     return str(x.inserted_id)
 
@@ -53,22 +92,79 @@ def SalaryProcess():
 
     # Get Data
     if id != 0:
-        hd = HDLD.find({"FK_iNhanvienID": int(id)})
+        pipeline = [
+            {
+                u"$project": {
+                    u"_id": 0,
+                    u"tbl_hopdong_laodong": u"$$ROOT"
+                }
+            }, 
+            {
+                u"$lookup": {
+                    u"localField": u"tbl_hopdong_laodong.FK_iQuatrinhLamviecID",
+                    u"from": u"tbl_quatrinh_lamviec",
+                    u"foreignField": u"_id",
+                    u"as": u"tbl_quatrinh_lamviec"
+                }
+            }, 
+            {
+                u"$unwind": {
+                    u"path": u"$tbl_quatrinh_lamviec",
+                    u"preserveNullAndEmptyArrays": False
+                }
+            }, 
+            {
+                u"$match": {
+                    u"tbl_quatrinh_lamviec.FK_iNhanvienID": ObjectId(id),
+                }
+            }
+        ]
     else:
-        hd = HDLD.find({"dNgayHetHan": ""})
+        pipeline = [
+            {
+                u"$project": {
+                    u"_id": 0,
+                    u"tbl_hopdong_laodong": u"$$ROOT"
+                }
+            }, 
+            {
+                u"$lookup": {
+                    u"localField": u"tbl_hopdong_laodong.FK_iQuatrinhLamviecID",
+                    u"from": u"tbl_quatrinh_lamviec",
+                    u"foreignField": u"_id",
+                    u"as": u"tbl_quatrinh_lamviec"
+                }
+            }, 
+            {
+                u"$unwind": {
+                    u"path": u"$tbl_quatrinh_lamviec",
+                    u"preserveNullAndEmptyArrays": False
+                }
+            }, 
+            {
+                u"$match": {
+                    u"tbl_hopdong_laodong.dNgayHetHan": u""
+                }
+            }
+        ]
+
+    cursor = HDLD.aggregate(
+        pipeline, 
+        allowDiskUse = True
+    )
 
     # Parse To Json
-    list_hd = list(hd)
+    list_hd = list(cursor)
     json_data = dumps(list_hd)
     return json_data
 
 @app.route('/GetKTKL', methods = ['GET', 'POST'])
 def GetKTKL():
     # Get Request
-    # data = request.json
-    # id = data['id']
-    id = 0
-    # Get Data
+    data = request.json
+    id = data['id']
+
+    # Get DataGetStatusKTKL
     if id != 0:
         ktkl = KTKL.find({"FK_iNhanvienID": int(id)})
     else:
@@ -147,10 +243,10 @@ def Payroll():
         dict_lichlamviec[x['sNgayTrongTuan']] = x
 
     for x in dict_chamcong:
-        if int(x['fK_iNhanvienID']) in workdays.keys(): 
-            workdays[int(x['fK_iNhanvienID'])] += 1
+        if x['fK_iNhanvienID'] in workdays.keys(): 
+            workdays[x['fK_iNhanvienID']] += 1
         else: 
-            workdays[int(x['fK_iNhanvienID'])] = 1
+            workdays[x['fK_iNhanvienID']] = 1
         date_time_obj = datetime.strptime(x['dNgayChamcong'], '%d-%m-%Y')
         dayofweek = date_time_obj.weekday()
         llv = dict_lichlamviec[str(dayofweek)]
@@ -159,10 +255,10 @@ def Payroll():
             bd = to_integer(datetime.strptime(llv['tThoigianBatdauSang'], '%H:%M:%S').timetuple())
             _time_late = vl - bd
             if _time_late > 0:
-                if int(x['fK_iNhanvienID']) in time_late.keys(): 
-                    time_late[int(x['fK_iNhanvienID'])] += _time_late
+                if x['fK_iNhanvienID'] in time_late.keys(): 
+                    time_late[x['fK_iNhanvienID']] += _time_late
                 else: 
-                    time_late[int(x['fK_iNhanvienID'])] = _time_late
+                    time_late[x['fK_iNhanvienID']] = _time_late
 
 
     # Tính lương 

@@ -6072,11 +6072,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Graduation_Thesis\\timekeeping-service\\timekeeping.csproj",
+      "projectUniqueName": "D:\\Project\\_datn\\timekeeping-service\\timekeeping.csproj",
       "projectName": "timekeeping",
-      "projectPath": "D:\\Project\\Graduation_Thesis\\timekeeping-service\\timekeeping.csproj",
+      "projectPath": "D:\\Project\\_datn\\timekeeping-service\\timekeeping.csproj",
       "packagesPath": "C:\\Users\\Thi\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Graduation_Thesis\\timekeeping-service\\obj\\",
+      "outputPath": "D:\\Project\\_datn\\timekeeping-service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thi\\AppData\\Roaming\\NuGet\\NuGet.Config",

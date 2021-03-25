@@ -15,7 +15,7 @@ namespace timekeeping.Controllers
         public TimeWorkingController(){
         }
         [HttpGet]
-        public ActionResult Get(int PartID)
+        public ActionResult Get(string PartID)
         {
             TimeWorking timeWorking = new TimeWorking();
             List<TimeWorking> timeWorkingList = timeWorking.getByID(PartID);

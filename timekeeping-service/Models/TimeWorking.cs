@@ -8,7 +8,7 @@ namespace timekeeping.Models
     public class TimeWorking
     {
         public int PK_iThoigianLamviecID { get; set; }
-        public int FK_iBophanID { get; set; }
+        public string FK_iBophanID { get; set; }
         public string tThoigianBatdauSang { get; set; }
         public string tThoigianKethucSang { get; set; }
         public string tThoigianBatdauChieu { get; set; }
@@ -17,20 +17,20 @@ namespace timekeeping.Models
         public string tThoigianKethucToi { get; set; }
         public string sNgayTrongTuan { get; set; }
         public string dNgayApdung { get; set; }
-        public int FK_iNguoiTao { get; set; }
+        public string FK_iNguoiTao { get; set; }
         public DateTime tThoigianTao { get; set; }
         public int ca { get; set; }
         public TimeWorking() { }
-        public List<TimeWorking> getByID(int PartID = 0, string sNgayTrongTuan = "")
+        public List<TimeWorking> getByID(string PartID = "", string sNgayTrongTuan = "")
         {
             /**
             *   Id = 0 return all
             *   Id != 0 return by id
             */
             string sql_command = "select * from tbl_thoigian_lamviec";
-            if (PartID != 0)
+            if (PartID != "")
             {
-                sql_command += " where fk_ibophanid =" + PartID;
+                sql_command += " where fk_ibophanid = '" + PartID + "'";
                 if (sNgayTrongTuan != "")
                 {
                     sql_command += " and sNgayTrongTuan = '" + sNgayTrongTuan + "'";
@@ -46,7 +46,7 @@ namespace timekeeping.Models
                 {
                     TimeWorking tw = new TimeWorking();
                     tw.PK_iThoigianLamviecID = dr.GetInt32(dr.GetOrdinal("PK_iThoigianLamviecID"));
-                    tw.FK_iBophanID = dr.GetInt32(dr.GetOrdinal("FK_iBophanID"));
+                    tw.FK_iBophanID = dr["FK_iBophanID"].ToString();
                     tw.tThoigianBatdauSang = dr["tThoigianBatdauSang"].ToString();
                     tw.tThoigianKethucSang = dr["tThoigianKethucSang"].ToString();
                     tw.tThoigianBatdauChieu = dr["tThoigianBatdauChieu"].ToString();
@@ -55,7 +55,7 @@ namespace timekeeping.Models
                     tw.tThoigianKethucToi = dr["tThoigianKethucToi"].ToString();
                     tw.sNgayTrongTuan = dr["sNgayTrongTuan"].ToString();
                     tw.dNgayApdung = dr["dNgayApdung"].ToString();
-                    tw.FK_iNguoiTao = dr.GetInt32(dr.GetOrdinal("FK_iNguoiTao"));
+                    tw.FK_iNguoiTao = dr["FK_iNguoiTao"].ToString();
                     tw.tThoigianTao = dr.GetFieldValue<DateTime>(dr.GetOrdinal("tThoigianTao"));
                     timeWorkingList.Add(tw);
                 }
@@ -76,7 +76,7 @@ namespace timekeeping.Models
                 sql_command = "UPDATE tbl_thoigian_lamviec SET " +
                     "tThoigianBatdauSang = '{1}', tThoigianKethucSang = '{2}', tThoigianBatdauChieu = '{3}'," +
                     "tThoigianKethucChieu = '{4}', tThoigianBatdauToi = '{5}', tThoigianKethucToi = '{6}'," +
-                    "dNgayApdung = '{8}', FK_iNguoiTao = {9}, tThoigianTao = '{10}' WHERE FK_iBophanID = {0} and  sNgayTrongTuan = '{7}'";
+                    "dNgayApdung = '{8}', FK_iNguoiTao = '{9}', tThoigianTao = '{10}' WHERE FK_iBophanID = '{0}' and  sNgayTrongTuan = '{7}'";
                 if (this.ca != 0) {
                     this.tThoigianBatdauSang = this.tThoigianBatdauSang == default_time ? t[0].tThoigianBatdauSang : this.tThoigianBatdauSang;
                     this.tThoigianKethucSang = this.tThoigianKethucSang == default_time ? t[0].tThoigianKethucSang : this.tThoigianKethucSang;
@@ -95,8 +95,8 @@ namespace timekeeping.Models
                 sql_command = "insert into tbl_thoigian_lamviec" +
                     "(FK_iBophanID, tThoigianBatdauSang, tThoigianKethucSang, tThoigianBatdauChieu," +
                     "tThoigianKethucChieu, tThoigianBatdauToi, tThoigianKethucToi, sNgayTrongTuan, dNgayApdung," +
-                    "FK_iNguoiTao, tThoigianTao) values " +
-                    "({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', {9}, '{10}')";
+                    "fk_inguoitao, tThoigianTao) values " +
+                    "('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')";
             }
             sql_command =
                 String.Format(

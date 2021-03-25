@@ -22,11 +22,11 @@ class MakeTimesheets
                 continue;
             }
             $v['i'] = $i++;
-            $List_Users[$v['pK_iNhanvienID']] = $v;
+            $List_Users[$v['_id']] = $v;
         }
         $Request['year'] = (int)$nam;
         $Request['month'] = (int)$thang;
-        $Request['ListUserID'] = array_column($List_Users, 'pK_iNhanvienID');
+        $Request['ListUserID'] = array_column($List_Users, '_id');
         if ($action == '') {
             $action = post('action');
         }
@@ -73,8 +73,10 @@ class MakeTimesheets
             $list_ts[$v['fK_iNhanvienID']][$v['pK_sBangChamcongID']] = $v;
         }
         $SalaryProcess = $PartList = $JP = array();
-        foreach ($SP as $k => $v) {
-            $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+        if (!empty($SP)) {
+            foreach ($SP as $k => $v) {
+                $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+            }
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;
@@ -104,7 +106,7 @@ class MakeTimesheets
         $data['list_ts'] = $list_ts;
         if ($mnv != "") {
             foreach ($Users as $k) {
-                if ($k['pK_iNhanvienID'] == $mnv)
+                if ($k['_id'] == $mnv)
                     $fK_iBophanID = $k['fK_iBophanID'];
             }
             $data['thoigiandimuon'] = $this->tinhthoi_gianmuon($list_ts[$mnv], get('bophan'));

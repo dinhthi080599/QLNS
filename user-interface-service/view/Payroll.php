@@ -143,7 +143,7 @@
                                                         <tr>
                                                             <td class="text-center">
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" value="{$v.pK_iNhanvienID}" name="check-tinh-luong[]" class="form-check-input" id="checktl{$v.i}">
+                                                                    <input type="checkbox" value="{$v._id}" name="check-tinh-luong[]" class="form-check-input" id="checktl{$v.i}">
                                                                     <label class="form-check-label" for="checktl{$v.i}" style="margin-top: 2px;">{$v.i}</label>
                                                                 </div>
                                                             </td>
@@ -155,8 +155,8 @@
                                                                 {/if}
                                                             </td>
                                                             <td>
-                                                                {if isset($Users_Timesheets[$v.pK_iNhanvienID])}
-                                                                    {if isset($Payroll[$v.pK_iNhanvienID])}
+                                                                {if isset($Users_Timesheets[$v._id])}
+                                                                    {if isset($Payroll[$v._id])}
                                                                     <label class="text-success">Đã có bảng lương</label>
                                                                     {else}
                                                                     <label class="text-warning">Chưa có bảng lương</label>
@@ -166,8 +166,8 @@
                                                                 {/if}
                                                             </td>
                                                             <td>
-                                                                {if isset($Users_Timesheets[$v.pK_iNhanvienID])}
-                                                                    {if isset($Payroll[$v.pK_iNhanvienID])}
+                                                                {if isset($Users_Timesheets[$v._id])}
+                                                                    {if isset($Payroll[$v._id])}
                                                                     <a href="/tinh-luong?nam={$nam}&thang={$thang}&bophan={$bophan}&mnv={$v.pK_iNhanvienID}"
                                                                         class="btn btn-info btn-sm"type="button">
                                                                         Chi tiết

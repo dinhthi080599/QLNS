@@ -31,6 +31,7 @@ namespace timekeeping.Controllers
     public class ___Get {
         public int year {get; set;}
         public int month {get; set;}
-        public int[] ListUserID {get; set;}
+        public string[] ListUserID {get; set;}
+        public string[] BoPhan {get; set;}
     }
 }

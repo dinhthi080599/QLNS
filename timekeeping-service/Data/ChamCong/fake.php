@@ -11,6 +11,9 @@ while($month < 13) {
         $day = 1;
         $month++;
     }
+    if ($month == 13) {
+        continue;
+    }
     $year = 2019;
     $hour_ = 0;
     $hour__ = 0;
@@ -91,6 +94,7 @@ while($month < 13) {
         }
         $data = json_encode($___json, JSON_UNESCAPED_UNICODE);
         $fp = fopen($file_name, 'w');
+        echo ($data);
         fwrite($fp, json_encode($data));
         fclose($fp);
     }

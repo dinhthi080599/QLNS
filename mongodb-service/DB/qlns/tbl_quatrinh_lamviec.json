@@ -1,0 +1,20 @@
+{ 
+    "_id" : ObjectId("60555964d242573c7742cf35"), 
+    "FK_iVitriCongviecID" : "605558efae514e0020080b98", 
+    "dNgayBatdau" : "2020-12-10T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616206180170), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-20T02:09:40.170Z", 
+    "FK_iNhanvienID" : ObjectId("605569230fe553fa0f49c29e")
+}
+{ 
+    "_id" : ObjectId("605569240fe553fa0f49c29f"), 
+    "FK_iVitriCongviecID" : "60380bf70e583f2e7036ab24", 
+    "dNgayBatdau" : "2020-06-09T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616210211897), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-20T03:16:51.897Z", 
+    "FK_iNhanvienID" : ObjectId("604e50f39c8b96835ba9ff97")
+}

@@ -138,7 +138,7 @@
                                                         <td>{formatDate($Users[$k]['dNgaysinh'])}</td=>
                                                         <td>{$v.SNC}</td>
                                                         <td class="text-center">
-                                                            <a href="{$URL}&mnv={$Users[$k]['pK_iNhanvienID']}"
+                                                            <a href="{$URL}&mnv={$Users[$k]['_id']}"
                                                                 class="btn btn-info btn-sm SalaryProcess"type="button">
                                                                 Xem chi tiết
                                                             </a>

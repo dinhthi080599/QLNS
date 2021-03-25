@@ -16,7 +16,7 @@ namespace timekeeping.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get(int userID = 0)
+        public ActionResult Get(string userID = "")
         {
             TakeLeave takeLeave = new TakeLeave();
             List<TakeLeave> takeLeaves = takeLeave.getByID(userID);

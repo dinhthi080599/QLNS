@@ -12,7 +12,7 @@ namespace timekeeping.Models
         public string sTenNgaynghi { get; set; }
         public string dNgayBatdau { get; set; }
         public string dNgayKethuc { get; set; }
-        public int FK_iNguoitaoID { get; set; }
+        public string FK_iNguoitaoID { get; set; }
         public DateTime dThoigianTao { get; set; }
         public DayOff() { }
         public List<DayOff> getByID(int id = 0, string search = "") {
@@ -43,7 +43,7 @@ namespace timekeeping.Models
                     dayOff.sTenNgaynghi = dr["sTenNgaynghi"].ToString();
                     dayOff.dNgayBatdau = dr["dNgayBatdau"].ToString();
                     dayOff.dNgayKethuc = dr["dNgayKethuc"].ToString();
-                    dayOff.FK_iNguoitaoID = dr.GetInt32(dr.GetOrdinal("FK_iNguoitaoID"));
+                    dayOff.FK_iNguoitaoID = dr["FK_iNguoitaoID"].ToString();
                     dayOffs.Add(dayOff);
                 }
             }
@@ -57,7 +57,7 @@ namespace timekeeping.Models
             // INSERT
             sql_command = "INSERT INTO tbl_ngaynghi_trongnam " +
                 "(\"sTenNgaynghi\", \"FK_iNguoitaoID\", \"dNgayBatdau\", \"dNgayKethuc\", \"dThoigianTao\") VALUES " +
-                "('{0}', {1}, '{2}', '{3}', '{4}')";
+                "('{0}', '{1}', '{2}', '{3}', '{4}')";
             sql_command =
                 String.Format(
                     sql_command,

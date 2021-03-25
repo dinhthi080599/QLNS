@@ -28,7 +28,7 @@ class Payroll
         }
         $Request['year'] = (int)$nam;
         $Request['month'] = (int)$thang;
-        $Request['ListUserID'] = array_column($List_Users, 'pK_iNhanvienID');
+        $Request['ListUserID'] = array_column($List_Users, '_id');
         if ($action == '') {
             $action = post('action');
         }
@@ -61,7 +61,7 @@ class Payroll
         $stt = 1;
         foreach ($PR as $v) {
             unset($v['_id']);
-            $Payroll[$v['FK_iNhanvienID']] = $v;
+            $Payroll[$v['FK_iNhanvienID']['$oid']] = $v;
         }
         foreach ($Timesheets as $k => $v) {
             if(!isset($Users_Timesheets[$v['fK_iNhanvienID']])) {
@@ -75,7 +75,11 @@ class Payroll
         }
         $SalaryProcess = $PartList = $JP = array();
         foreach ($SP as $k => $v) {
-            $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            $_SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        foreach ($_SP as $k => $v) {
+            $SalaryProcess[$v['FK_iNhanvienID']['$oid']] = $v;
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;
@@ -152,13 +156,12 @@ class Payroll
         $request['month'] = (int)get('thang');
         $request['ListUserID'] = [];
         foreach ($check as $v) {
-            $request['ListUserID'][] = (int)$v;
+            $request['ListUserID'][] = $v;
         }
-        
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
         $Users = GetAPI('GET', URLLLL.'User')['users'];
         foreach ($Users as $v) {
-            if (in_array($v['pK_iNhanvienID'], $request['ListUserID'])) {
+            if (in_array($v['_id'], $request['ListUserID'])) {
                 foreach ($Part as $k) {
                     if ($k['pK_iBophanID'] == $v['fK_iBophanID']) {
                         $request['bophan'] = $k['pK_iBophanID'];

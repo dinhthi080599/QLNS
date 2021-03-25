@@ -38,9 +38,10 @@ class DayOff
         $data['dayOffList'] = $dayOffList;
         switch ($action) {
             case 'add-new': {
-                $this->add_new();
-                header("Refresh:0");
-                break;
+                if ($this->add_new() != 0) {
+                    setMes('success', 'Thành công', 'Thêm ngày nghỉ thành công');
+                }
+                die(header("Location: ". getURL()));
             }
             case 'del': {
                 $data_del['pK_iNgaynghiTrongnamID'] = (int)post('del');
@@ -58,9 +59,9 @@ class DayOff
         $ca = post('ca');
         $data = array(
             'sTenNgaynghi' => post('sTenNgaynghi'),
-            'FK_iNguoitaoID' => (int) session('id'),
-            'dNgayBatdau' => post('dNgayBatdau'),
-            'dNgayKethuc' => post('dNgayKethuc') != "" ? post('dNgayKethuc') : post('dNgayBatdau')
+            'FK_iNguoitaoID' => session('id'),
+            'dNgayBatdau' => formatDateMDY(post('dNgayBatdau')),
+            'dNgayKethuc' => post('dNgayKethuc') != "" ? formatDateMDY(post('dNgayKethuc')) : formatDateMDY(post('dNgayBatdau'))
         );
         return AddAPI('POST', URLLLL.'DayOff', $data);
     }

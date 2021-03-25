@@ -8,7 +8,7 @@ namespace timekeeping.Models
 {
     public class Part
     {
-        public int PK_iBophanID { get; set; }
+        public string PK_iBophanID { get; set; }
         public string sTenBophan { get; set; }
         public Part() { }
         public List<Part> getByID(int id = 0) {
@@ -27,8 +27,7 @@ namespace timekeeping.Models
             if (dr.HasRows) { 
                 while (dr.Read()) {
                     Part p = new Part();
-                    p.PK_iBophanID = dr.GetInt32(dr.GetOrdinal("PK_iBophanID"));
-                    Console.WriteLine(dr["sTenBophan"]);
+                    p.PK_iBophanID = dr["_id"].ToString();
                     p.sTenBophan = dr["sTenBophan"].ToString();
                     part.Add(p);
                 }
@@ -39,9 +38,9 @@ namespace timekeeping.Models
 
         public Dictionary<string, string> get_sonhanvien() {
             string sql_command = "SELECT PK_iBophanID, count(PK_iBophanID) as SL, PK_iBophanID FROM tbl_bophan " +
-            "JOIN tbl_vitri_congviec ON \"FK_iBophanID\" = tbl_bophan.PK_iBophanID " +
-            "JOIN tbl_quatrinh_lamviec ON \"FK_iVitriCongviecID\" = \"PK_iVitriCongviecID\"" + 
-            "WHERE \"dNgayKethuc\" IS NULL GROUP BY PK_iBophanID";
+            "JOIN tbl_vitri_congviec ON \"fk_ibophanid\" = tbl_bophan.pk_ibophanid " +
+            "JOIN tbl_quatrinh_lamviec ON \"fk_ivitricongviecid\" = \"pk_ivitricongviecid\"" + 
+            "WHERE tbl_quatrinh_lamviec.dngaykethuc IS NULL GROUP BY pk_ibophanid";
             DB db = new DB();
             NpgsqlDataReader dr = db.get(sql_command);
             Dictionary<string, string> NV_PB = new Dictionary<string, string>();

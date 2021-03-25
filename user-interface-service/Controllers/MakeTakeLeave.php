@@ -30,7 +30,7 @@ class MakeTakeLeave
         $TakeLeaves = GetAPI('GET', URLLLL.'TakeLeave?userID=' . session('id'))['takeLeaves'];
         $data['status'] = GetAPI('GET', URLLLL.'Status/DXNP');
         $Users = get_user();
-        $data['ChuaDuyet'] = $data['DaDuyet'] = $data['DaHuy'] = [];
+        $data['DXNP'] = $data['ChuaDuyet'] = $data['DaDuyet'] = $data['DaHuy'] = [];
         $data['chitiet'] = [
             'pK_iDonxinNghiphepID' => '',
             'fK_iNhanvienID' => '',
@@ -44,11 +44,13 @@ class MakeTakeLeave
             'dNgayKethucNghi' => '',
             'sTenNV' => '',
         ];
-        foreach ($TakeLeaves as $k => $v) {
-            if ($id != "" and $v['pK_iDonxinNghiphepID'] == $id) {
-                $data['chitiet'] = $v;
+        if (!empty($TakeLeaves)) {
+            foreach ($TakeLeaves as $k => $v) {
+                if ($id != "" and $v['pK_iDonxinNghiphepID'] == $id) {
+                    $data['chitiet'] = $v;
+                }
+                $data['DXNP'][] = $v;
             }
-            $data['DXNP'][] = $v;
         }
         $data['id'] = $id;
         $data['dm_thu'] = dm_thu();
@@ -74,11 +76,11 @@ class MakeTakeLeave
             $den_ngay = post('den-ngay');
         }
         $data = [
-            'FK_iNhanvienID' => (int) session('id'),
+            'FK_iNhanvienID' => session('id'),
             'sLydoNghi' => post('tieu-de'),
             'sGhichuDonxinNghiphep' => post('noi-dung'),
-            'dNgayKethucNghi' => $den_ngay,
-            'dNgayNghi' => post('tu-ngay')
+            'dNgayKethucNghi' => formatDateMDY($den_ngay),
+            'dNgayNghi' => formatDateMDY(post('tu-ngay'))
         ];
         $result = AddAPI('POST', URLLLL.'TakeLeave/luu-don', $data);
         return $result;

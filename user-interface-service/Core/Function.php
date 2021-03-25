@@ -54,6 +54,9 @@ function formatDate($date) {
     if ($date == "") {
         return "";
     }
+    $date = str_replace("AM","", $date);
+    $date = str_replace("PM","", $date);
+    $date = str_replace("/","-", $date);
     $time = strtotime($date);
     $new_date = date('d-m-Y', $time);
     return $new_date;
@@ -100,7 +103,7 @@ function get_user($id = 0) {
         0 => ''
     ];
     foreach ($Value as $k => $v) {
-        $User[$v['pK_iNhanvienID']] = $v;
+        $User[$v['_id']] = $v;
     }
     return $User;
 }
@@ -124,7 +127,7 @@ function post($name) {
 }
 
 function session($name) {
-    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '1';
+    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '604e50f39c8b96835ba9ff97';
 }
 
 function GetAPI($method, $url)

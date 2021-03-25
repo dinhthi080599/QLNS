@@ -42,9 +42,9 @@ class Timekeeping
     public function add_new() {
         $ca = post('ca');
         $data = array(
-            'fk_ibophanid' => intval(post('fk_ibophanid')),
+            'fk_ibophanid' => post('fk_ibophanid'),
             'sngaytrongtuan' => post('sngaytrongtuan'),
-            'FK_iNguoiTao' => (int) session('id'),
+            'FK_iNguoiTao' => session('id'),
             'tthoigiantao' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
             'dNgayApdung' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
             'ca' => (int) $ca

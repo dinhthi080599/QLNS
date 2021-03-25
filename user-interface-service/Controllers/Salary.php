@@ -56,9 +56,15 @@ class Salary
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Users = GetAPI('GET', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
+        $_SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
+        foreach ($_SP as $k => $v) {
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            $SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        $SalaryProcess = [];
         foreach ($SP as $k => $v) {
-            $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+            $id = $v['FK_iNhanvienID']['$oid'];
+            $SalaryProcess[$id] = $v;
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;
@@ -67,7 +73,7 @@ class Salary
             if ($v['fK_iBophanID'] != get('bophan') and get('bophan') != '') {
                 unset($JobPosition[$k]);
             } else {
-                $JP[$v['pK_iVitriCongviecID']] = $v;
+                $JP[$v['_id']] = $v;
             }
         }
         $i = 1;
@@ -99,7 +105,12 @@ class Salary
 
     public function get_salary_process() {
         $data['id'] = post('nvID');
-        echo AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data);
+        $_SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data), true);
+        foreach ($_SP as $k => $v) {
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            $SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        echo json_encode($SP);
         die();
     }
 }

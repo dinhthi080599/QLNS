@@ -30,19 +30,21 @@ class TakeLeave
         $TakeLeaves = GetAPI('GET', URLLLL.'TakeLeave')['takeLeaves'];
         $Users = get_user();
         $data['ChuaDuyet'] = $data['DaDuyet'] = $data['DaHuy'] = [];
-        foreach ($TakeLeaves as $k => $v) {
-            switch ($v['fK_iTrangthaiDonxinNghiphepID']) {
-                case '0': {
-                    $data['ChuaDuyet'][] = $v;
-                    break;
-                }
-                case '1': {
-                    $data['DaDuyet'][] = $v;
-                    break;
-                }
-                case '2': {
-                    $data['DaHuy'][] = $v;
-                    break;
+        if (!empty($TakeLeaves)) {
+            foreach ($TakeLeaves as $k => $v) {
+                switch ($v['fK_iTrangthaiDonxinNghiphepID']) {
+                    case '0': {
+                        $data['ChuaDuyet'][] = $v;
+                        break;
+                    }
+                    case '1': {
+                        $data['DaDuyet'][] = $v;
+                        break;
+                    }
+                    case '2': {
+                        $data['DaHuy'][] = $v;
+                        break;
+                    }
                 }
             }
         }
@@ -65,7 +67,7 @@ class TakeLeave
     public function duyet() {
         $id = post('id');
         $TL['PK_iDonxinNghiphepID'] = (int) $id;
-        $TL['FK_iNguoiDuyetID'] = (int) session('id');
+        $TL['FK_iNguoiDuyetID'] = session('id');
         $result = AddAPI('POST', URLLLL.'TakeLeave/Accept', $TL);
     }
 
@@ -74,7 +76,7 @@ class TakeLeave
         $reason = post('reason');
         $TL['PK_iDonxinNghiphepID'] = (int) $id;
         $TL['sLydoHuy'] = $reason;
-        $TL['FK_iNguoiDuyetID'] = (int) session('id');
+        $TL['FK_iNguoiDuyetID'] = session('id');
         $result = AddAPI('POST', URLLLL.'TakeLeave/Cancel', $TL);
     }
 }

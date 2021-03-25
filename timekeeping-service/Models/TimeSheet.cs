@@ -11,7 +11,7 @@ namespace timekeeping.Models
     public class TimeSheet
     {
         public string PK_sBangChamcongID { get; set; }
-        public int FK_iNhanvienID { get; set; }
+        public string FK_iNhanvienID { get; set; }
         public string tThoigianVaolamSang { get; set; }
         public string tThoigianNghiSang { get; set; }
         public string tThoigianVaolamChieu { get; set; }
@@ -20,7 +20,7 @@ namespace timekeeping.Models
         public string tThoigianNghiToi { get; set; }
         public string dNgayChamcong { get; set; }
         public TimeSheet() { }
-        public List<TimeSheet> get(int year, int month, int[] id) {
+        public List<TimeSheet> get(int year, int month, string[] id) {
             string sql_command = "SELECT * FROM tbl_bangchamcong ";
             string date = month + "-" + year;
             string where = "";
@@ -46,7 +46,7 @@ namespace timekeeping.Models
                 while (dr.Read()) {
                     TimeSheet timeSheet = new TimeSheet();
                     timeSheet.PK_sBangChamcongID = dr["PK_sBangChamcongID"].ToString();
-                    timeSheet.FK_iNhanvienID = dr.GetInt32(dr.GetOrdinal("FK_iNhanvienID"));
+                    timeSheet.FK_iNhanvienID = dr["FK_iNhanvienID"].ToString();
                     timeSheet.tThoigianVaolamSang = dr["tThoigianVaolamSang"].ToString();
                     timeSheet.tThoigianNghiSang = dr["tThoigianNghiSang"].ToString();
                     timeSheet.tThoigianVaolamChieu = dr["tThoigianVaolamChieu"].ToString();
@@ -62,7 +62,7 @@ namespace timekeeping.Models
         }
 
         // public List<TimeSheet> LoadJson(int year, int month, int[] id)
-        public int LoadJson(int year, int month, int[] id)
+        public int LoadJson(int year, int month, string[] id)
         {
             DirectoryInfo d = new DirectoryInfo(@"./Data/ChamCong/" + year + "/" + month);
             FileInfo[] Files = d.GetFiles("*.json");
@@ -84,11 +84,11 @@ namespace timekeeping.Models
                     var json = r.ReadToEnd();
                     items = JsonConvert.DeserializeObject<List<TimeSheet>>(json);
                     foreach(TimeSheet ts in items) {
-                        foreach (int ID in id) {
+                        foreach (string ID in id) {
                             if (ID == ts.FK_iNhanvienID) {
                                 ts.PK_sBangChamcongID = "" + year + "_" + month + "_" + i + "_" + ts.FK_iNhanvienID;
                                 if (!id_datontai.Contains(ts.PK_sBangChamcongID)) {
-                                    value = "('{0}', {1}, '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}'),";
+                                    value = "('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}'),";
                                     value = String.Format(
                                         value,
                                         ts.PK_sBangChamcongID,

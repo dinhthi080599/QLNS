@@ -1,0 +1,48 @@
+{ 
+    "_id" : ObjectId("60380beb0e583f2e7036ab23"), 
+    "PK_iVitriCongviecID" : 1614285803089.0, 
+    "iThutuVitriCongviec" : NumberInt(0), 
+    "sTenVitriCongviec" : "Nhân viên sale", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab20"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bf70e583f2e7036ab24"), 
+    "PK_iVitriCongviecID" : 1614285815153.0, 
+    "iThutuVitriCongviec" : NumberInt(1), 
+    "sTenVitriCongviec" : "Nhân viên kế toán", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1e"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6039f8aab6554c1be3312055"), 
+    "PK_iVitriCongviecID" : 1614411946849.0, 
+    "iThutuVitriCongviec" : NumberInt(2), 
+    "sTenVitriCongviec" : "Nhân viên Marketing", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1f"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6039f8d3b6554c1be3312056"), 
+    "PK_iVitriCongviecID" : 1614411987948.0, 
+    "iThutuVitriCongviec" : NumberInt(3), 
+    "sTenVitriCongviec" : "Chuyên viên Tư vấn khách hàng", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab22"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("6039f8fcb6554c1be3312057"), 
+    "PK_iVitriCongviecID" : 1614412028859.0, 
+    "iThutuVitriCongviec" : NumberInt(4), 
+    "sTenVitriCongviec" : "Chuyên viên Tư vấn và chốt đơn", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab20"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605558efae514e0020080b98"), 
+    "PK_iVitriCongviecID" : 1616206063215.0, 
+    "iThutuVitriCongviec" : NumberInt(5), 
+    "sTenVitriCongviec" : "Giám đốc", 
+    "FK_iBophanID" : ObjectId("605558caae514e0020080b97"), 
+    "__v" : NumberInt(0)
+}

@@ -187,7 +187,7 @@
                                                         <td>{formatDate($v.dNgayNghi)}
                                                             {if $v.dNgayNghi != $v.dNgayKethucNghi}
                                                              - {formatDate($v.dNgayKethucNghi)}
-                                                            {/if}d>
+                                                            {/if}</d>
                                                         <td>{formatDate($v.tThoigianTao)}</td>
                                                         <td>{$Users[$v.fK_iNguoiDuyetID]['sTenNV']}</td>
                                                         <td>{formatDate($v.dThoigianDuyet)}</td>

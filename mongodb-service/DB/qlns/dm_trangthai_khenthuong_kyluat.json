@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("605c37af0071cc4e2021a99d"), 
+    "ID" : 1.0, 
+    "sTenTrangThai" : "Chưa duyệt"
+}
+{ 
+    "_id" : ObjectId("605c37be0071cc4e2021a99e"), 
+    "ID" : 2.0, 
+    "sTenTrangThai" : "Đã duyệt"
+}
