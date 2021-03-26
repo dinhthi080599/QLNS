@@ -21,6 +21,7 @@
 const moment = require('moment');
 const arrayDateColumn = ['dngaysinh', 'dngaycapcmnd', 'dngaybatdau', 'dngaykethuc']
 const arrayDateTimeColumn = ['tthoigianchuyen', 'dngaycapcmnd', 'dngayky', 'dngaycohieuluc', 'dngayhethan']
+const arrayNumberColumn = ['bgioitinh']
 
 const convertISOtoDateTime = (strDate, format = 'YYYY-MM-DD') => {
     return moment(String(strDate)).format(format)
@@ -48,15 +49,19 @@ module.exports.Update = function (msg) {
         var pg_sql = `UPDATE ${table_name} SET `;
         var my_sql = `UPDATE ${table_name} SET `;
         for (const [col, value] of Object.entries(CHANGE)) {
-            if (arrayDateColumn.indexOf(col.toLowerCase())) {
+            if (arrayDateColumn.indexOf(col.toLowerCase()) !== -1) {
                 pg_sql += `"${col.toLowerCase()}" = '${convertISOtoDateTime(value, 'YYYY-MM-DD')}' `
                 my_sql += `${col} = '${convertISOtoDateTime(value, 'YYYY-MM-DD')}' ` 
-            } else if (arrayDateTimeColumn.indexOf(col.toLowerCase())) {
+            } else if (arrayDateTimeColumn.indexOf(col.toLowerCase()) !== -1) {
                 pg_sql += `"${col.toLowerCase()}" = '${convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss')}' `
                 my_sql += `${col} = '${convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss')}' `   
             } else {
                 pg_sql += `"${col.toLowerCase()}" = '${value}' `
-                my_sql += `${col} = '${value}' `   
+                if (arrayNumberColumn.indexOf(col.toLowerCase()) !== -1) {
+                    my_sql += `${col} = ${value} `
+                } else {
+                    my_sql += `${col} = '${value}' `   
+                }
             }
         }
         pg_sql += `WHERE "_id" = '${_id}'`;
@@ -78,7 +83,7 @@ module.exports.Update = function (msg) {
         port: 5432,
     });
     client.connect();
-    client.query(pg_sql.toLowerCase(), (err, res) => {
+    client.query(pg_sql, (err, res) => {
         if (err) {
             console.error(err);
             return;
@@ -99,26 +104,39 @@ module.exports.Insert = async function (msg) {
         database: "qlns"
     });
     const INSERT = msg.fullDocument;
+    const INSERT_PG = {...msg.fullDocument};
+
     for (const [col, value] of Object.entries(INSERT)) {
-        if (arrayDateColumn.indexOf(col.toLowerCase())) {
-            INSERT[col] = convertISOtoDateTime(value, 'YYYY-MM-DD');
-        } else if (arrayDateTimeColumn.indexOf(col.toLowerCase())) {
-            INSERT[col] = convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss');
+        let formatValue = value;
+        if (arrayDateColumn.indexOf(col.toLowerCase()) !== -1) {
+            formatValue = convertISOtoDateTime(value, 'YYYY-MM-DD');
+        } else if (arrayDateTimeColumn.indexOf(col.toLowerCase()) !== -1) {
+            formatValue = convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss');
         }
+        INSERT_PG[col] = `'${formatValue}'`;
+        if (arrayNumberColumn.indexOf(col.toLowerCase()) === -1) {
+            formatValue = `'${formatValue}'`;
+        }
+        INSERT[col] = formatValue
     }
     // Check item exist in table 
     const table_name = msg.ns.coll;
-    const query_check = `SELECT * FROM ${table_name} WHERE _id = '${INSERT._id}'`;
+    const query_check = `SELECT * FROM ${table_name} WHERE _id = ${INSERT._id}`;
     column_not_sync.forEach(
         element => {
             delete INSERT[element];
+            delete INSERT_PG[element];
         }
     );
+
     const column_name = Object.keys(INSERT);
     const column_data = Object.values(INSERT);
+    const column_name_pg = Object.keys(INSERT_PG);
+    const column_data_pg = Object.values(INSERT_PG);
     // For Mysql
-    var pg_sql = `INSERT INTO ${table_name} ("${column_name.join("\",\"").toLowerCase()}") VALUES ('${column_data.join("','")}')`;
-    const my_sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES ('${column_data.join("','")}')`;
+    var pg_sql = `INSERT INTO ${table_name} ("${column_name_pg.join("\",\"").toLowerCase()}") VALUES (${column_data_pg.join(",")})`;
+    const my_sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES (${column_data.join(",")});`;
+
     con.connect(function(err) {
         if (err) throw err;
         con.query(query_check, function (err, result, fields) {
@@ -150,10 +168,12 @@ const check = async (sql, insert) => {
     });
     await client.connect();
     client.query(sql, (err, res) => {
-        if(res.rowCount == 0) {
+        if (err) throw err;
+        if(res && res.rowCount == 0) {
             client.query(insert, (err, res) => {
                 if (err) {
                     console.log(insert);
+                    throw err;
                     return;
                 }
                 console.log("🤖 _" + res.rowCount + " Record Install 🤖");
