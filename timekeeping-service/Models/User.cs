@@ -20,6 +20,7 @@ namespace timekeeping.Models
         public string FK_iBophanID { get; set; }
         public string FK_iVitriCongviecID { get; set; }
         public string _id { get; set; }
+        public string sMaNhanvien { get; set; }
         public User() { }
         public List<User> getByID(int id = 0) {
             /**
@@ -43,10 +44,11 @@ namespace timekeeping.Models
                     user.bGioitinh = dr["bGioitinh"].ToString();
                     user.sDiachi = dr["sDiachi"].ToString();
                     user.sDienthoai = dr["sDienthoai"].ToString();
-                    user.sCMND = dr["sHoten"].ToString() + " " + dr["sTen"].ToString(); 
+                    user.sCMND = dr["sCMND"].ToString(); 
                     user.sTenNV = dr["sHoten"].ToString() + " " + dr["sTen"].ToString(); 
                     user.FK_iBophanID = dr["fk_ibophanid"].ToString();
                     user.FK_iVitriCongviecID = dr["fk_ivitricongviecid"].ToString();
+                    user.sMaNhanvien = dr["sMaNhanvien"].ToString();
                     user._id = dr["_id_nv"].ToString();
                     Users.Add(user);
                 }

@@ -25,6 +25,7 @@ def UpdateSalary():
     data = request.json
     id = data['id']
     new_salary = data['salary']
+    new_luongbaohiem = data['luongbaohiem']
 
     # Query
     # Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
@@ -71,7 +72,10 @@ def UpdateSalary():
     hd = list_hd[0]['tbl_hopdong_laodong']
 
     # Config Data
-    hd['iLuongCoban'] = int(new_salary)
+    if new_salary != "":
+        hd['iLuongCoban'] = int(new_salary)
+    if new_luongbaohiem != "":    
+        hd['iLuongDongBaohiem'] = int(new_luongbaohiem)
     old_id = str(hd.pop('_id', None))
     
     # Insert New
@@ -400,7 +404,7 @@ def GetPayroll():
     nam = data['year']
     thang = data['month']
     luong = LUONG.find({"iNam": nam, "iThang": thang})
-    # Parse To Json
+
     # Parse To Json
     list_ktkl = list(luong)
     json_data = dumps(list_ktkl)

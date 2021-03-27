@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-26 16:36:45
+/* Smarty version 3.1.38, created on 2021-03-28 00:59:49
   from 'D:\Project\_datn\user-interface-service\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605dab2ddcd6d3_66267060',
+  'unifunc' => 'content_605f729510fd08_61711230',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17b76aff4b310a37ea95467f11e5349582dd41d3' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Layout\\Header.php',
-      1 => 1616751385,
+      1 => 1616867988,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605dab2ddcd6d3_66267060 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605f729510fd08_61711230 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -110,8 +110,10 @@ function content_605dab2ddcd6d3_66267060 (Smarty_Internal_Template $_smarty_tpl)
                     <img src="assets/images/users/avatar-7.jpg" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
 
                     <div class="media-body">
-                        <h6 class="pro-user-name mt-0 mb-0">Thi Đình Nguyễn</h6>
-                        <span class="pro-user-desc">Giám đốc</span>
+                        <h6 class="pro-user-name mt-0 mb-0"><?php echo $_smarty_tpl->tpl_vars['ten_nv']->value;?>
+</h6>
+                        <span class="pro-user-desc"><?php echo $_smarty_tpl->tpl_vars['quyen']->value;?>
+</span>
                     </div>
                     <div class="dropdown align-self-center profile-dropdown-menu">
                         <a class="dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"

@@ -99,6 +99,7 @@ class Salary extends BaseController
     public function update_salary() {
         $data['id'] = post('id');
         $data['salary'] = post('salary');
+        $data['luongbaohiem'] = post('luong-bao-hiem');
         $data['endtime'] = date('d-m-Y');
         return AddAPI('POST', URLLLL_Salary.'UpdateSalary', $data);
     }

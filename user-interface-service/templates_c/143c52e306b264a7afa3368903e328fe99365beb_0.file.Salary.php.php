@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-25 11:23:01
+/* Smarty version 3.1.38, created on 2021-03-27 14:47:06
   from 'D:\Project\_datn\user-interface-service\view\Salary.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605c1025725349_26151153',
+  'unifunc' => 'content_605ee2fa90f986_59276485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '143c52e306b264a7afa3368903e328fe99365beb' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Salary.php',
-      1 => 1616646177,
+      1 => 1616830980,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605c1025725349_26151153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605ee2fa90f986_59276485 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -153,10 +153,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                                     <tr>
                                                         <!-- <th><i class='uil uil-user font-16 mr-1'></i>Người làm đơn</th> -->
                                                         <th><i class="uil uil-file-upload-alt"></i> STT</th>
+                                                        <th><i class="uil uil-calendar-alt"></i> MNV</th>
                                                         <th><i class="uil uil-comment-alt-lines"></i> Tên nhân viên</th>
-                                                        <th><i class="uil uil-calendar-alt"></i> Ngày sinh</th>
                                                         <th><i class="uil uil-comment-alt-chart-lines"></i> Bộ phận/Vị trí</th>
                                                         <th><i class="uil uil-comment-alt-chart-lines"></i> Lương cơ bản</th>
+                                                        <th><i class="uil uil-comment-alt-chart-lines"></i> Lương đóng bảo hiểm</th>
                                                         <th><i class="uil uil-list-ui-alt"></i> Tác vụ</th>
                                                     </tr>
                                                 </thead>
@@ -170,9 +171,9 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
                                                     <tr>
                                                         <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['v']->value['i'];?>
 </td>
-                                                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sHoten'];?>
+                                                        <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['v']->value['sMaNhanvien'];?>
 </td>
-                                                        <td class="text-center"><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgaysinh']);?>
+                                                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sHoten'];?>
 </td>
                                                         <td>
                                                             <?php echo $_smarty_tpl->tpl_vars['PartList']->value[$_smarty_tpl->tpl_vars['v']->value['fK_iBophanID']]['sTenBophan'];?>
@@ -182,6 +183,12 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
                                                         <td>
                                                             <?php if ((isset($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['_id']]['iLuongCoban']))) {?>
                                                             <?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['_id']]['iLuongCoban'],0,'.','.');?>
+ VND
+                                                            <?php }?>
+                                                        </td>
+                                                        <td>
+                                                            <?php if ((isset($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['_id']]['iLuongDongBaohiem']))) {?>
+                                                            <?php echo number_format($_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['_id']]['iLuongDongBaohiem'],0,'.','.');?>
  VND
                                                             <?php }?>
                                                         </td>
@@ -224,15 +231,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <h5 class="modal-title" id="modal-title">Cập nhật mức lương cơ bản</h5>
                     </div>
                     <div class="modal-body p-4">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="update-salary">
                             <div class="row">
                                 <div class="col-8">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th><i class="uil uil-comment-alt-lines"></i> Thời gian bắt đầu</th>
                                                 <th><i class="uil uil-calendar-alt"></i> Thời gian kết thúc</th>
                                                 <th><i class="uil uil-list-ui-alt"></i> Lương cơ bản</th>
+                                                <th><i class="uil uil-list-ui-alt"></i> Lương bảo hiểm</th>
                                             </tr>
                                         </thead>
                                         <tbody id="SalaryDetail">
@@ -241,8 +248,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label class="control-label">Mức lương mới</label>
+                                        <label class="control-label">Lương cơ bản</label>
                                         <input class="form-control" id="salary" type="text" name="salary">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Lương bảo hiểm</label>
+                                        <input class="form-control" id="luong-bao-hiem" type="text" name="luong-bao-hiem">
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" name="id" id="id">

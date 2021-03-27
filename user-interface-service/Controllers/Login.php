@@ -34,6 +34,7 @@ class Login
             $_SESSION["FK_iTrangthaiTaikhoan"] = $check['query']['FK_iTrangthaiTaikhoan'];
             $_SESSION["sTenTrangthaiTaikhoan"] = $check['query']['sTenTrangthaiTaikhoan'];
             $_SESSION["quyen"] = $check['query']['quyen'];
+            $_SESSION["sHoten"] = $check['query']['sHoten'];
             setMes('success', '_login', 'Đăng nhập thành công!');
             die(header("Location: trang-chu"));
         }

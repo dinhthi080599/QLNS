@@ -33,19 +33,10 @@ class ReportSalary extends BaseController
             $action = post('action');
         }
         switch ($action) {
-            // case 'lap-bang-luong': {
-            //     $this->lap_bang_luong();
-            //     die();
-            // }
-            // case 'update': {
-            //     if ($this->update_salary() != "") {
-            //         setMes('success', 'Thành công', 'Cập nhật lương cơ bản thành công!');
-            //         die(header("Location: ". getURL()));
-            //     } else {
-            //         setMes('success', 'Thất bại', 'Có lỗi xảy ra xin vui lòng thử lại');
-            //         die(header("Location: ". getURL()));
-            //     }
-            // }
+            case 'thong-ke-tong-hop': {
+                echo $this->thong_ke_tong_hop(post('nam'), post('thang'));
+                die();
+            }
         }
 
         // [Get data from API]
@@ -75,7 +66,14 @@ class ReportSalary extends BaseController
         }
         $SalaryProcess = $PartList = $JP = array();
         foreach ($SP as $k => $v) {
-            $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            if (!empty($v['tbl_hopdong_laodong']['dNgayHetHan'])) {
+                $v['tbl_hopdong_laodong']['dNgayHetHan'] = date('d-m-Y', $v['tbl_hopdong_laodong']['dNgayHetHan']['$date']/1000);
+            }
+            $_SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        foreach ($_SP as $k => $v) {
+            $SalaryProcess[$v['FK_iNhanvienID']['$oid']] = $v;
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;
@@ -90,6 +88,7 @@ class ReportSalary extends BaseController
         // [End config data]
         
         // [Data send to VIEW]
+        $data['ThongKe'] = $this->thong_ke_tong_hop(date("Y"), date("m"));
         $data['SalaryProcess'] = $SalaryProcess;
         $data['bophan'] = $bophan;
         $data['Payroll'] = $Payroll;
@@ -125,29 +124,95 @@ class ReportSalary extends BaseController
         echo AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data);
         die();
     }
-    public function tinhthoi_gianmuon($ts, $PartID) {
-        $thoigiandimuon = 0;
-        if ($PartID == "") {
-            $PartID = "0";
+    public function thong_ke_tong_hop($nam, $thang) {
+        $Request = [
+            'year' => (int) $nam,
+            'month' => (int) $thang
+        ];
+        $bophan = post('bophan');
+        $Users = GetAPI('GET', URLLLL.'User')['users'];
+        $Part = GetAPI('GET', URLLLL.'Part')['partList'];
+
+        $List_Users = array();
+        foreach ($Users as $k => $v) {
+            if (($v['fK_iBophanID'] != $bophan) and $bophan != "") {
+                unset($Users[$k]);
+                continue;
+            }
+            $List_Users[$v['_id']] = $v;
         }
-        $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
-        $NgayTrongTuan = dm_thu();
-        foreach ($data as $k => $v) {
-            $lichlamviec[$v['sNgayTrongTuan']] = $v;
+        foreach ($Part as $k => $v) {
+            $PartList[$v['pK_iBophanID']] = $v;
         }
-        foreach ($ts as $k => $v) {
-            $date = date($v['dNgayChamcong']);
-            $dayofweek = date('w', strtotime($date)) == 0 ? 6 : date('w', strtotime($date)) - 1;
-            $llv = $lichlamviec[$dayofweek];
-            if ($llv['tThoigianBatdauSang'] != "00:00:00"){
-                if(strtotime($v['tThoigianVaolamSang']) > strtotime($llv['tThoigianBatdauSang'])) {
-                    $thoigiandimuon += (strtotime($v['tThoigianVaolamSang']) - strtotime($llv['tThoigianBatdauSang']));
-                }
-            } 
+
+        $PR = AddAPI('POST', URLLLL_Salary.'GetPayroll', $Request);
+        // Title
+        $data = [
+            'D1' => 'CÔNG TY CỔ PHẦN DƯỢC PHẨM',
+            'D2' => 'LOCIFA',
+            'A4' => 'THỐNG KÊ BẢNG LƯƠNG TỔNG HỢP',
+            'E5' => 'Tháng: ' . $thang,
+            'E6' => 'Năm: ' . $nam,
+            'A8' => 'STT',
+            'B8' => 'Mã NV',
+            'C8' => 'Họ tên',
+            'D8' => 'Lương được nhận',
+            'E8' => 'Bộ phận',
+            'F8' => 'Ghi chú'
+        ];
+
+        // Render data
+        $index = 9;
+        $stt = 1;
+        $sum = 0;
+        foreach ($PR as $k => $v) {
+            $mnv = $v['FK_iNhanvienID'];
+            $bophan = $List_Users[$mnv]['fK_iBophanID'];
+            $data['A'.$index] = $stt++;
+            $data['B'.$index] = $List_Users[$mnv]['sMaNhanvien'];
+            $data['C'.$index] = $List_Users[$mnv]['sHoten'];
+            $data['D'.$index] = number_format($v['iTongluong'], 0, '.', '.') . ' VND';
+            $data['E'.$index] = $PartList[$bophan]['sTenBophan'];
+            $sum += $v['iTongluong'];
+            $index++;
         }
-        $timelate['gio'] = intval($thoigiandimuon/3600);
-        $timelate['phut'] = intval(($thoigiandimuon - $timelate['gio'] * 3600)/60);
-        return $timelate;
+        
+        // Footer
+        $data['A'.$index] = 'Tổng:'; $data['D'.$index] = number_format($sum, 0, '.', '.') . ' VND';
+        $data['D'.($index+2)] = 'Trưởng BP. Lương thưởng & phúc lợi'; 
+        $data['D'.($index+3)] = '(Ký, ghi rõ họ tên)';
+        
+
+        $export_data['data'] = $data;
+        $export_data['font-weight'] = [ 'A1:F4', 'A8:F8', 'A'.$index, 'D'.($index+2) ];
+        $export_data['column-size'] = [
+            'A' => 5,
+            'B' => 8,
+            'C' => 22,
+            'D' => 17,
+            'E' => 23,
+            'F' => 10,
+        ];
+        $export_data['font-size'] = [
+            'A4' => 16,
+        ];
+        $export_data['horizontal-center'] = [
+            'D1', 'D2', 'A4', 'A8:F8', 'A9:B'.($index-1), 'D'.($index+2).':F'.($index+3)
+        ];
+        $export_data['cell-merge'] = [
+            'D1' => 'F1',
+            'D2' => 'F2',
+            'A4' => 'F4',
+            'A'.$index => 'C'.$index,
+            'D'.$index => 'F'.$index,
+            'D'.($index+2) => 'F'.($index+2),
+            'D'.($index+3) => 'F'.($index+3),
+        ];
+        $export_data['cell-border'] = [
+            'A8' => 'F'.$index
+        ];
+        $export_data['file-name'] = "Thống kê bảng lương tổng hợp tháng {$thang} năm {$nam}.xlsx";
+        return json_encode($export_data);
     }
     private function lap_bang_luong() {
         $check = post('check-tinh-luong');

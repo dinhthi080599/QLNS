@@ -198,10 +198,12 @@ function check_login($method, $url, $data = false)
 function ShowView($data, $view) {
     require_once('lib/smarty/libs/Smarty.class.php');
     $smarty = new Smarty();
-    $smarty->display('view/Layout/Header.php');
+    $data['ten_nv'] = $_SESSION['sHoten'];
+    $data['quyen'] = $_SESSION['quyen']; 
     foreach ($data as $k => $val) {
         $smarty->assign($k, $val);
     }
+    $smarty->display('view/Layout/Header.php');
     $smarty->display('view/' . $view . '.php');
     $smarty->display('view/Layout/Footer.php');
 }

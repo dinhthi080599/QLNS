@@ -107,10 +107,11 @@
                                                     <tr>
                                                         <!-- <th><i class='uil uil-user font-16 mr-1'></i>Người làm đơn</th> -->
                                                         <th><i class="uil uil-file-upload-alt"></i> STT</th>
+                                                        <th><i class="uil uil-calendar-alt"></i> MNV</th>
                                                         <th><i class="uil uil-comment-alt-lines"></i> Tên nhân viên</th>
-                                                        <th><i class="uil uil-calendar-alt"></i> Ngày sinh</th>
                                                         <th><i class="uil uil-comment-alt-chart-lines"></i> Bộ phận/Vị trí</th>
                                                         <th><i class="uil uil-comment-alt-chart-lines"></i> Lương cơ bản</th>
+                                                        <th><i class="uil uil-comment-alt-chart-lines"></i> Lương đóng bảo hiểm</th>
                                                         <th><i class="uil uil-list-ui-alt"></i> Tác vụ</th>
                                                     </tr>
                                                 </thead>
@@ -118,14 +119,19 @@
                                                     {foreach $Users as $k => $v}
                                                     <tr>
                                                         <td class="text-center">{$v.i}</td>
+                                                        <td class="text-center">{$v.sMaNhanvien}</td>
                                                         <td>{$v.sHoten}</td>
-                                                        <td class="text-center">{formatDate($v.dNgaysinh)}</td>
                                                         <td>
                                                             {$PartList[$v.fK_iBophanID]['sTenBophan']}/{$JobPosition[$v.fK_iVitriCongviecID]['sTenVitriCongviec']}
                                                         </td>
                                                         <td>
                                                             {if isset($SalaryProcess[$v._id]['iLuongCoban'])}
                                                             {number_format($SalaryProcess[$v._id]['iLuongCoban'], 0, '.', '.')} VND
+                                                            {/if}
+                                                        </td>
+                                                        <td>
+                                                            {if isset($SalaryProcess[$v._id]['iLuongDongBaohiem'])}
+                                                            {number_format($SalaryProcess[$v._id]['iLuongDongBaohiem'], 0, '.', '.')} VND
                                                             {/if}
                                                         </td>
                                                         <td class="text-center">
@@ -162,15 +168,15 @@
                         <h5 class="modal-title" id="modal-title">Cập nhật mức lương cơ bản</h5>
                     </div>
                     <div class="modal-body p-4">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="update-salary">
                             <div class="row">
                                 <div class="col-8">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th><i class="uil uil-comment-alt-lines"></i> Thời gian bắt đầu</th>
                                                 <th><i class="uil uil-calendar-alt"></i> Thời gian kết thúc</th>
                                                 <th><i class="uil uil-list-ui-alt"></i> Lương cơ bản</th>
+                                                <th><i class="uil uil-list-ui-alt"></i> Lương bảo hiểm</th>
                                             </tr>
                                         </thead>
                                         <tbody id="SalaryDetail">
@@ -179,8 +185,12 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label class="control-label">Mức lương mới</label>
+                                        <label class="control-label">Lương cơ bản</label>
                                         <input class="form-control" id="salary" type="text" name="salary">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Lương bảo hiểm</label>
+                                        <input class="form-control" id="luong-bao-hiem" type="text" name="luong-bao-hiem">
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" name="id" id="id">

@@ -126,7 +126,7 @@ app.post('/', function(req, res) {
                     query.quyen = it.quyen.sTenQuyen;
                     query.sHoten = it.nhanvien.sHoten;
                     query.PK_iNhanvienID = it.nhanvien._id;
-                    
+
                     const response = {
                         token,
                         refreshToken,

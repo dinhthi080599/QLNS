@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-27 11:46:29
+/* Smarty version 3.1.38, created on 2021-03-28 00:53:16
   from 'D:\Project\_datn\user-interface-service\view\ReportSalary.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605eb8a5b409a2_40775485',
+  'unifunc' => 'content_605f710c40c417_60209650',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'beb5652e6ebd083544eacd874c32220a2b0e6c05' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\ReportSalary.php',
-      1 => 1616193569,
+      1 => 1616867594,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605eb8a5b409a2_40775485 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605f710c40c417_60209650 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -69,11 +69,11 @@ function content_605eb8a5b409a2_40775485 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-body">
                 <div class="card-body">
                     <!-- cta -->
-                    <form action="" method="GET">
+                    <!-- <form action="" method=""> -->
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="nam">Thời gian</label>
-                                <select class="form-control" id="nam" name="nam">
+                                <select class="form-control thongke" id="nam" name="nam">
                                     <option value="">Tất cả</option>
                                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['year_arr']->value, 'year', false, 'k');
@@ -92,7 +92,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                             <div class="col-sm-3">
                                 <label for="thang">Tháng</label>
-                                <select class="form-control" id="thang" name="thang">
+                                <select class="form-control thongke" id="thang" name="thang">
                                     <option value="">Tất cả</option>
                                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['month_arr']->value, 'month', false, 'k');
@@ -111,7 +111,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                             <div class="col-sm-4">
                                 <label for="bophan">Bộ phận</label>
-                                <select class="form-control" id="bophan" name="bophan">
+                                <select class="form-control thongke" id="bophan" name="bophan">
                                     <option value="">Tất cả</option>
                                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PartList']->value, 'Part', false, 'k');
@@ -134,17 +134,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </select>
                             </div>
                         </div>
-                    </form>
-                    <form action="" method="POST">
                         <div class="row mt-4">
                             <div class="col-12">
                                 <label for="">Tác vụ</label><br>
-                                <button class="btn btn-success" name="action" value="lap-bang-luong">Thống kê lương tổng hợp</button>
-                                <button class="btn btn-primary" >Thống kê tiền phạt</button>
+                                <form action="http://export-excel.com/" method="POST">
+                                    <input type="hidden" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['ThongKe']->value);?>
+" id="thong-ke-tong-hop" name="thong-ke-tong-hop">
+                                    <button class="btn btn-success" name="action" value="thong-ke-tong-hop">Thống kê lương tổng hợp</button>
+                                    <button class="btn btn-primary" >Thống kê tiền phạt</button>
+                                </form>
                             </div>
                         </div>
                     <!-- end row -->
-                    </form>
+                    <!-- </form> -->
                 </div>
             </div> <!-- end card-body-->
         </div> <!-- end card-->
@@ -161,22 +163,24 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <?php echo '<script'; ?>
 >
         $(document).ready(function(){
-            $(document).on('click', '.del', function(){
-                var del = $(this);
-                Swal.fire({
-                    title: 'Xác thực!',
-                    text: "Bạn có chắc chắn muốn xóa ngày nghỉ này?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Đồng ý!',
-                    cancelButtonText: 'Không!'
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        $(del).parent('.delete').submit();
-                    }
-                })
+            $(document).on('click', '.thongke', function(){
+                var thang = $('#thang').val();
+                var nam = $('#nam').val();
+                var bophan = $('#bophan').val();
+                var data = {
+                    action: 'thong-ke-tong-hop',
+                    thang: thang,
+                    nam: nam,
+                    bophan: bophan,
+                }
+                $.ajax({
+                    method: "POST",
+                    data: data,
+                    dataType:'json',
+                    url: "/thong-ke-luong",
+                }).done(function (res) {
+                    $("#thong-ke-tong-hop").val(JSON.stringify(res));
+                });
             });
         });
         <?php echo '</script'; ?>
