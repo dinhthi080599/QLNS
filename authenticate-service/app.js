@@ -13,6 +13,9 @@ const assert = require('assert');
 const url = 'mongodb://localhost:27018';
 const dbName = 'qlns';
 const crypto = require('crypto');
+const http = require('http');
+const https = require('https');
+const { json } = require('body-parser');
 
 
 app.use(cors())
@@ -26,18 +29,22 @@ router.get('/', (req, res) => {
  * Login User Interface
  * Author: Thi Nguyễn
  */
-app.get('/', (req, res) => {
-    // Check token
-    // Exist token
-        // redirect time.my
-    // Not exist token 
-        // Login
-    res.sendFile('view/index.html', { root: __dirname });
-})
+// app.get('/', (req, res) => {
+//     // Check token
+//     // Exist token
+//         // redirect time.my
+//     // Not exist token 
+//         // Login
+//     res.sendFile('public/index.html', { root: __dirname });
+// })
 
 /**
  * Login
  * Author: Thi Nguyễn
+ * Req: {
+ *      'UserName',
+ *      'Password'
+ * }
  */
 app.post('/', function(req, res) {
     // Get Parameter
@@ -51,15 +58,58 @@ app.post('/', function(req, res) {
         var hash = crypto.createHash('sha256')
                             .update(Password)
                             .digest("hex");
-        const query = {
-            'sTenTaikhoan': UserName,
-            'sMatkhau': hash
-        }
         const db = client.db(dbName);
-        db.collection('tbl_taikhoan', function (err, collection) {
-            collection.find(query).toArray(function(err, items) {
+        db.collection('tbl_taikhoan',  { useUnifiedTopology: true }, function (err, collection) {
+            collection.aggregate([
+                { 
+                    $lookup: {
+                        from: 'dm_quyen',
+                        localField: 'FK_iQuyenID',
+                        foreignField: '_id',
+                        as: 'quyen'
+                    }
+                },
+                {
+                    $unwind: "$quyen"
+                },
+                { 
+                    $lookup:{
+                        from: "dm_trangthai_taikhoan", 
+                        localField: "FK_iTrangthaiTaikhoan", 
+                        foreignField: "_id",
+                        as: "taikhoan"
+                    }
+                },
+                {
+                    $unwind: "$taikhoan"
+                },
+                { 
+                    $lookup:{
+                        from: "tbl_nhanvien", 
+                        localField: "FK_iNhanvienID", 
+                        foreignField: "_id",
+                        as: "nhanvien"
+                    }
+                },
+                {
+                    $unwind: "$nhanvien"
+                },
+                {
+                    $match: {
+                        "sTenTaikhoan": UserName,
+                        "sMatkhau": hash,
+                    }
+                }
+                ]).toArray(function(err, items) {
                 if(err) throw err;    
                 if (items.length > 0){
+                    it = items[0];
+                    var query = {
+                        'PK_iTaikhoanID': it._id,
+                        'sTenTaikhoan': UserName,
+                        'FK_iQuyenID': it.FK_iQuyenID,
+                        'FK_iTrangthaiTaikhoan': it.taikhoan.PK_iTrangthaiTaikhoanID,
+                    }
                     console.log("👽 _User: " + UserName + " logged_ 👽");
                     const token = jwt.sign(query, config.secret, {
                         expiresIn: config.tokenLife,
@@ -72,13 +122,19 @@ app.post('/', function(req, res) {
                     tokenList[refreshToken] = query;
                 
                     // Trả lại cho user thông tin mã token kèm theo mã Refresh token
+                    query.sTenTrangthaiTaikhoan = it.taikhoan.sTenTrangthaiTaikhoan;
+                    query.quyen = it.quyen.sTenQuyen;
+                    query.sHoten = it.nhanvien.sHoten;
+                    
                     const response = {
                         token,
                         refreshToken,
+                        query
                     }
                     res.json(response);
                 } else {
                     console.log("💀 _Login false_ 💀");
+                    console.log("💀💀💀💀💀💀💀💀💀💀");
                     res.json(false);
                 }
             });
@@ -87,6 +143,57 @@ app.post('/', function(req, res) {
     });
 })
 
+
+/**
+ * Post: Token
+ * Return: {
+ *      user = {
+ *          id,
+ *          username,
+ *          name,
+ *          staff,
+ *          email,
+ *          permissionname,
+ *          permissionUD,
+ *          token,
+ *          available
+ *      }
+ *  }
+ */
+app.post('/Request', (req, _res) => {
+    // Get Parameter
+    const url = req.body.url;
+    const data = req.body.data
+    const method = req.body.method
+    var request = require('request');
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+    if (method == 'GET') {
+        request.get({url: url}, function(err, response, body) {
+            if(err) { 
+                // console.log(err); return; 
+                console.log('💀 _Error Request_ 💀'); return; 
+            }
+            _res.send(body);
+        });
+    } else {
+        var options = {
+            uri: url,
+            method: 'POST',
+            json: data
+        };
+        request(options, function(err, response, body) {
+            if(err) { 
+                console.log('💀 _Error Request_ 💀'); return; 
+            }
+            const parsed = parseInt(body);
+            if (isNaN(parsed)) { 
+                _res.send(body);
+            } else {
+                _res.send(body + "");
+            }
+        });
+    }
+})
 /**
  * Đăng nhập
  * POST /login
@@ -166,7 +273,6 @@ router.post('/refresh_token', async (req, res) => {
 const TokenCheckMiddleware = async (req, res, next) => {
     // Lấy thông tin mã token được đính kèm trong request
     const token = req.body.token || req.query.token || req.headers['x-access-token'];
-    // console.log(req)
     // decode token
     if (token) {
         // Xác thực mã token và kiểm tra thời gian hết hạn của mã
@@ -199,6 +305,7 @@ router.get('/profile', (req, res) => {
 })
 
 app.use('/api/authentication', router);
+app.use(express.static(__dirname + '/public'));
 
 const listener = app.listen(config.port || process.env.PORT || 3080, () => {
     console.log('Start at: http://localhost:' + listener.address().port);

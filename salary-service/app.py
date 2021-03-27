@@ -119,6 +119,7 @@ def SalaryProcess():
                 }
             }
         ]
+        print(id)
     else:
         pipeline = [
             {

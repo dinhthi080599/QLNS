@@ -8,6 +8,7 @@ $(document).ready(function(){
             id: ID,
             nvID: NVID,
         };
+        $('#SalaryDetail').html('');
         $.ajax({
             method: "POST",
             data: data,
@@ -15,7 +16,7 @@ $(document).ready(function(){
             url: "/luong-co-ban",
         }).done(function (res) {
             html = '';
-            if (res.length != 0) {
+            if (res != 'die') {
                 $.each(res, function( key, value ) {
                     x = value.iLuongCoban.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
                     html += `

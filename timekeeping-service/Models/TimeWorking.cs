@@ -28,8 +28,9 @@ namespace timekeeping.Models
             *   Id != 0 return by id
             */
             string sql_command = "select * from tbl_thoigian_lamviec";
-            if (PartID != "")
+            if (PartID != "0")
             {
+                Console.WriteLine(PartID);
                 sql_command += " where fk_ibophanid = '" + PartID + "'";
                 if (sNgayTrongTuan != "")
                 {

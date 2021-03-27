@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-24 15:37:20
+/* Smarty version 3.1.38, created on 2021-03-26 16:36:45
   from 'D:\Project\_datn\user-interface-service\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605afa40974719_12614040',
+  'unifunc' => 'content_605dab2ddcd6d3_66267060',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17b76aff4b310a37ea95467f11e5349582dd41d3' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Layout\\Header.php',
-      1 => 1616193569,
+      1 => 1616751385,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605afa40974719_12614040 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605dab2ddcd6d3_66267060 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -90,6 +90,13 @@ function content_605afa40974719_12614040 (Smarty_Internal_Template $_smarty_tpl)
                                 <i data-feather="menu" class="menu-icon"></i>
                                 <i data-feather="x" class="close-icon"></i>
                             </button>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
+                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="" data-original-title="Logout">
+                            <a href="/?logout=1" class="nav-link right-bar-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            </a>
                         </li>
                     </ul>
                 </div>

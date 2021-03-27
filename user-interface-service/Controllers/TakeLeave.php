@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class TakeLeave
+class TakeLeave extends BaseController
 {
     public function index()
     {
