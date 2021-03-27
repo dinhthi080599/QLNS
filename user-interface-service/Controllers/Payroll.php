@@ -23,7 +23,7 @@ class Payroll extends BaseController
                     continue;
                 }
                 $v['i'] = $i++;
-                $List_Users[$v['pK_iNhanvienID']] = $v;
+                $List_Users[$v['_id']] = $v;
             }
         }
         $Request['year'] = (int)$nam;
@@ -60,8 +60,7 @@ class Payroll extends BaseController
         $Users_Timesheets = $list_ts = $Payroll = array();
         $stt = 1;
         foreach ($PR as $v) {
-            unset($v['_id']);
-            $Payroll[$v['FK_iNhanvienID']['$oid']] = $v;
+            $Payroll[$v['FK_iNhanvienID']] = $v;
         }
         foreach ($Timesheets as $k => $v) {
             if(!isset($Users_Timesheets[$v['fK_iNhanvienID']])) {

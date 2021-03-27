@@ -18,6 +18,7 @@ namespace timekeeping.Controllers
         [HttpGet, HttpPost]
         public ActionResult Get(___Get __Get)
         {
+            Console.Write(__Get.year);
             return Ok(new TimeSheet().get(__Get.year, __Get.month, __Get.ListUserID));
         }
         [Route("ReadData")]
@@ -32,6 +33,6 @@ namespace timekeeping.Controllers
         public int year {get; set;}
         public int month {get; set;}
         public string[] ListUserID {get; set;}
-        public string[] BoPhan {get; set;}
+        public string BoPhan {get; set;}
     }
 }

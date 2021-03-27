@@ -25,8 +25,10 @@ class Login
         $check = check_login('POST', URLLLL_Authen, $_POST);
         if ($check != "false") {
             $check = json_decode($check, true);
-            $_SESSION["Token"] = $check['token'];
+            $_SESSION["Token"] = $check['refreshToken'];
             $_SESSION["PK_iTaikhoanID"] = $check['query']['PK_iTaikhoanID'];
+            $_SESSION["id"] = $check['query']['PK_iNhanvienID'];
+            $_SESSION["PK_iNhanvienID"] = $check['query']['PK_iNhanvienID'];
             $_SESSION["sTenTaikhoan"] = $check['query']['sTenTaikhoan'];
             $_SESSION["FK_iQuyenID"] = $check['query']['FK_iQuyenID'];
             $_SESSION["FK_iTrangthaiTaikhoan"] = $check['query']['FK_iTrangthaiTaikhoan'];

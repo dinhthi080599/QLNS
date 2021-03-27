@@ -127,7 +127,7 @@ function post($name) {
 }
 
 function session($name) {
-    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '604e50f39c8b96835ba9ff97';
+    return $_SESSION[$name];
 }
 
 function GetAPI($method, $url)
@@ -153,6 +153,7 @@ function AddAPI($method, $url, $data = false)
     $_data['url'] = $url;
     $_data['data'] = $data;
     $_data['method'] = $method;
+    $_data['token'] = $_SESSION['Token'];
     $postdata = json_encode($_data);
     // $ch = curl_init($url);
     $ch = curl_init(URLLLL_Authen . 'Request');
@@ -165,6 +166,11 @@ function AddAPI($method, $url, $data = false)
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     $result = curl_exec($ch);
     curl_close($ch);
+    if ($result == "token invalid") {
+        setMes('error', 'Thất bại', 'Token không hợp lệ');
+        session_destroy ();
+        die(header("Location: /"));
+    }
     $_result = json_decode($result, true);
     if ($_result != "") {
         return $_result;

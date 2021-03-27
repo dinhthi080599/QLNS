@@ -125,6 +125,7 @@ app.post('/', function(req, res) {
                     query.sTenTrangthaiTaikhoan = it.taikhoan.sTenTrangthaiTaikhoan;
                     query.quyen = it.quyen.sTenQuyen;
                     query.sHoten = it.nhanvien.sHoten;
+                    query.PK_iNhanvienID = it.nhanvien._id;
                     
                     const response = {
                         token,
@@ -143,24 +144,16 @@ app.post('/', function(req, res) {
     });
 })
 
-
 /**
- * Post: Token
- * Return: {
- *      user = {
- *          id,
- *          username,
- *          name,
- *          staff,
- *          email,
- *          permissionname,
- *          permissionUD,
- *          token,
- *          available
- *      }
- *  }
+ * Login
+ * Author: Thi Nguyễn
  */
 app.post('/Request', (req, _res) => {
+    if (!check_token(req.body.token)) {
+        console.log("💀 _token invalid_ 💀");
+        _res.send("token invalid");
+        return;
+    }
     // Get Parameter
     const url = req.body.url;
     const data = req.body.data
@@ -194,6 +187,21 @@ app.post('/Request', (req, _res) => {
         });
     }
 })
+
+/**
+ * Login
+ * Author: Thi Nguyễn
+ */
+function check_token(token) {
+    if(typeof(tokenList[token]) !== 'undefined')
+    {  
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 /**
  * Đăng nhập
  * POST /login

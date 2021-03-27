@@ -30,7 +30,6 @@ namespace timekeeping.Models
             string sql_command = "select * from tbl_thoigian_lamviec";
             if (PartID != "0")
             {
-                Console.WriteLine(PartID);
                 sql_command += " where fk_ibophanid = '" + PartID + "'";
                 if (sNgayTrongTuan != "")
                 {

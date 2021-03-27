@@ -217,12 +217,49 @@ def Payroll():
     nam = data['year']
     thang = data['month']
     bophan = data['bophan']
-
     data = json.dumps(data)
     headers={'Content-type':'application/json', 'Accept':'application/json'}
     
     # GET DATA
-    hdld = HDLD.find({"FK_iNhanvienID":{"$in":id}, "dNgayHetHan": ""})
+    __oid = []
+    for _id in id:
+        __oid.append(ObjectId(_id))
+
+    pipeline = [
+        {
+            u"$project": {
+                u"_id": 0,
+                u"tbl_hopdong_laodong": u"$$ROOT"
+            }
+        }, 
+        {
+            u"$lookup": {
+                u"localField": u"tbl_hopdong_laodong.FK_iQuatrinhLamviecID",
+                u"from": u"tbl_quatrinh_lamviec",
+                u"foreignField": u"_id",
+                u"as": u"tbl_quatrinh_lamviec"
+            }
+        }, 
+        {
+            u"$unwind": {
+                u"path": u"$tbl_quatrinh_lamviec",
+                u"preserveNullAndEmptyArrays": False
+            }
+        }, 
+        {
+            u"$match": {
+                u"tbl_quatrinh_lamviec.FK_iNhanvienID": {
+                    u"$in": __oid
+                },
+                u"tbl_hopdong_laodong.dNgayHetHan": u""
+            }
+        }
+    ]
+
+    hdld = HDLD.aggregate(
+        pipeline, 
+        allowDiskUse = True
+    )
     ts = requests.post(URLLLL + "Timesheet/Get", data=data, verify=False, headers=headers)
     tw = requests.get(URLLLL + "TimeWorking?PartID=" + str(bophan), verify=False, headers=headers)
     
@@ -235,6 +272,8 @@ def Payroll():
     d_lichlamviec = d_lichlamviec['timeWorkingList']
 
     list_hdld = list(hdld)
+    print(d_lichlamviec)
+
     # Calculator
     # Tính tiền phạt
     time_late = {}
@@ -242,7 +281,7 @@ def Payroll():
     dict_lichlamviec = {}
     for x in d_lichlamviec:
         dict_lichlamviec[x['sNgayTrongTuan']] = x
-
+        
     for x in dict_chamcong:
         if x['fK_iNhanvienID'] in workdays.keys(): 
             workdays[x['fK_iNhanvienID']] += 1
@@ -268,9 +307,10 @@ def Payroll():
     salary = {}
     for x in list_hdld:
         # Tiền lương 1 ngày công
-        _salary_per_day = x['iLuongCoban']/24
-        _salary = _salary_per_day * workdays[x['FK_iNhanvienID']] - int(time_late[x['FK_iNhanvienID']]/6)*100
-        salary[x['FK_iNhanvienID']] = int(_salary)
+        _salary_per_day = x['tbl_hopdong_laodong']['iLuongCoban']/24
+        _salary = _salary_per_day * workdays[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])]
+        _salary = _salary - int(time_late[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])]/6)*100
+        salary[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])] = int(_salary)
 
     # Lưu lương
     list_luong = LUONG.find({"iNam": nam, "iThang": thang}, {"PK_iLuongID": 1})

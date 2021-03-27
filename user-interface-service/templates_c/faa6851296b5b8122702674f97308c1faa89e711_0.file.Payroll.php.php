@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-25 14:37:38
+/* Smarty version 3.1.38, created on 2021-03-27 14:13:50
   from 'D:\Project\_datn\user-interface-service\view\Payroll.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605c3dc28da072_39056306',
+  'unifunc' => 'content_605edb2e8dc610_26688506',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'faa6851296b5b8122702674f97308c1faa89e711' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Payroll.php',
-      1 => 1616657856,
+      1 => 1616829229,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605c3dc28da072_39056306 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605edb2e8dc610_26688506 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -238,7 +238,7 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
                                                                     <a href="/tinh-luong?nam=<?php echo $_smarty_tpl->tpl_vars['nam']->value;?>
 &thang=<?php echo $_smarty_tpl->tpl_vars['thang']->value;?>
 &bophan=<?php echo $_smarty_tpl->tpl_vars['bophan']->value;?>
-&mnv=<?php echo $_smarty_tpl->tpl_vars['v']->value['pK_iNhanvienID'];?>
+&mnv=<?php echo $_smarty_tpl->tpl_vars['v']->value['_id'];?>
 "
                                                                         class="btn btn-info btn-sm"type="button">
                                                                         Chi tiết
