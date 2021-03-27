@@ -17,31 +17,31 @@ const uri = 'mongodb://localhost:27018'; //,localhost:27019,localhost:27020/qlns
 
 const program = async () => {
     // [Sync Mysql]
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: ''
-    });
+    // const connection = mysql.createConnection({
+    //     host: 'localhost',
+    //     user: 'phpmyadmin',
+    //     password: ''
+    // });
 
-    const instance = new MySQLEvents(connection, {
-        startAtEnd: true // to record only the new binary logs, if set to false or you didn'y provide it all the events will be console.logged after you start the app
-    });
+    // const instance = new MySQLEvents(connection, {
+    //     startAtEnd: true // to record only the new binary logs, if set to false or you didn'y provide it all the events will be console.logged after you start the app
+    // });
 
-    await instance.start();
+    // await instance.start();
 
-    instance.addTrigger({
-        name: 'monitoring all statments',
-        expression: 'db_qlns.*', // listen to TEST database !!!
-        statement: MySQLEvents.STATEMENTS.ALL, // you can choose only insert for example MySQLEvents.STATEMENTS.INSERT, but here we are choosing everything
-        onEvent: e => {
-            console.log(e.affectedRows);
-            spinner.succeed('👽 _EVENT_ 👽');
-            spinner.start();
-        }
-    });
+    // instance.addTrigger({
+    //     name: 'monitoring all statments',
+    //     expression: 'qlns.*', // listen to TEST database !!!
+    //     statement: MySQLEvents.STATEMENTS.ALL, // you can choose only insert for example MySQLEvents.STATEMENTS.INSERT, but here we are choosing everything
+    //     onEvent: e => {
+    //         console.log(e.affectedRows);
+    //         spinner.succeed('👽 _EVENT_ 👽');
+    //         spinner.start();
+    //     }
+    // });
 
-    instance.on(MySQLEvents.EVENTS.CONNECTION_ERROR, console.error);
-    instance.on(MySQLEvents.EVENTS.ZONGJI_ERROR, console.error);
+    // instance.on(MySQLEvents.EVENTS.CONNECTION_ERROR, console.error);
+    // instance.on(MySQLEvents.EVENTS.ZONGJI_ERROR, console.error);
     // [End sync Mysql]
 
     // [Sync MongoDB]
