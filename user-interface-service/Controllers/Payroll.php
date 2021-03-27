@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Payroll
+class Payroll extends BaseController
 {
     public function index()
     {
@@ -23,7 +23,7 @@ class Payroll
                     continue;
                 }
                 $v['i'] = $i++;
-                $List_Users[$v['pK_iNhanvienID']] = $v;
+                $List_Users[$v['_id']] = $v;
             }
         }
         $Request['year'] = (int)$nam;
@@ -49,19 +49,18 @@ class Payroll
         }
 
         // [Get data from API]
-        $Timesheets = json_decode(AddAPI('POST', URLLLL.'Timesheet/Get', $Request), true);
+        $Timesheets = AddAPI('POST', URLLLL.'Timesheet/Get', $Request);
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
-        $PR = json_decode(AddAPI('POST', URLLLL_Salary.'GetPayroll', $Request), true);
+        $SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
+        $PR = AddAPI('POST', URLLLL_Salary.'GetPayroll', $Request);
         // [End get data from API]
 
         // [Config Data]
         $Users_Timesheets = $list_ts = $Payroll = array();
         $stt = 1;
         foreach ($PR as $v) {
-            unset($v['_id']);
-            $Payroll[$v['FK_iNhanvienID']['$oid']] = $v;
+            $Payroll[$v['FK_iNhanvienID']] = $v;
         }
         foreach ($Timesheets as $k => $v) {
             if(!isset($Users_Timesheets[$v['fK_iNhanvienID']])) {
@@ -131,6 +130,9 @@ class Payroll
     }
     public function tinhthoi_gianmuon($ts, $PartID) {
         $thoigiandimuon = 0;
+        if ($PartID == "") {
+            $PartID = "0";
+        }
         $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
         $NgayTrongTuan = dm_thu();
         foreach ($data as $k => $v) {

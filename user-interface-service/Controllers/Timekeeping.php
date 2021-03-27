@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Timekeeping
+class Timekeeping extends BaseController
 {
     public function index()
     {
@@ -11,9 +11,6 @@ class Timekeeping
         if ($action == '') {
             $action = post('action');
         }
-        $data['timeWorkingList'] = array();
-        $data['partList'] = GetAPI('GET', URLLLL.'Part')['partList'];
-        $data['NV_PB'] = GetAPI('GET', URLLLL.'Part/NV_PB');
         switch ($action) {
             case 'get_data': {
                 $this->get_data();
@@ -24,6 +21,9 @@ class Timekeeping
                 break;
             }
         }
+        $data['timeWorkingList'] = array();
+        $data['partList'] = GetAPI('GET', URLLLL.'Part')['partList'];
+        $data['NV_PB'] = GetAPI('GET', URLLLL.'Part/NV_PB');
         $data['dm_thu'] = dm_thu();
         ShowView($data, 'Timekeeping');
     }
@@ -45,8 +45,8 @@ class Timekeeping
             'fk_ibophanid' => post('fk_ibophanid'),
             'sngaytrongtuan' => post('sngaytrongtuan'),
             'FK_iNguoiTao' => session('id'),
-            'tthoigiantao' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
-            'dNgayApdung' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
+            // 'tthoigiantao' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
+            'dNgayApdung' => date("Y-m-d H:i:s"),
             'ca' => (int) $ca
         );
         $data = array_merge($data, default_timeworking());

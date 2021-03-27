@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class RewardPenance
+class RewardPenance extends BaseController
 {
     public function index()
     {
@@ -44,10 +44,10 @@ class RewardPenance
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Users = GetAPI('GET', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
-        $_KTKL = json_decode(AddAPI('POST', URLLLL_Salary.'GetKTKL', ['id' => 0]), true);
-        $_StatusKTKL = json_decode(AddAPI('POST', URLLLL_Salary.'GetStatusKTKL', ['id' => 0]), true);
-        $_TypeKTKL = json_decode(AddAPI('POST', URLLLL_Salary.'GetTypeKTKL', ['id' => 0]), true);
+        $SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
+        $_KTKL = AddAPI('POST', URLLLL_Salary.'GetKTKL', ['id' => 0]);
+        $_StatusKTKL = AddAPI('POST', URLLLL_Salary.'GetStatusKTKL', ['id' => 0]);
+        $_TypeKTKL = AddAPI('POST', URLLLL_Salary.'GetTypeKTKL', ['id' => 0]);
         $i = 1;
         foreach ($_KTKL as $k => $v) {
             $v['i'] = $i++;

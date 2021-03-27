@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class MakeTimesheets
+class MakeTimesheets extends BaseController
 {
     public function index()
     {
@@ -53,10 +53,10 @@ class MakeTimesheets
         }
 
         // [Get data from API]
-        $Timesheets = json_decode(AddAPI('POST', URLLLL.'Timesheet/Get', $Request), true);
+        $Timesheets = AddAPI('POST', URLLLL.'Timesheet/Get', $Request);
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
+        $SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
         // [End get data from API]
 
         // [Config Data]
@@ -73,9 +73,13 @@ class MakeTimesheets
             $list_ts[$v['fK_iNhanvienID']][$v['pK_sBangChamcongID']] = $v;
         }
         $SalaryProcess = $PartList = $JP = array();
-        if (!empty($SP)) {
-            foreach ($SP as $k => $v) {
-                $SalaryProcess[$v['FK_iNhanvienID']] = $v;
+        foreach ($SP as $k => $v) {
+            unset($v['tbl_quatrinh_lamviec']['_id']);
+            $_SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
+        }
+        if (!empty($_SP)) {
+            foreach ($_SP as $k => $v) {
+                $SalaryProcess[$v['FK_iNhanvienID']['$oid']] = $v;
             }
         }
         foreach ($Part as $k => $v) {
@@ -129,6 +133,9 @@ class MakeTimesheets
     }
     public function tinhthoi_gianmuon($ts, $PartID) {
         $thoigiandimuon = 0;
+        if ($PartID == "") {
+            $PartID = 0;
+        }
         $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
         foreach ($data as $k => $v) {
             $lichlamviec[$v['sNgayTrongTuan']] = $v;

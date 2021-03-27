@@ -127,25 +127,59 @@ function post($name) {
 }
 
 function session($name) {
-    return isset($_SESIONS[$name]) ? $_SESIONS[$name] : '604e50f39c8b96835ba9ff97';
+    return $_SESSION[$name];
 }
 
 function GetAPI($method, $url)
 {
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_URL => $url,
-        CURLOPT_USERAGENT => 'TIME',
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_HEADER => 0
-    ));
-    $resp = curl_exec($curl);
-    $response = json_decode($resp, true);
-    return $response;
+    // $_data['url'] = $url;
+    // $_data['method'] = $method;
+    // $curl = curl_init();
+    // curl_setopt_array($curl, array(
+    //     CURLOPT_RETURNTRANSFER => true,
+    //     CURLOPT_URL => URLLLL_Authen . 'Request',
+    //     CURLOPT_USERAGENT => 'TIME',
+    //     CURLOPT_SSL_VERIFYPEER => false,
+    //     CURLOPT_HEADER => 0
+    // ));
+    // $resp = curl_exec($curl);
+    // $response = json_decode($resp, true);
+    // return $response;
+    return AddAPI($method, $url);
 }
 
 function AddAPI($method, $url, $data = false)
+{
+    $_data['url'] = $url;
+    $_data['data'] = $data;
+    $_data['method'] = $method;
+    $_data['token'] = $_SESSION['Token'];
+    $postdata = json_encode($_data);
+    // $ch = curl_init($url);
+    $ch = curl_init(URLLLL_Authen . 'Request');
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    $result = curl_exec($ch);
+    curl_close($ch);
+    if ($result == "token invalid") {
+        setMes('error', 'Thất bại', 'Token không hợp lệ');
+        session_destroy ();
+        die(header("Location: /"));
+    }
+    $_result = json_decode($result, true);
+    if ($_result != "") {
+        return $_result;
+    } else {
+        return $result;
+    }
+}
+
+function check_login($method, $url, $data = false)
 {
     $postdata = json_encode($data);
     $ch = curl_init($url);
@@ -170,6 +204,12 @@ function ShowView($data, $view) {
     }
     $smarty->display('view/' . $view . '.php');
     $smarty->display('view/Layout/Footer.php');
+}
+
+function ShowView_No_Layout($data, $view) {
+    require_once('lib/smarty/libs/Smarty.class.php');
+    $smarty = new Smarty();
+    $smarty->display('view/' . $view . '.php');
 }
 
 function setMes($type, $title, $body) {

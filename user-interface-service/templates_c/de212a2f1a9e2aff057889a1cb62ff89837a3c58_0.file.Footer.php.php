@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-24 15:37:21
+/* Smarty version 3.1.38, created on 2021-03-26 16:52:51
   from 'D:\Project\_datn\user-interface-service\view\Layout\Footer.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605afa414a5967_48114109',
+  'unifunc' => 'content_605daef37d1820_05579868',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de212a2f1a9e2aff057889a1cb62ff89837a3c58' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Layout\\Footer.php',
-      1 => 1616193569,
+      1 => 1616752369,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605afa414a5967_48114109 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605daef37d1820_05579868 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
                     </div>
                 </div> <!-- content -->
@@ -40,6 +40,7 @@ function content_605afa414a5967_48114109 (Smarty_Internal_Template $_smarty_tpl)
             <?php if ($_smarty_tpl->tpl_vars['mes']->value != null) {?>
                 <?php echo '<script'; ?>
 >
+                    <?php if ($_smarty_tpl->tpl_vars['mes']->value['title'] == '_logni') {?>
                     Swal.fire(
                         "<?php echo $_smarty_tpl->tpl_vars['mes']->value['title'];?>
 ",
@@ -48,6 +49,14 @@ function content_605afa414a5967_48114109 (Smarty_Internal_Template $_smarty_tpl)
                         '<?php echo $_smarty_tpl->tpl_vars['mes']->value['type'];?>
 '
                     )
+                    <?php } else { ?>
+                    Toast.fire({
+                        icon: '<?php echo $_smarty_tpl->tpl_vars['mes']->value['type'];?>
+',
+                        title: '<?php echo $_smarty_tpl->tpl_vars['mes']->value['body'];?>
+'
+                    })  
+                    <?php }?>
                 <?php echo '</script'; ?>
 >
             <?php }?>

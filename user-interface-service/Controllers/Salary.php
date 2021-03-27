@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Salary
+class Salary extends BaseController
 {
     public function index()
     {
@@ -46,7 +46,7 @@ class Salary
                     setMes('success', 'Thành công', 'Cập nhật lương cơ bản thành công!');
                     die(header("Location: ". getURL()));
                 } else {
-                    setMes('success', 'Thất bại', 'Có lỗi xảy ra xin vui lòng thử lại');
+                    setMes('error', 'Thất bại', 'Có lỗi xảy ra xin vui lòng thử lại');
                     die(header("Location: ". getURL()));
                 }
             }
@@ -56,7 +56,7 @@ class Salary
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Users = GetAPI('GET', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $_SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
+        $_SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
         foreach ($_SP as $k => $v) {
             unset($v['tbl_quatrinh_lamviec']['_id']);
             $SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
@@ -105,12 +105,19 @@ class Salary
 
     public function get_salary_process() {
         $data['id'] = post('nvID');
-        $_SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data), true);
+        $_SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', $data);
         foreach ($_SP as $k => $v) {
             unset($v['tbl_quatrinh_lamviec']['_id']);
+            if (!empty($v['tbl_hopdong_laodong']['dNgayHetHan'])) {
+                $v['tbl_hopdong_laodong']['dNgayHetHan'] = date('d-m-Y', $v['tbl_hopdong_laodong']['dNgayHetHan']['$date']/1000);
+            }
             $SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
         }
-        echo json_encode($SP);
+        if (isset($SP)) {
+            echo json_encode($SP);
+        } else {
+            echo "die";
+        }
         die();
     }
 }

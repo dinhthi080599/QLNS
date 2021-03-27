@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Assignment
+class Assignment extends BaseController
 {
     public function index()
     {

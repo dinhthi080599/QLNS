@@ -16,11 +16,18 @@
             {$mes = getMes()}
             {if $mes != null}
                 <script>
+                    {if $mes.title == '_logni'}
                     Swal.fire(
                         "{$mes.title}",
                         '{$mes.body}',
                         '{$mes.type}'
                     )
+                    {else}
+                    Toast.fire({
+                        icon: '{$mes.type}',
+                        title: '{$mes.body}'
+                    })  
+                    {/if}
                 </script>
             {/if}
             <!-- ============================================================== -->

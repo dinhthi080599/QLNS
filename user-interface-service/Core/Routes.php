@@ -1,5 +1,11 @@
 <?php
 // action là callback
+$router->get('/', 'Login');
+$router->post('/', 'Login');
+$router->get('/dang-nhap', 'Login');
+$router->post('/dang-nhap', 'Login');
+$router->get('/trang-chu', 'Home');
+$router->post('/trang-chu', 'Home');
 $router->get('/thoi-gian-lam-viec', 'Timekeeping');
 $router->post('/thoi-gian-lam-viec', 'Timekeeping');
 $router->get('/ngay-nghi', 'DayOff');

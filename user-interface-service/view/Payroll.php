@@ -168,7 +168,7 @@
                                                             <td>
                                                                 {if isset($Users_Timesheets[$v._id])}
                                                                     {if isset($Payroll[$v._id])}
-                                                                    <a href="/tinh-luong?nam={$nam}&thang={$thang}&bophan={$bophan}&mnv={$v.pK_iNhanvienID}"
+                                                                    <a href="/tinh-luong?nam={$nam}&thang={$thang}&bophan={$bophan}&mnv={$v._id}"
                                                                         class="btn btn-info btn-sm"type="button">
                                                                         Chi tiết
                                                                     </a>

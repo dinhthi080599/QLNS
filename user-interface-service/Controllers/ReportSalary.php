@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class ReportSalary
+class ReportSalary extends BaseController
 {
     public function index()
     {
@@ -49,11 +49,11 @@ class ReportSalary
         }
 
         // [Get data from API]
-        $Timesheets = json_decode(AddAPI('POST', URLLLL.'Timesheet/Get', $Request), true);
+        $Timesheets = AddAPI('POST', URLLLL.'Timesheet/Get', $Request);
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
-        $SP = json_decode(AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]), true);
-        $PR = json_decode(AddAPI('POST', URLLLL_Salary.'GetPayroll', $Request), true);
+        $SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
+        $PR = AddAPI('POST', URLLLL_Salary.'GetPayroll', $Request);
         // [End get data from API]
 
         // [Config Data]
@@ -127,6 +127,9 @@ class ReportSalary
     }
     public function tinhthoi_gianmuon($ts, $PartID) {
         $thoigiandimuon = 0;
+        if ($PartID == "") {
+            $PartID = "0";
+        }
         $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
         $NgayTrongTuan = dm_thu();
         foreach ($data as $k => $v) {

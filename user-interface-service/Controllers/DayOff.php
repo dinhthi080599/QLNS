@@ -2,15 +2,31 @@
 
 namespace Controllers;
 
-class DayOff
+class DayOff extends BaseController
 {
     public function index()
     {
         $data = null;
+        # Action
         $action = get('action');
         if ($action == '') {
             $action = post('action');
         }
+        switch ($action) {
+            case 'add-new': {
+                if ($this->add_new() != 0) {
+                    setMes('success', 'Thành công', 'Thêm ngày nghỉ thành công');
+                }
+                die(header("Location: ". getURL()));
+            }
+            case 'del': {
+                $data_del['pK_iNgaynghiTrongnamID'] = (int)post('del');
+                $del = AddAPI('POST', URLLLL.'DayOff/Del', $data_del);
+                setMes('success', 'Đã xóa', 'Ngày nghỉ đã được xóa');
+                die(header("Location: ". getURL()));
+            }
+        }
+        # End action
         $nam = get('nam');
         $search = get('search-text');
         if ($nam == '') {
@@ -36,20 +52,6 @@ class DayOff
             }
         }
         $data['dayOffList'] = $dayOffList;
-        switch ($action) {
-            case 'add-new': {
-                if ($this->add_new() != 0) {
-                    setMes('success', 'Thành công', 'Thêm ngày nghỉ thành công');
-                }
-                die(header("Location: ". getURL()));
-            }
-            case 'del': {
-                $data_del['pK_iNgaynghiTrongnamID'] = (int)post('del');
-                $del = AddAPI('POST', URLLLL.'DayOff/Del', $data_del);
-                setMes('success', 'Đã xóa', 'Ngày nghỉ đã được xóa');
-                die(header("Location: ". getURL()));
-            }
-        }
         $data['dm_thu'] = dm_thu();
         $data['search'] = $search;
         ShowView($data, 'DayOff');
