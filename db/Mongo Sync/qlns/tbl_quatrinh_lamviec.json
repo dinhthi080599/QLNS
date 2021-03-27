@@ -1,0 +1,220 @@
+{ 
+    "_id" : ObjectId("605ea67db4c6befeb4b73e9e"), 
+    "FK_iVitriCongviecID" : "605ea007f420920047828749", 
+    "dNgayBatdau" : "2020-11-19T17:00:00.000Z", 
+    "dNgayKethuc" : "2021-03-27T17:00:00.000Z", 
+    "sGhichu" : "Điều chuyển công tác", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616815741296), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T03:29:01.296Z", 
+    "FK_iNhanvienID" : ObjectId("605ea67db4c6befeb4b73e9d")
+}
+{ 
+    "_id" : ObjectId("605ead26480d9a4a0799c38d"), 
+    "FK_iVitriCongviecID" : ObjectId("605ea049f42092004782874a"), 
+    "dNgayBatdau" : "2021-03-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "Giáng chức", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616817446227), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "FK_iNhanvienID" : ObjectId("605ea67db4c6befeb4b73e9d"), 
+    "tThoigianChuyen" : "2021-03-27T03:57:26.227Z"
+}
+{ 
+    "_id" : ObjectId("605ed0c04f8b3c1689f19b89"), 
+    "FK_iVitriCongviecID" : "605ea2d9f42092004782875b", 
+    "dNgayBatdau" : "2021-03-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616826560059), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:29:20.059Z", 
+    "FK_iNhanvienID" : ObjectId("605ed0c04f8b3c1689f19b88")
+}
+{ 
+    "_id" : ObjectId("605ed1094f8b3c1689f19b8b"), 
+    "FK_iVitriCongviecID" : "605ea2b0f420920047828755", 
+    "dNgayBatdau" : "2020-08-08T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616826633148), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:30:33.148Z", 
+    "FK_iNhanvienID" : ObjectId("605ed1094f8b3c1689f19b8a")
+}
+{ 
+    "_id" : ObjectId("605ed1774f8b3c1689f19b8d"), 
+    "FK_iVitriCongviecID" : "605ea277f420920047828750", 
+    "dNgayBatdau" : "2020-12-10T17:00:00.000Z", 
+    "dNgayKethuc" : "2021-04-29T17:00:00.000Z", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616826743489), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:32:23.490Z", 
+    "FK_iNhanvienID" : ObjectId("605ed1774f8b3c1689f19b8c")
+}
+{ 
+    "_id" : ObjectId("605ed4ba4f8b3c1689f19b91"), 
+    "FK_iVitriCongviecID" : "605ea290f420920047828753", 
+    "dNgayBatdau" : "2021-04-05T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616827578457), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:46:18.457Z", 
+    "FK_iNhanvienID" : ObjectId("605ed4ba4f8b3c1689f19b90")
+}
+{ 
+    "_id" : ObjectId("605ed6144f8b3c1689f19b93"), 
+    "FK_iVitriCongviecID" : "605ea29df420920047828754", 
+    "dNgayBatdau" : "2021-01-06T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616827924106), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:52:04.106Z", 
+    "FK_iNhanvienID" : ObjectId("605ed6144f8b3c1689f19b92")
+}
+{ 
+    "_id" : ObjectId("605ed6684f8b3c1689f19b95"), 
+    "FK_iVitriCongviecID" : "605ea2c7f420920047828758", 
+    "dNgayBatdau" : "2021-01-06T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828008235), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:53:28.235Z", 
+    "FK_iNhanvienID" : ObjectId("605ed6684f8b3c1689f19b94")
+}
+{ 
+    "_id" : ObjectId("605ed6ad4f8b3c1689f19b97"), 
+    "FK_iVitriCongviecID" : "605ea2d9f42092004782875b", 
+    "dNgayBatdau" : "2021-01-06T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828077298), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:54:37.298Z", 
+    "FK_iNhanvienID" : ObjectId("605ed6ad4f8b3c1689f19b96")
+}
+{ 
+    "_id" : ObjectId("605ed7504f8b3c1689f19b99"), 
+    "FK_iVitriCongviecID" : "605ea2b8f420920047828756", 
+    "dNgayBatdau" : "2021-01-06T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828240909), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T06:57:20.909Z", 
+    "FK_iNhanvienID" : ObjectId("605ed7504f8b3c1689f19b98")
+}
+{ 
+    "_id" : ObjectId("605ed80f4f8b3c1689f19b9b"), 
+    "FK_iVitriCongviecID" : "605ea26ef42092004782874f", 
+    "dNgayBatdau" : "2021-04-05T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828431385), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:00:31.385Z", 
+    "FK_iNhanvienID" : ObjectId("605ed80f4f8b3c1689f19b9a")
+}
+{ 
+    "_id" : ObjectId("605ed9484f8b3c1689f19b9e"), 
+    "FK_iVitriCongviecID" : "605ea2c3f420920047828757", 
+    "dNgayBatdau" : "2021-04-05T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828744374), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:05:44.374Z", 
+    "FK_iNhanvienID" : ObjectId("605ed9484f8b3c1689f19b9d")
+}
+{ 
+    "_id" : ObjectId("605ed9884f8b3c1689f19ba0"), 
+    "FK_iVitriCongviecID" : "605ea2c3f420920047828757", 
+    "dNgayBatdau" : "2021-04-05T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828808705), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:06:48.705Z", 
+    "FK_iNhanvienID" : ObjectId("605ed9884f8b3c1689f19b9f")
+}
+{ 
+    "_id" : ObjectId("605eda0e4f8b3c1689f19ba2"), 
+    "FK_iVitriCongviecID" : "605ea049f42092004782874a", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "2021-12-30T17:00:00.000Z", 
+    "sGhichu" : "Điều chuyển công tác", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616828942879), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:09:02.879Z", 
+    "FK_iNhanvienID" : ObjectId("605eda0e4f8b3c1689f19ba1")
+}
+{ 
+    "_id" : ObjectId("605eda814f8b3c1689f19ba4"), 
+    "FK_iVitriCongviecID" : "605ea256f42092004782874c", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "2021-12-30T17:00:00.000Z", 
+    "sGhichu" : "Điều chuyển công tác 1", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829057294), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:10:57.294Z", 
+    "FK_iNhanvienID" : ObjectId("605eda814f8b3c1689f19ba3")
+}
+{ 
+    "_id" : ObjectId("605edb09bd0d3a60ae2846bb"), 
+    "FK_iVitriCongviecID" : "605ea240f42092004782874b", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "Điều chuyển công tác 1", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829193674), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:13:13.674Z", 
+    "FK_iNhanvienID" : ObjectId("605edb09bd0d3a60ae2846ba")
+}
+{ 
+    "_id" : ObjectId("605edb4cbd0d3a60ae2846bd"), 
+    "FK_iVitriCongviecID" : "605ea290f420920047828753", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "Điều chuyển công tác 1", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829260421), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:14:20.421Z", 
+    "FK_iNhanvienID" : ObjectId("605edb4cbd0d3a60ae2846bc")
+}
+{ 
+    "_id" : ObjectId("605edb94bd0d3a60ae2846bf"), 
+    "FK_iVitriCongviecID" : "605ea25ef42092004782874d", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "Điều chuyển công tác 1", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829332592), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:15:32.592Z", 
+    "FK_iNhanvienID" : ObjectId("605edb94bd0d3a60ae2846be")
+}
+{ 
+    "_id" : ObjectId("605edbd1bd0d3a60ae2846c1"), 
+    "FK_iVitriCongviecID" : "605ea277f420920047828750", 
+    "dNgayBatdau" : "2020-12-31T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "Điều chuyển công tác 1", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829393204), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "tThoigianChuyen" : "2021-03-27T07:16:33.204Z", 
+    "FK_iNhanvienID" : ObjectId("605edbd1bd0d3a60ae2846c0")
+}
+{ 
+    "_id" : ObjectId("605edc02bd0d3a60ae2846c2"), 
+    "FK_iVitriCongviecID" : ObjectId("605ea240f42092004782874b"), 
+    "dNgayBatdau" : "2021-04-06T17:00:00.000Z", 
+    "dNgayKethuc" : "", 
+    "sGhichu" : "", 
+    "PK_iQuatrinhLamviecID" : NumberLong(1616829442335), 
+    "FK_iNguoiChuyenID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "FK_iNhanvienID" : ObjectId("605ed3534f8b3c1689f19b8e"), 
+    "tThoigianChuyen" : "2021-03-27T07:17:22.335Z"
+}

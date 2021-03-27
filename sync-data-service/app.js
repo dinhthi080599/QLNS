@@ -12,7 +12,7 @@ const spinner = ora({
     color: 'blue',
     spinner: 'dots2'
 });
-const uri = 'mongodb://localhost:27018'; //,localhost:27019,localhost:27020/qlns?replicaSet=rs0';
+const uri = 'mongodb://localhost:27020'; //,localhost:27019,localhost:27020/qlns?replicaSet=rs0';
 // [End define parameter]
 
 const program = async () => {

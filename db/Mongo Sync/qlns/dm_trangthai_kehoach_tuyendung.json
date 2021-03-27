@@ -1,0 +1,24 @@
+{ 
+    "_id" : ObjectId("60380c100e583f2e7036ab27"), 
+    "PK_iTrangthaiKehoachTuyendungID" : 1.0, 
+    "sTenTrangthaiKehoachTuyendung" : "Chờ duyệt", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380c150e583f2e7036ab28"), 
+    "PK_iTrangthaiKehoachTuyendungID" : 2.0, 
+    "sTenTrangthaiKehoachTuyendung" : "Đã duyệt", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380c200e583f2e7036ab29"), 
+    "PK_iTrangthaiKehoachTuyendungID" : 3.0, 
+    "sTenTrangthaiKehoachTuyendung" : "Gửi trả", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380c250e583f2e7036ab2a"), 
+    "PK_iTrangthaiKehoachTuyendungID" : 4.0, 
+    "sTenTrangthaiKehoachTuyendung" : "Đã hủy", 
+    "__v" : NumberInt(0)
+}

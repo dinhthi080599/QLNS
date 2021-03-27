@@ -1,0 +1,12 @@
+{ 
+    "_id" : ObjectId("60539973835a3200e509e8d2"), 
+    "PK_iLoaiHopdongID" : NumberInt(1), 
+    "sTenLoaiHopdong" : "Hợp đồng lao động không xác định thời hạn", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60539981835a3200e509e8d3"), 
+    "PK_iLoaiHopdongID" : NumberInt(2), 
+    "sTenLoaiHopdong" : "Hợp đồng lao động xác định thời hạn", 
+    "__v" : NumberInt(0)
+}

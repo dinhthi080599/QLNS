@@ -109,9 +109,9 @@ module.exports.Insert = async function (msg) {
     for (const [col, value] of Object.entries(INSERT)) {
         let formatValue = value;
         if (arrayDateColumn.indexOf(col.toLowerCase()) !== -1) {
-            formatValue = convertISOtoDateTime(value, 'YYYY-MM-DD');
+            formatValue = value ? convertISOtoDateTime(value, 'YYYY-MM-DD') : '';
         } else if (arrayDateTimeColumn.indexOf(col.toLowerCase()) !== -1) {
-            formatValue = convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss');
+            formatValue = value ? convertISOtoDateTime(value, 'YYYY-MM-DD HH:mm:ss') : '';
         }
         INSERT_PG[col] = `'${formatValue}'`;
         if (arrayNumberColumn.indexOf(col.toLowerCase()) === -1) {
@@ -135,8 +135,9 @@ module.exports.Insert = async function (msg) {
     const column_data_pg = Object.values(INSERT_PG);
     // For Mysql
     var pg_sql = `INSERT INTO ${table_name} ("${column_name_pg.join("\",\"").toLowerCase()}") VALUES (${column_data_pg.join(",")})`;
-    const my_sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES (${column_data.join(",")});`;
+    var my_sql = `INSERT INTO ${table_name} (${column_name.join(",")}) VALUES (${column_data.join(",")});`;
 
+    my_sql = my_sql.replace(/''/g, 'NULL');
     con.connect(function(err) {
         if (err) throw err;
         con.query(query_check, function (err, result, fields) {

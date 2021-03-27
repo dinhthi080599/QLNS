@@ -1,0 +1,70 @@
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1a"), 
+    "PK_iBophanID" : 1.0, 
+    "iThutuBophan" : NumberInt(1), 
+    "sTenBophan" : "BP tuyển dụng", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1b"), 
+    "PK_iBophanID" : 2.0, 
+    "iThutuBophan" : NumberInt(2), 
+    "sTenBophan" : "BP lương thưởng và phúc lợi", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1c"), 
+    "PK_iBophanID" : 3.0, 
+    "iThutuBophan" : NumberInt(3), 
+    "sTenBophan" : "BP hành chính", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1d"), 
+    "PK_iBophanID" : 4.0, 
+    "iThutuBophan" : NumberInt(4), 
+    "sTenBophan" : "BP kế hoạch", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1e"), 
+    "PK_iBophanID" : 5.0, 
+    "iThutuBophan" : NumberInt(5), 
+    "sTenBophan" : "BP kế toán", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab1f"), 
+    "PK_iBophanID" : 6.0, 
+    "iThutuBophan" : NumberInt(6), 
+    "sTenBophan" : "BP Marketing", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab20"), 
+    "PK_iBophanID" : 7.0, 
+    "iThutuBophan" : NumberInt(7), 
+    "sTenBophan" : "BP Sale", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab21"), 
+    "PK_iBophanID" : 8.0, 
+    "iThutuBophan" : NumberInt(8), 
+    "sTenBophan" : "BP kho", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380bd10e583f2e7036ab22"), 
+    "PK_iBophanID" : 9.0, 
+    "iThutuBophan" : NumberInt(9), 
+    "sTenBophan" : "BP chăm sóc khách hàng", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605558caae514e0020080b97"), 
+    "PK_iBophanID" : 10.0, 
+    "iThutuBophan" : NumberInt(0), 
+    "sTenBophan" : "Điều hành", 
+    "__v" : NumberInt(0)
+}

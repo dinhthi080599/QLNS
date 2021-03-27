@@ -1,0 +1,12 @@
+{ 
+    "_id" : ObjectId("60380b2a7eb02d2d9bd82fc9"), 
+    "PK_iTrangthaiTaikhoanID" : NumberInt(1), 
+    "sTenTrangthaiTaikhoan" : "Đang mở", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380b2a7eb02d2d9bd82fca"), 
+    "PK_iTrangthaiTaikhoanID" : NumberInt(2), 
+    "sTenTrangthaiTaikhoan" : "Đang khóa", 
+    "__v" : NumberInt(0)
+}

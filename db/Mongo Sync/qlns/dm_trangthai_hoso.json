@@ -1,0 +1,30 @@
+{ 
+    "_id" : ObjectId("603bc050539ac3aeea5445f2"), 
+    "PK_iTrangthaiHosoTuyendungID" : NumberInt(1), 
+    "sTenTrangthaiHosoTuyendung" : "Chờ duyệt", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("603bc059539ac3aeea5445f3"), 
+    "PK_iTrangthaiHosoTuyendungID" : NumberInt(2), 
+    "sTenTrangthaiHosoTuyendung" : "Đã duyệt", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("603bc077539ac3aeea5445f4"), 
+    "PK_iTrangthaiHosoTuyendungID" : NumberInt(3), 
+    "sTenTrangthaiHosoTuyendung" : "Loại", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("603bd6f1490e29ca8af38a75"), 
+    "PK_iTrangthaiHosoTuyendungID" : NumberInt(4), 
+    "sTenTrangthaiHosoTuyendung" : "Đạt", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("603bd6f7490e29ca8af38a76"), 
+    "PK_iTrangthaiHosoTuyendungID" : NumberInt(5), 
+    "sTenTrangthaiHosoTuyendung" : "Không đạt", 
+    "__v" : NumberInt(0)
+}

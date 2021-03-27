@@ -1,0 +1,160 @@
+{ 
+    "_id" : ObjectId("605ea007f420920047828749"), 
+    "PK_iVitriCongviecID" : 1616814087694.0, 
+    "iThutuVitriCongviec" : NumberInt(0), 
+    "sTenVitriCongviec" : "Giám đốc", 
+    "FK_iBophanID" : ObjectId("605558caae514e0020080b97"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea049f42092004782874a"), 
+    "PK_iVitriCongviecID" : 1616814153298.0, 
+    "iThutuVitriCongviec" : NumberInt(1), 
+    "sTenVitriCongviec" : "Phó giám đốc", 
+    "FK_iBophanID" : ObjectId("605558caae514e0020080b97"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea240f42092004782874b"), 
+    "PK_iVitriCongviecID" : 1616814656665.0, 
+    "iThutuVitriCongviec" : NumberInt(2), 
+    "sTenVitriCongviec" : "Trưởng BP tuyển dụng", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1a"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea256f42092004782874c"), 
+    "PK_iVitriCongviecID" : 1616814678700.0, 
+    "iThutuVitriCongviec" : NumberInt(3), 
+    "sTenVitriCongviec" : "Trưởng BP lương thưởng & phúc lợi", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1b"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea25ef42092004782874d"), 
+    "PK_iVitriCongviecID" : 1616814686860.0, 
+    "iThutuVitriCongviec" : NumberInt(4), 
+    "sTenVitriCongviec" : "Trưởng BP hành chính", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1c"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea266f42092004782874e"), 
+    "PK_iVitriCongviecID" : 1616814694452.0, 
+    "iThutuVitriCongviec" : NumberInt(5), 
+    "sTenVitriCongviec" : "Trưởng BP kế hoạch", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1d"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea26ef42092004782874f"), 
+    "PK_iVitriCongviecID" : 1616814702488.0, 
+    "iThutuVitriCongviec" : NumberInt(6), 
+    "sTenVitriCongviec" : "Trưởng BP kế toán", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1e"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea277f420920047828750"), 
+    "PK_iVitriCongviecID" : 1616814711758.0, 
+    "iThutuVitriCongviec" : NumberInt(7), 
+    "sTenVitriCongviec" : "Trưởng BP marketing", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1f"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea27ff420920047828751"), 
+    "PK_iVitriCongviecID" : 1616814719455.0, 
+    "iThutuVitriCongviec" : NumberInt(8), 
+    "sTenVitriCongviec" : "Trưởng BP sale", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab20"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea289f420920047828752"), 
+    "PK_iVitriCongviecID" : 1616814729190.0, 
+    "iThutuVitriCongviec" : NumberInt(9), 
+    "sTenVitriCongviec" : "Trưởng BP kho", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab21"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea290f420920047828753"), 
+    "PK_iVitriCongviecID" : 1616814736893.0, 
+    "iThutuVitriCongviec" : NumberInt(10), 
+    "sTenVitriCongviec" : "Trưởng BP CSKH", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab22"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea29df420920047828754"), 
+    "PK_iVitriCongviecID" : 1616814749452.0, 
+    "iThutuVitriCongviec" : NumberInt(11), 
+    "sTenVitriCongviec" : "Nhân viên tuyển dụng", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1a"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2b0f420920047828755"), 
+    "PK_iVitriCongviecID" : 1616814768585.0, 
+    "iThutuVitriCongviec" : NumberInt(12), 
+    "sTenVitriCongviec" : "Nhân viên lương thưởng & phúc lợi", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1b"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2b8f420920047828756"), 
+    "PK_iVitriCongviecID" : 1616814776847.0, 
+    "iThutuVitriCongviec" : NumberInt(13), 
+    "sTenVitriCongviec" : "Nhân viên hành chính", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1c"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2c3f420920047828757"), 
+    "PK_iVitriCongviecID" : 1616814787014.0, 
+    "iThutuVitriCongviec" : NumberInt(14), 
+    "sTenVitriCongviec" : "Nhân viên kế hoạch", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1d"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2c7f420920047828758"), 
+    "PK_iVitriCongviecID" : 1616814791974.0, 
+    "iThutuVitriCongviec" : NumberInt(15), 
+    "sTenVitriCongviec" : "Nhân viên kế toán", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1e"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2cff420920047828759"), 
+    "PK_iVitriCongviecID" : 1616814799231.0, 
+    "iThutuVitriCongviec" : NumberInt(16), 
+    "sTenVitriCongviec" : "Nhân viên marketing", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab1f"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2d3f42092004782875a"), 
+    "PK_iVitriCongviecID" : 1616814803980.0, 
+    "iThutuVitriCongviec" : NumberInt(17), 
+    "sTenVitriCongviec" : "Nhân viên sale", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab20"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2d9f42092004782875b"), 
+    "PK_iVitriCongviecID" : 1616814809100.0, 
+    "iThutuVitriCongviec" : NumberInt(18), 
+    "sTenVitriCongviec" : "Nhân viên kho", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab21"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("605ea2dff42092004782875c"), 
+    "PK_iVitriCongviecID" : 1616814815910.0, 
+    "iThutuVitriCongviec" : NumberInt(19), 
+    "sTenVitriCongviec" : "Nhân viên CSKH", 
+    "FK_iBophanID" : ObjectId("60380bd10e583f2e7036ab22"), 
+    "__v" : NumberInt(0)
+}

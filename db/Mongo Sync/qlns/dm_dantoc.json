@@ -1,0 +1,24 @@
+{ 
+    "_id" : ObjectId("604a9358ce07420154c7e5fc"), 
+    "PK_iDantocID" : 1.0, 
+    "sTenDantoc" : "Kinh", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a9358ce07420154c7e5fd"), 
+    "PK_iDantocID" : 2.0, 
+    "sTenDantoc" : "Mường", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a9358ce07420154c7e5fe"), 
+    "PK_iDantocID" : 3.0, 
+    "sTenDantoc" : "Thái", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a9358ce07420154c7e5ff"), 
+    "PK_iDantocID" : 4.0, 
+    "sTenDantoc" : "Dao", 
+    "__v" : NumberInt(0)
+}

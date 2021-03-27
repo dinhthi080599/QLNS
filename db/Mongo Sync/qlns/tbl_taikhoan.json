@@ -1,0 +1,12 @@
+{ 
+    "_id" : ObjectId("604e51254b7ebd0020955d4c"), 
+    "PK_iTaikhoanID" : 1615745317440.0, 
+    "sMatkhau" : "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a", 
+    "tThoigianCap" : ISODate("2021-03-14T17:53:57.861+0000"), 
+    "sTenTaikhoan" : "admin", 
+    "FK_iQuyenID" : ObjectId("60380b5985e0692dd9038314"), 
+    "FK_iNhanvienID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "FK_iNguoiCapID" : ObjectId("604e50f39c8b96835ba9ff97"), 
+    "FK_iTrangthaiTaikhoan" : ObjectId("60380b2a7eb02d2d9bd82fc9"), 
+    "__v" : NumberInt(0)
+}

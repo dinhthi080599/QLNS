@@ -5,7 +5,7 @@ services:
     container_name: localmongo1
     image: mongo:4.0-xenial
     expose:
-    - 27018
+      - 27018
     ports:
       - 27018:27017
     restart: always

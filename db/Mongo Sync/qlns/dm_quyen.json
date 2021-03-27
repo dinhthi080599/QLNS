@@ -1,0 +1,24 @@
+{ 
+    "_id" : ObjectId("60380b5985e0692dd9038314"), 
+    "PK_iQuyenID" : NumberInt(1), 
+    "sTenQuyen" : "Quản trị viên", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380b5985e0692dd9038315"), 
+    "PK_iQuyenID" : NumberInt(2), 
+    "sTenQuyen" : "Giám đốc", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380b5985e0692dd9038316"), 
+    "PK_iQuyenID" : NumberInt(3), 
+    "sTenQuyen" : "Phó giám đốc", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380b5985e0692dd9038317"), 
+    "PK_iQuyenID" : NumberInt(4), 
+    "sTenQuyen" : "Trưởng BP tuyển dụng", 
+    "__v" : NumberInt(0)
+}

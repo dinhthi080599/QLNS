@@ -1,0 +1,24 @@
+{ 
+    "_id" : ObjectId("604a93be7225a90170715e98"), 
+    "PK_iTongiaoID" : 1.0, 
+    "sTenTongiao" : "Không", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a93be7225a90170715e99"), 
+    "PK_iTongiaoID" : 2.0, 
+    "sTenTongiao" : "Công giáo", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a93be7225a90170715e9a"), 
+    "PK_iTongiaoID" : 3.0, 
+    "sTenTongiao" : "Phật giáo", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("604a93be7225a90170715e9b"), 
+    "PK_iTongiaoID" : 4.0, 
+    "sTenTongiao" : "Đạo Hồi", 
+    "__v" : NumberInt(0)
+}

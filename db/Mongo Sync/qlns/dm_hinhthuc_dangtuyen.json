@@ -1,0 +1,24 @@
+{ 
+    "_id" : ObjectId("60380bff0e583f2e7036ab25"), 
+    "PK_iHinhthucDangtuyenID" : 1.0, 
+    "sTenHinhthucDangtuyen" : "Trang tuyển dụng", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380c050e583f2e7036ab26"), 
+    "PK_iHinhthucDangtuyenID" : 2.0, 
+    "sTenHinhthucDangtuyen" : "Mạng xã hội", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380d2a0e583f2e7036ab2b"), 
+    "PK_iHinhthucDangtuyenID" : 3.0, 
+    "sTenHinhthucDangtuyen" : "Báo chí", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("60380d2f0e583f2e7036ab2c"), 
+    "PK_iHinhthucDangtuyenID" : 4.0, 
+    "sTenHinhthucDangtuyen" : "Truyền hình", 
+    "__v" : NumberInt(0)
+}
