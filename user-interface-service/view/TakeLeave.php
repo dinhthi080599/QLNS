@@ -118,12 +118,12 @@
                                                     <tr>
                                                         <td>{$v.sTenNV}</td>
                                                         <td>{$v.sLydoNghi}</td>
-                                                        <td>{formatDate($v.dNgayNghi)}
+                                                        <td>{formatDate1($v.dNgayNghi)}
                                                             {if $v.dNgayNghi != $v.dNgayKethucNghi}
-                                                             - {formatDate($v.dNgayKethucNghi)}
+                                                             - {formatDate1($v.dNgayKethucNghi)}
                                                             {/if}
                                                         </td>
-                                                        <td>{formatDate($v.tThoigianTao)}</td>
+                                                        <td>{formatDate1($v.tThoigianTao)}</td>
                                                         <td>
                                                             <form action="" method="POST" id="form-action">
                                                                 <input type="hidden" value="{$v.pK_iDonxinNghiphepID}" name="id">
@@ -184,13 +184,13 @@
                                                     <tr>
                                                         <td>{$v.sTenNV}</td>
                                                         <td>{$v.sLydoNghi}</td>
-                                                        <td>{formatDate($v.dNgayNghi)}
+                                                        <td>{formatDate1($v.dNgayNghi)}
                                                             {if $v.dNgayNghi != $v.dNgayKethucNghi}
-                                                             - {formatDate($v.dNgayKethucNghi)}
+                                                             - {formatDate1($v.dNgayKethucNghi)}
                                                             {/if}</d>
-                                                        <td>{formatDate($v.tThoigianTao)}</td>
+                                                        <td>{formatDate1($v.tThoigianTao)}</td>
                                                         <td>{$Users[$v.fK_iNguoiDuyetID]['sTenNV']}</td>
-                                                        <td>{formatDate($v.dThoigianDuyet)}</td>
+                                                        <td>{formatDate1($v.dThoigianDuyet)}</td>
                                                     </tr>
                                                     {/foreach}
                                                 </tbody>
@@ -242,7 +242,7 @@
                                                         <td>{$v.sTenNV}</td>
                                                         <td>{$v.sLydoHuy}</td>
                                                         <td>{$Users[$v.fK_iNguoiDuyetID]['sTenNV']}</td>
-                                                        <td>{formatDate($v.dThoigianDuyet)}</td>
+                                                        <td>{formatDate1($v.dThoigianDuyet)}</td>
                                                     </tr>
                                                     {/foreach}
                                                 </tbody>

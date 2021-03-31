@@ -155,9 +155,11 @@ app.post('/Request', (req, _res) => {
         return;
     }
     // Get Parameter
-    const url = req.body.url;
+    const name_url = req.body.url;
+    const routes = req.body.routes;
     const data = req.body.data
     const method = req.body.method
+    const url = config.routing[name_url] + routes;
     var request = require('request');
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
     if (method == 'GET') {
@@ -177,6 +179,8 @@ app.post('/Request', (req, _res) => {
         };
         request(options, function(err, response, body) {
             if(err) { 
+                _res.send('error_request');
+                console.log(err);
                 console.log('💀 _Error Request_ 💀'); return; 
             }
             const parsed = parseInt(body);

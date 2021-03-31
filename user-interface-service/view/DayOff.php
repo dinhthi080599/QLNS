@@ -119,9 +119,9 @@
                                                                 <i class='uil uil-schedule font-16 mr-1'></i>
                                                             </li>
                                                             <li class="list-inline-item pr-1">
-                                                                {formatDate($v.dNgayBatdau)} 
+                                                                {formatDate1($v.dNgayBatdau)} 
                                                                 {if $v.dNgayBatdau != $v.dNgayKethuc}
-                                                                     đến {formatDate($v.dNgayKethuc)} 
+                                                                     đến {formatDate1($v.dNgayKethuc)} 
                                                                 {/if}
                                                             </li>
                                                             <li class="list-inline-item">
@@ -185,9 +185,9 @@
                                                                 <i class='uil uil-schedule font-16 mr-1'></i>
                                                             </li>
                                                             <li class="list-inline-item pr-1">
-                                                                {formatDate($v.dNgayBatdau)}
+                                                                {formatDate1($v.dNgayBatdau)}
                                                                 {if $v.dNgayBatdau != $v.dNgayKethuc}
-                                                                     đến {formatDate($v.dNgayKethuc)} 
+                                                                     đến {formatDate1($v.dNgayKethuc)} 
                                                                 {/if}
                                                             </li>
                                                             <li class="list-inline-item">

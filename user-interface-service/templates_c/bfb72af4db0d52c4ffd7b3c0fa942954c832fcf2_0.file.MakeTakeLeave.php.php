@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-24 17:16:05
+/* Smarty version 3.1.38, created on 2021-03-31 15:46:04
   from 'D:\Project\_datn\user-interface-service\view\MakeTakeLeave.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605b11655b9a36_63240856',
+  'unifunc' => 'content_606436cc225374_19340014',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bfb72af4db0d52c4ffd7b3c0fa942954c832fcf2' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\MakeTakeLeave.php',
-      1 => 1616580953,
+      1 => 1617180360,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605b11655b9a36_63240856 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606436cc225374_19340014 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -92,12 +92,12 @@ function content_605b11655b9a36_63240856 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Nghỉ từ ngày</label>
-                                    <input type="text" id="basic-datepicker" name="tu-ngay" class="form-control flatpickr-input" readonly="readonly" value="<?php echo formatDate($_smarty_tpl->tpl_vars['chitiet']->value['dNgayNghi']);?>
+                                    <input type="text" id="basic-datepicker" name="tu-ngay" class="form-control flatpickr-input" readonly="readonly" value="<?php echo formatDate1($_smarty_tpl->tpl_vars['chitiet']->value['dNgayNghi']);?>
 ">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Đến ngày</label>
-                                    <input type="text" id="basic-datepicker" name="den-ngay" class="form-control flatpickr-input" readonly="readonly" value="<?php echo formatDate($_smarty_tpl->tpl_vars['chitiet']->value['dNgayKethucNghi']);?>
+                                    <input type="text" id="basic-datepicker" name="den-ngay" class="form-control flatpickr-input" readonly="readonly" value="<?php echo formatDate1($_smarty_tpl->tpl_vars['chitiet']->value['dNgayKethucNghi']);?>
 ">
                                 </div>
                             </div>
@@ -141,7 +141,7 @@ echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['chitiet']->v
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Thời gian duyệt</label>
-                                    <input type="text" class="form-control flatpickr-input" value="<?php echo formatDate($_smarty_tpl->tpl_vars['chitiet']->value['dThoigianDuyet']);?>
+                                    <input type="text" class="form-control flatpickr-input" value="<?php echo formatDate1($_smarty_tpl->tpl_vars['chitiet']->value['dThoigianDuyet']);?>
 " disabled>
                                 </div>
                             </div>
@@ -208,9 +208,9 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </td> -->
                                                         <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sLydoNghi'];?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
 </td>
                                                         <td>
                                                         <?php if ($_smarty_tpl->tpl_vars['v']->value['fK_iTrangthaiDonxinNghiphepID'] == 0) {?>

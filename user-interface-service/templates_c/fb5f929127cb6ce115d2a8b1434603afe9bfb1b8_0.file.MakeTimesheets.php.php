@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-29 10:33:47
+/* Smarty version 3.1.38, created on 2021-03-31 16:05:19
   from 'D:\Project\_datn\user-interface-service\view\MakeTimesheets.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_60614a9bbb3086_04319514',
+  'unifunc' => 'content_60643b4f79cf70_11079884',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb5f929127cb6ce115d2a8b1434603afe9bfb1b8' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\MakeTimesheets.php',
-      1 => 1616988824,
+      1 => 1616989008,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60614a9bbb3086_04319514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60643b4f79cf70_11079884 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -222,7 +222,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                             <?php } else { ?>
                             <div>
-                                <a><h5 class="mb-0">Chi tiết bảng chấm công: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
+                                <a><h5 class="mb-0">Chi tiết bảng chấm công: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sHoten'];?>
 </h5></a>
                                 <div class="row mt-2">
                                     <div class="col-sm-3">

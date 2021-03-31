@@ -11,23 +11,23 @@ namespace timekeeping.Models
 {
     public class DB
     {
-        // private string Host = "ec2-3-216-181-219.compute-1.amazonaws.com";
-        // private string User = "pxabwtixrbnrgi";
-        // private string DBname = "ddrh7mbq23smfp";
-        // private string Password = "758b1065853c62c0762c41854fac9271875059ca656a9b9ca448617e7efd64e5";
-        // private string Port = "5432";
-
-        private string Host = "127.0.0.1";
-        private string User = "postgres";
-        private string DBname = "QLNS";
-        private string Password = "1";
+        private string Host = "ec2-3-216-181-219.compute-1.amazonaws.com";
+        private string User = "pxabwtixrbnrgi";
+        private string DBname = "ddrh7mbq23smfp";
+        private string Password = "758b1065853c62c0762c41854fac9271875059ca656a9b9ca448617e7efd64e5";
         private string Port = "5432";
+
+        // private string Host = "127.0.0.1";
+        // private string User = "postgres";
+        // private string DBname = "QLNS";
+        // private string Password = "1";
+        // private string Port = "5432";
         NpgsqlConnection conn;
         public void Connect()
         {
             try {
-                // string config = "SslMode=Require;Trust Server Certificate=true;";
-                string config = "Trust Server Certificate=true;";
+                string config = "SslMode=Require;Trust Server Certificate=true;";
+                // string config = "Trust Server Certificate=true;";
                 string connetionString = 
                 String.Format(
                     "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer;{5}",

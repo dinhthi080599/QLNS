@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-24 17:34:05
+/* Smarty version 3.1.38, created on 2021-03-31 15:48:11
   from 'D:\Project\_datn\user-interface-service\view\TakeLeave.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605b159d2a7f87_81354949',
+  'unifunc' => 'content_6064374b10bea7_36559030',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e39cd5cf36187337e237192024b8be74e6ebd09d' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\TakeLeave.php',
-      1 => 1616582044,
+      1 => 1617180488,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605b159d2a7f87_81354949 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6064374b10bea7_36559030 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -149,14 +149,14 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </td>
                                                         <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sLydoNghi'];?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
 
                                                             <?php if ($_smarty_tpl->tpl_vars['v']->value['dNgayNghi'] != $_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']) {?>
-                                                             - <?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']);?>
+                                                             - <?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']);?>
 
                                                             <?php }?>
                                                         </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
 </td>
                                                         <td>
                                                             <form action="" method="POST" id="form-action">
@@ -231,17 +231,17 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </td>
                                                         <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sLydoNghi'];?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dNgayNghi']);?>
 
                                                             <?php if ($_smarty_tpl->tpl_vars['v']->value['dNgayNghi'] != $_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']) {?>
-                                                             - <?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']);?>
+                                                             - <?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dNgayKethucNghi']);?>
 
                                                             <?php }?></d>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['tThoigianTao']);?>
 </td>
                                                         <td><?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['v']->value['fK_iNguoiDuyetID']]['sTenNV'];?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dThoigianDuyet']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dThoigianDuyet']);?>
 </td>
                                                     </tr>
                                                     <?php
@@ -305,7 +305,7 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </td>
                                                         <td><?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['v']->value['fK_iNguoiDuyetID']]['sTenNV'];?>
 </td>
-                                                        <td><?php echo formatDate($_smarty_tpl->tpl_vars['v']->value['dThoigianDuyet']);?>
+                                                        <td><?php echo formatDate1($_smarty_tpl->tpl_vars['v']->value['dThoigianDuyet']);?>
 </td>
                                                     </tr>
                                                     <?php

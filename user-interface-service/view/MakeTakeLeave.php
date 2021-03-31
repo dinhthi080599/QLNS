@@ -68,11 +68,11 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Nghỉ từ ngày</label>
-                                    <input type="text" id="basic-datepicker" name="tu-ngay" class="form-control flatpickr-input" readonly="readonly" value="{formatDate($chitiet.dNgayNghi)}">
+                                    <input type="text" id="basic-datepicker" name="tu-ngay" class="form-control flatpickr-input" readonly="readonly" value="{formatDate1($chitiet.dNgayNghi)}">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Đến ngày</label>
-                                    <input type="text" id="basic-datepicker" name="den-ngay" class="form-control flatpickr-input" readonly="readonly" value="{formatDate($chitiet.dNgayKethucNghi)}">
+                                    <input type="text" id="basic-datepicker" name="den-ngay" class="form-control flatpickr-input" readonly="readonly" value="{formatDate1($chitiet.dNgayKethucNghi)}">
                                 </div>
                             </div>
                             <div class="col-6">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Thời gian duyệt</label>
-                                    <input type="text" class="form-control flatpickr-input" value="{formatDate($chitiet.dThoigianDuyet)}" disabled>
+                                    <input type="text" class="form-control flatpickr-input" value="{formatDate1($chitiet.dThoigianDuyet)}" disabled>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -158,8 +158,8 @@
                                                     <tr>
                                                         <!-- <td>{$v.sTenNV}</td> -->
                                                         <td>{$v.sLydoNghi}</td>
-                                                        <td>{formatDate($v.dNgayNghi)}</td>
-                                                        <td>{formatDate($v.tThoigianTao)}</td>
+                                                        <td>{formatDate1($v.dNgayNghi)}</td>
+                                                        <td>{formatDate1($v.tThoigianTao)}</td>
                                                         <td>
                                                         {if $v.fK_iTrangthaiDonxinNghiphepID == 0}
                                                             <span class="text-warning">Chưa duyệt</span>

@@ -153,7 +153,9 @@ function GetAPI($method, $url)
 
 function AddAPI($method, $url, $data = false)
 {
-    $_data['url'] = $url;
+    $API_Name = explode("/", $url);
+    $_data['url'] = array_shift($API_Name);
+    $_data['routes'] = implode("/",$API_Name);
     $_data['data'] = $data;
     $_data['method'] = $method;
     $_data['token'] = $_SESSION['Token'];
@@ -215,6 +217,21 @@ function ShowView_No_Layout($data, $view) {
     require_once('lib/smarty/libs/Smarty.class.php');
     $smarty = new Smarty();
     $smarty->display('view/' . $view . '.php');
+}
+
+function formatDate1($date) {
+    if ($date == "") {
+        return "";
+    }
+    $date = str_replace("AM","", $date);
+    $date = str_replace("PM","", $date);
+    $date = str_replace("/","-", $date);
+    $date = explode(' ', $date);
+    $date = explode('-', $date[0]);
+    $date = implode('-', [$date[1], $date[0], $date[2]]);
+    $time = strtotime($date);
+    $new_date = date('d-m-Y', $time);
+    return $new_date;
 }
 
 function setMes($type, $title, $body) {
