@@ -205,6 +205,7 @@ function ShowView($data, $view) {
     $smarty = new Smarty();
     $data['ten_nv'] = $_SESSION['sHoten'];
     $data['quyen'] = $_SESSION['quyen']; 
+$data['chucnang'] = $_SESSION['chucnang']; 
     foreach ($data as $k => $val) {
         $smarty->assign($k, $val);
     }

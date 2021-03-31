@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-28 00:59:49
+/* Smarty version 3.1.38, created on 2021-03-31 19:23:02
   from 'D:\Project\_datn\user-interface-service\view\Layout\Header.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605f729510fd08_61711230',
+  'unifunc' => 'content_606469a63abf45_12747766',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17b76aff4b310a37ea95467f11e5349582dd41d3' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Layout\\Header.php',
-      1 => 1616867988,
+      1 => 1617193379,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605f729510fd08_61711230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606469a63abf45_12747766 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -155,65 +155,40 @@ function content_605f729510fd08_61711230 (Smarty_Internal_Template $_smarty_tpl)
                     <div id="sidebar-menu" class="slimscroll-menu">
                         <ul class="metismenu" id="menu-bar">
                             <li class="menu-title">Navigation</li>
-                            <li class="side-nav-title side-nav-item"><!----><a href="javascript:void(0);" class="side-nav-link mm-collapsed" aria-expanded="false"><i data-v-07452373="" data-name="settings" data-tags="cog,edit,gear,preferences" data-type="settings" class="feather feather--settings"><svg data-v-07452373="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings feather__content"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></i><span>Quản lý danh mục</span><span class="menu-arrow"></span></a><!----><ul class="nav-second-level mm-collapse" style=""><li class=""><!----><a href="/danh-mục/bo-phan" class="side-nav-link-ref">Bộ phận</a><!----></li><li class=""><!----><a href="/danh-mục/vi-tri-cong-viec" class="side-nav-link-ref">Vị trí công việc</a><!----></li><li class=""><!----><a href="/danh-mục/hinh-thuc-dang-tin-tuyen-dung" class="side-nav-link-ref">Hình thức đăng tuyển</a><!----></li><li class=""><!----><a href="/danh-mục/trang-thai-ke-hoach-tuyen-dung" class="side-nav-link-ref">Trạng thái kế hoạch tuyển dụng </a><!----></li><li class=""><!----><a href="/danh-mục/trang-thai-ho-so-tuyen-dung" class="side-nav-link-ref">Trạng thái hồ sơ tuyển dụng </a><!----></li><li class=""><!----><a href="/danh-mục/trang-thai-quyet-dinh-tuyen-dung" class="side-nav-link-ref">Trạng thái quyết định tuyển dụng </a><!----></li><li class=""><!----><a href="/danh-mục/loai-hop-dong" class="side-nav-link-ref">Loại hợp đồng </a><!----></li></ul></li>
-                            <li class="side-nav-title side-nav-item"><!----><a href="javascript:void(0);" class="side-nav-link" aria-expanded="false"><i data-v-07452373="" data-name="settings" data-tags="cog,edit,gear,preferences" data-type="settings" class="feather feather--settings"><svg data-v-07452373="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings feather__content"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></i><span>Quản lý hệ thống</span><span class="menu-arrow"></span></a><!----><ul class="nav-second-level mm-collapse"><li class=""><!----><a href="/he-thong/cap-tai-khoan" class="side-nav-link-ref">Cấp tài khoản</a><!----></li><li class=""><!----><a href="/he-thong/cap-nhat-tai-khoan" class="side-nav-link-ref">Cập nhật tài khoản</a><!----></li><li class=""><!----><a href="/he-thong/doi-mat-khau" class="side-nav-link-ref">Đổi mật khẩu</a><!----></li></ul></li><li class="side-nav-title side-nav-item"><!----><a href="javascript:void(0);" class="side-nav-link" aria-expanded="false"><i data-v-07452373="" data-name="star" data-tags="bookmark,favorite,like" data-type="star" class="feather feather--star"><svg data-v-07452373="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather__content"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></i><span>Quản lý tuyển dụng</span><span class="menu-arrow"></span></a><!----><ul class="nav-second-level mm-collapse"><li class=""><!----><a href="/tuyen-dung/lap-ke-hoach" class="side-nav-link-ref">Lập KH tuyển dụng</a><!----></li><li class=""><!----><!----><!----></li><li class=""><!----><a href="/tuyen-dung/duyet-ke-hoach" class="side-nav-link-ref">Duyệt KH tuyển dụng</a><!----></li><li class=""><!----><a href="/tuyen-dung/dang-tin" class="side-nav-link-ref">Đăng tin tuyển dụng</a><!----></li><li class=""><!----><a href="/tuyen-dung/tong-hop-ho-so" class="side-nav-link-ref">Tổng hợp hồ sơ</a><!----></li><li class=""><!----><!----><!----></li><li class=""><!----><a href="/tuyen-dung/danh-gia-ung-vien" class="side-nav-link-ref">Đ.giá năng lực ứng viên</a><!----></li><li class=""><!----><a href="/tuyen-dung/lap-quyet-dinh-tuyen-dung" class="side-nav-link-ref">Lập QĐ tuyển dụng</a><!----></li><li class=""><!----><!----><!----></li><li class=""><!----><a href="/tuyen-dung/bao-cao" class="side-nav-link-ref">Báo cáo tuyển dụng</a><!----></li><li class=""><!----><a href="/tuyen-dung/thong-ke-ho-so" class="side-nav-link-ref">T.kê hồ sơ tuyển dụng</a><!----></li></ul></li><li class="side-nav-title side-nav-item"><!----><a href="javascript:void(0);" class="side-nav-link" aria-expanded="false"><i data-v-07452373="" data-name="user" data-tags="" data-type="user" class="feather feather--user"><svg data-v-07452373="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user feather__content"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i><span>Quản lý nhân viên</span><span class="menu-arrow"></span></a><!----><ul class="nav-second-level mm-collapse"><li class=""><!----><a href="/nhan-vien/ho-so-nhan-vien" class="side-nav-link-ref">Hồ sơ nhân viên</a><!----></li><li class=""><!----><!----><!----></li><li class=""><!----><!----><!----></li><li class=""><!----><a href="/nhan-vien/thuyen-chuyen-phong-ban" class="side-nav-link-ref">Thuyên chuyển phòng ban</a><!----></li><li class=""><!----><a href="/nhan-vien/thang-chuc-giang-chuc" class="side-nav-link-ref">Thăng chức, giáng chức</a><!----></li><li class=""><!----><a href="/nhan-vien/hop-dong-lao-dong" class="side-nav-link-ref">Hợp đồng lao động</a><!----></li><li class=""><!----><a href="/nhan-vien/chung-chi" class="side-nav-link-ref">Chứng chỉ</a><!----></li><li class=""><!----><a href="/nhan-vien/khen-thuong-ky-luat" class="side-nav-link-ref">Khen thưởng, kỷ luật</a><!----></li><li class=""><!----><a href="/nhan-vien/bao-cao-nhan-su" class="side-nav-link-ref">Báo cáo nhân sự</a><!----></li></ul></li>
-                            <li class="">
-                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
-                                    <i data-feather="calendar"></i>
-                                    <span> Quản lý chấm công </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
-                                    <li class="mm-active">
-                                        <a href="thoi-gian-lam-viec">Thiết lập thời gian làm việc</a>
-                                    </li>
-                                    <li>
-                                        <a href="ngay-nghi">Thời gian nghỉ lễ, tết</a>
-                                    </li>
-                                    <li>
-                                        <a href="don-xin-nghi-phep">DS đơn xin nghỉ phép</a>
-                                    </li>
-                                    <li>
-                                        <a href="lap-don-xin-nghi-phep">Lập đơn xin nghỉ phép</a>
-                                    </li>
-                                    <li>
-                                        <a href="lap-bang-cham-cong">Lập bảng chấm công</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
-                                    <i data-feather="calendar"></i>
-                                    <span>Lương thưởng & phúc lợi </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
-                                    <li class="mm-active">
-                                        <a href="luong-co-ban">Lương cơ bản</a>
-                                    </li>
-                                    <li class="mm-active">
-                                        <a href="muc-thuong-phat">Thiết lập mức thưởng, phạt</a>
-                                    </li>
-                                    <li>
-                                        <a href="tinh-luong">Tính lương</a>
-                                    </li>
-                                    <li>
-                                        <a href="thong-ke-luong">Thống kê bảng lương</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript: void(0);" aria-expanded="false" class="mm-collapsed">
-                                    <i data-feather="calendar"></i>
-                                    <span>Quản lý công việc </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level mm-collapse" aria-expanded="false">
-                                    <li class="mm-active">
-                                        <a href="phan-cong-cong-viec">Lương cơ bản</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['chucnang']->value, 'v', false, 'k');
+$_smarty_tpl->tpl_vars['v']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+$_smarty_tpl->tpl_vars['v']->do_else = false;
+?>
+                                <li class="side-nav-title side-nav-item"><!---->
+                                    <a href="javascript:void(0);" class="side-nav-link mm-collapsed" aria-expanded="false">
+                                        <?php echo $_smarty_tpl->tpl_vars['v']->value['icon'];?>
+
+                                        <span><?php echo $_smarty_tpl->tpl_vars['v']->value['tieude'];?>
+</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul class="nav-second-level mm-collapse" style="">
+                                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['v']->value['chucnang'], '_v', false, '_k');
+$_smarty_tpl->tpl_vars['_v']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['_k']->value => $_smarty_tpl->tpl_vars['_v']->value) {
+$_smarty_tpl->tpl_vars['_v']->do_else = false;
+?>
+                                        <li class="">
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['_k']->value;?>
+" class="side-nav-link-ref"><?php echo $_smarty_tpl->tpl_vars['_v']->value;?>
+</a>
+                                        </li>
+                                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                    </ul>
+                                </li>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </ul>
                     </div>
                     <!-- End Sidebar -->

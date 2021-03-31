@@ -16,6 +16,7 @@ const crypto = require('crypto');
 const http = require('http');
 const https = require('https');
 const { json } = require('body-parser');
+// const { time } = require('node:console');
 
 
 app.use(cors())
@@ -127,10 +128,14 @@ app.post('/', function(req, res) {
                     query.sHoten = it.nhanvien.sHoten;
                     query.PK_iNhanvienID = it.nhanvien._id;
 
+                    // Chức năng theo quyền
+                    const chucnang = config.chucnang[it.quyen.PK_iQuyenID];
+
                     const response = {
                         token,
                         refreshToken,
-                        query
+                        query,
+                        chucnang
                     }
                     res.json(response);
                 } else {
