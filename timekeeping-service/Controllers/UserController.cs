@@ -23,9 +23,12 @@ namespace timekeeping.Controllers
             return Ok( new {Users});
         }
         [HttpPost]
-        public ActionResult Post([FromBody]DayOff value)
+        public ActionResult Post()
         {
-            return this.Ok(value.Add());
+            User user = new User();
+            List<User> Users = user.getByAll();
+            //part.Insert();
+            return Ok( new {Users});
         }
     }
 }

@@ -1,24 +1,148 @@
-{ 
-    "_id" : ObjectId("60380b5985e0692dd9038314"), 
-    "PK_iQuyenID" : NumberInt(1), 
-    "sTenQuyen" : "Quản trị viên", 
-    "__v" : NumberInt(0)
-}
-{ 
-    "_id" : ObjectId("60380b5985e0692dd9038315"), 
-    "PK_iQuyenID" : NumberInt(2), 
-    "sTenQuyen" : "Giám đốc", 
-    "__v" : NumberInt(0)
-}
-{ 
-    "_id" : ObjectId("60380b5985e0692dd9038316"), 
-    "PK_iQuyenID" : NumberInt(3), 
-    "sTenQuyen" : "Phó giám đốc", 
-    "__v" : NumberInt(0)
-}
-{ 
-    "_id" : ObjectId("60380b5985e0692dd9038317"), 
-    "PK_iQuyenID" : NumberInt(4), 
-    "sTenQuyen" : "Trưởng BP tuyển dụng", 
-    "__v" : NumberInt(0)
-}
+[{
+  "_id": {
+    "$oid": "60380b5985e0692dd9038314"
+  },
+  "PK_iQuyenID": 1,
+  "sTenQuyen": "Quản trị viên",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60380b5985e0692dd9038315"
+  },
+  "PK_iQuyenID": 2,
+  "sTenQuyen": "Giám đốc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60380b5985e0692dd9038316"
+  },
+  "PK_iQuyenID": 3,
+  "sTenQuyen": "Phó giám đốc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60380b5985e0692dd9038317"
+  },
+  "PK_iQuyenID": 4,
+  "sTenQuyen": "Trưởng BP tuyển dụng",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060862f0cae6de3db2059e2"
+  },
+  "PK_iQuyenID": 5,
+  "sTenQuyen": "Trưởng BP lương thưởng & phúc lợi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086440cae6de3db2059e4"
+  },
+  "PK_iQuyenID": 6,
+  "sTenQuyen": "Trưởng BP hành chính",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086500cae6de3db2059e5"
+  },
+  "PK_iQuyenID": 7,
+  "sTenQuyen": "Trưởng BP kế hoạch",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060865b0cae6de3db2059e6"
+  },
+  "PK_iQuyenID": 8,
+  "sTenQuyen": "Trưởng BP kế toán",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060866a0cae6de3db2059e8"
+  },
+  "PK_iQuyenID": 9,
+  "sTenQuyen": "Trưởng BP marketing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086760cae6de3db2059e9"
+  },
+  "PK_iQuyenID": 10,
+  "sTenQuyen": "Trưởng BP sale",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086860cae6de3db2059eb"
+  },
+  "PK_iQuyenID": 11,
+  "sTenQuyen": "Trưởng BP kho",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086990cae6de3db2059ec"
+  },
+  "PK_iQuyenID": 12,
+  "sTenQuyen": "Trưởng BP CSKH",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086a40cae6de3db2059ed"
+  },
+  "PK_iQuyenID": 13,
+  "sTenQuyen": "Nhân viên tuyển dụng",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086b40cae6de3db2059ef"
+  },
+  "PK_iQuyenID": 14,
+  "sTenQuyen": "Nhân viên lương thưởng & phúc lợi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086c60cae6de3db2059f0"
+  },
+  "PK_iQuyenID": 15,
+  "sTenQuyen": "Nhân viên hành chính",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086d50cae6de3db2059f1"
+  },
+  "PK_iQuyenID": 16,
+  "sTenQuyen": "Nhân viên kế hoạch",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086df0cae6de3db2059f2"
+  },
+  "PK_iQuyenID": 17,
+  "sTenQuyen": "Nhân viên kế toán",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086ee0cae6de3db2059f3"
+  },
+  "PK_iQuyenID": 18,
+  "sTenQuyen": "Nhân viên marketing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606086f90cae6de3db2059f4"
+  },
+  "PK_iQuyenID": 19,
+  "sTenQuyen": "Nhân viên sale",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087030cae6de3db2059f5"
+  },
+  "PK_iQuyenID": 20,
+  "sTenQuyen": "Nhân viên kho",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087230cae6de3db2059f7"
+  },
+  "PK_iQuyenID": 21,
+  "sTenQuyen": "Nhân viên CSKH",
+  "__v": 0
+}]

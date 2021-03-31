@@ -14,7 +14,7 @@ while($month < 13) {
     if ($month == 13) {
         continue;
     }
-    $year = 2019;
+    $year = 2022;
     $hour_ = 0;
     $hour__ = 0;
     $hour___ = 0;
@@ -34,7 +34,7 @@ while($month < 13) {
         // thoi gian lam sang
         while (true) {
             $hour = mt_rand(7,8);
-            if ($hour_ == $dimuon && $hour == 8) {
+            if ($hour_ >= $dimuon && $hour == 8) {
                 continue;
             } 
             if ($hour == 8) {
@@ -42,7 +42,11 @@ while($month < 13) {
             }
             break;
         }
-        $minutes = mt_rand(0, 59);
+        if ($hour == 8) {
+            $minutes = mt_rand(0, 30);
+        } else {
+            $minutes = mt_rand(30, 59);
+        }
         $seconds = mt_rand(0, 59);
         $_m = $minutes < 10 ? "0" : "";
         $_s = $seconds < 10 ? "0" : "";
@@ -73,11 +77,11 @@ while($month < 13) {
         $tThoigianVaolamChieu = "$hour:$_m$minutes:$_s$seconds";
         // thoigianlamchieu
         // thoigiannghichieu
-        $minutes = mt_rand(0, 10);
+        $minutes = mt_rand(30, 40);
         $seconds = mt_rand(0, 59);
         $_m = $minutes < 10 ? "0" : "";
         $_s = $seconds < 10 ? "0" : "";
-        $tThoigianNghiChieu = "15:$_m$minutes:$_s$seconds";
+        $tThoigianNghiChieu = "17:$_m$minutes:$_s$seconds";
         // thoigiannghichieu
         $v['tThoigianVaolamSang'] = $tThoigianVaolamSang;
         $v['tThoigianNghiSang'] = $tThoigianNghiSang;
@@ -94,7 +98,7 @@ while($month < 13) {
         }
         $data = json_encode($___json, JSON_UNESCAPED_UNICODE);
         $fp = fopen($file_name, 'w');
-        echo ($data);
+        echo ($file_name . "n");
         fwrite($fp, json_encode($data));
         fclose($fp);
     }

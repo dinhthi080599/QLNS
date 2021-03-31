@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-27 14:13:50
+/* Smarty version 3.1.38, created on 2021-03-29 10:43:04
   from 'D:\Project\_datn\user-interface-service\view\Payroll.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605edb2e8dc610_26688506',
+  'unifunc' => 'content_60614cc8608266_12365395',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'faa6851296b5b8122702674f97308c1faa89e711' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Payroll.php',
-      1 => 1616829229,
+      1 => 1616989383,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605edb2e8dc610_26688506 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60614cc8608266_12365395 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -211,7 +211,7 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </label>
                                                                 </div>
                                                             </td>
-                                                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sTenNV'];?>
+                                                            <td><?php echo $_smarty_tpl->tpl_vars['v']->value['sHoten'];?>
 </td>
                                                             <td><?php echo formatDate($_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['k']->value]['dNgaysinh']);?>
 </td=>
@@ -267,7 +267,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <?php } else { ?>
                                 <div>
-                                    <a><h5 class="mb-0">Chi tiết bảng lương của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
+                                    <a><h5 class="mb-0">Chi tiết bảng lương của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sHoten'];?>
 </h5></a>
                                     <div class="row mt-2">
                                         <div class="col-sm-3">
@@ -313,7 +313,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
  VND" class="form-control" readonly>
                                         </div>
                                     </div>
-                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sTenNV'];?>
+                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: <?php echo $_smarty_tpl->tpl_vars['Users']->value[$_smarty_tpl->tpl_vars['mnv']->value]['sHoten'];?>
 </h5></a>
                                     <div class="card mb-0 shadow-none">
                                         <div class="card-body p-0 pt-3">

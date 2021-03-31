@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-25 00:29:50
+/* Smarty version 3.1.38, created on 2021-03-29 10:06:54
   from 'D:\Project\_datn\user-interface-service\view\RewardPenance.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605b770e3813b9_59510872',
+  'unifunc' => 'content_6061444ee090d7_46708582',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c35b757d4f670fd63db82f519b442de55eedce23' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\RewardPenance.php',
-      1 => 1616193569,
+      1 => 1616987213,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605b770e3813b9_59510872 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061444ee090d7_46708582 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -106,41 +106,41 @@ function content_605b770e3813b9_59510872 (Smarty_Internal_Template $_smarty_tpl)
                     <form action="" method="GET">
                         <div class="row">
                             <div class="col-auto">
-                                <label>Hiển thị: </label>
+                                <!-- <button class="btn btn-sm btn-info">Lọc</button> -->
+                                <button class="btn btn-sm btn-info" name="add" value="1">Thêm mới</button>
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <label>Hiển thị: </label> -->
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="tatca" name="show" value="all">
                                     <label class="custom-control-label" for="tatca">Tất cả</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="khenthuong" name="show" value="khenthuong">
                                     <label class="custom-control-label" for="khenthuong">Khen thưởng</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="kyluat" name="show" value="kyluat">
                                     <label class="custom-control-label" for="kyluat">Kỷ luật</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="dapheduyet" name="show" value="dapheduyet">
                                     <label class="custom-control-label" for="dapheduyet">Đã được phê duyệt</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="chuapheduyet" name="show" value="chuapheduyet">
                                     <label class="custom-control-label" for="chuapheduyet">Chưa được phê duyệt</label>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-sm btn-info">Lọc</button>
-                                <button class="btn btn-sm btn-info" name="add" value="1">Thêm mới</button>
+                                </div> -->
                             </div>
                         </div>
                     </form>
@@ -149,15 +149,15 @@ function content_605b770e3813b9_59510872 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="text-dark" data-toggle="collapse" href="#dsnv"
                                 aria-expanded="false" aria-controls="dsnv">
                                 <h5 class="mb-0"><i class='uil uil-angle-down font-size-18'>
-                                    </i> Danh sách nhân viên
-                                    <span class="text-muted font-size-14">(<?php echo sizeof($_smarty_tpl->tpl_vars['Users']->value);?>
+                                    </i> Danh sách loại khen thưởng/kỷ luật
+                                    <span class="text-muted font-size-14">(<?php echo sizeof($_smarty_tpl->tpl_vars['KTKL']->value);?>
 )</span>
                                 </h5>
                             </a>
                             <div class="collapse show" id="dsnv">
                                 <div class="card mb-0 shadow-none">
                                     <div class="card-body p-0 pt-3">
-                                        <?php if (sizeof($_smarty_tpl->tpl_vars['Users']->value) == 0) {?>
+                                        <?php if (sizeof($_smarty_tpl->tpl_vars['KTKL']->value) == 0) {?>
                                         <div class="row justify-content-sm-between mt-2 pt-2">
                                             <div class="col-lg-6 mb-2 mb-lg-0">
                                                 <div class="custom-control custom-checkbox">
@@ -204,10 +204,10 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 </td>
                                                         <td>
                                                             <form action="" method="POST">
-                                                                <a href="/muc-thuong-phat?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['PK_iKhenthuongKyluatID'];?>
+                                                                <!-- <a href="/muc-thuong-phat?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['_id'];?>
 " class="btn btn-info btn-sm">
                                                                     Chi tiết
-                                                                </a>
+                                                                </a> -->
                                                             <?php if ($_smarty_tpl->tpl_vars['v']->value['iTrangthai'] == 1) {?>
                                                                 <button type="submit" name="action" value="duyet" class="btn btn-success btn-sm">
                                                                     Duyệt

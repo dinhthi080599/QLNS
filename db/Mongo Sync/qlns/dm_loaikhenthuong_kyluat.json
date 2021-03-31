@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("604c558da87482cdc85ba1fa"), 
+    "sTenLoai" : "Khen thưởng", 
+    "ID" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("604c55b8a87482cdc85ba1fb"), 
+    "sTenLoai" : "Kỷ luật", 
+    "ID" : NumberInt(2)
+}

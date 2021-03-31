@@ -56,5 +56,38 @@ namespace timekeeping.Models
             db.Close();
             return Users;
         }
+        public List<User> getByAll() {
+            /**
+            *   Id = 0 return all
+            *   Id != 0 return by id
+            */
+            string sql_command = "SELECT *, tbl_nhanvien._id AS _id_nv FROM tbl_nhanvien " +
+            "LEFT JOIN tbl_quatrinh_lamviec ON \"fk_inhanvienid\" = tbl_nhanvien._id " +
+            "LEFT JOIN tbl_vitri_congviec ON tbl_vitri_congviec._id = \"fk_ivitricongviecid\"";
+            List<User> Users = new List<User>();
+            DB db = new DB();
+            NpgsqlDataReader dr = db.get(sql_command);
+            if (dr.HasRows) { 
+                while (dr.Read()) {
+                    User user = new User();
+                    user.PK_iNhanvienID = dr.GetInt64(dr.GetOrdinal("PK_iNhanvienID"));
+                    user.sHoten = dr["sHoten"].ToString();
+                    user.sTen = dr["sTen"].ToString();
+                    user.dNgaysinh = dr["dNgaysinh"].ToString();
+                    user.bGioitinh = dr["bGioitinh"].ToString();
+                    user.sDiachi = dr["sDiachi"].ToString();
+                    user.sDienthoai = dr["sDienthoai"].ToString();
+                    user.sCMND = dr["sCMND"].ToString(); 
+                    user.sTenNV = dr["sHoten"].ToString() + " " + dr["sTen"].ToString(); 
+                    user.FK_iBophanID = dr["fk_ibophanid"].ToString();
+                    user.FK_iVitriCongviecID = dr["fk_ivitricongviecid"].ToString();
+                    user.sMaNhanvien = dr["sMaNhanvien"].ToString();
+                    user._id = dr["_id_nv"].ToString();
+                    Users.Add(user);
+                }
+            }
+            db.Close();
+            return Users;
+        }
     }
 }

@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("604c46f3a87482cdc85ba1f9"), 
+    "ID" : NumberInt(1), 
+    "sTenTrangThai" : "Chưa duyệt"
+}
+{ 
+    "_id" : ObjectId("604c473b18d2424ca0761853"), 
+    "ID" : NumberInt(2), 
+    "sTenTrangThai" : "Đã duyệt"
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-28 00:53:16
+/* Smarty version 3.1.38, created on 2021-03-29 10:44:28
   from 'D:\Project\_datn\user-interface-service\view\ReportSalary.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605f710c40c417_60209650',
+  'unifunc' => 'content_60614d1c764cb8_84736690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'beb5652e6ebd083544eacd874c32220a2b0e6c05' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\ReportSalary.php',
-      1 => 1616867594,
+      1 => 1616989466,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605f710c40c417_60209650 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60614d1c764cb8_84736690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -141,7 +141,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <input type="hidden" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['ThongKe']->value);?>
 " id="thong-ke-tong-hop" name="thong-ke-tong-hop">
                                     <button class="btn btn-success" name="action" value="thong-ke-tong-hop">Thống kê lương tổng hợp</button>
-                                    <button class="btn btn-primary" >Thống kê tiền phạt</button>
+                                    <!-- <button class="btn btn-primary" >Thống kê tiền phạt</button> -->
                                 </form>
                             </div>
                         </div>

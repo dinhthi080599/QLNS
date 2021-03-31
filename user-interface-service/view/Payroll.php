@@ -147,7 +147,7 @@
                                                                     <label class="form-check-label" for="checktl{$v.i}" style="margin-top: 2px;">{$v.i}</label>
                                                                 </div>
                                                             </td>
-                                                            <td>{$v.sTenNV}</td>
+                                                            <td>{$v.sHoten}</td>
                                                             <td>{formatDate($Users[$k]['dNgaysinh'])}</td=>
                                                             <td>
                                                                 {if isset($Users_Timesheets[$v.pK_iNhanvienID])}
@@ -191,7 +191,7 @@
                                 </div>
                                 {else}
                                 <div>
-                                    <a><h5 class="mb-0">Chi tiết bảng lương của: {$Users[$mnv]['sTenNV']}</h5></a>
+                                    <a><h5 class="mb-0">Chi tiết bảng lương của: {$Users[$mnv]['sHoten']}</h5></a>
                                     <div class="row mt-2">
                                         <div class="col-sm-3">
                                             <label for="thang">Lương cơ bản</label>
@@ -228,7 +228,7 @@
                                             <input type="text" value="{number_format($SalaryProcess[$mnv]['iLuongCoban']*sizeof($list_ts[$mnv])/24 - $Payroll[$mnv]['iTienphat'], 0, '.', '.')} VND" class="form-control" readonly>
                                         </div>
                                     </div>
-                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: {$Users[$mnv]['sTenNV']}</h5></a>
+                                    <a><h5 class="mb-0 mt-3">Chi tiết chấm công theo ngày của: {$Users[$mnv]['sHoten']}</h5></a>
                                     <div class="card mb-0 shadow-none">
                                         <div class="card-body p-0 pt-3">
                                             <div class="justify-content-sm-between">

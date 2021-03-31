@@ -57,14 +57,16 @@ class Salary extends BaseController
         $Users = GetAPI('GET', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
         $_SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
+        $SalaryProcess = $SP = [];
         foreach ($_SP as $k => $v) {
             unset($v['tbl_quatrinh_lamviec']['_id']);
             $SP[] = array_merge($v['tbl_hopdong_laodong'], $v['tbl_quatrinh_lamviec']);
         }
-        $SalaryProcess = [];
-        foreach ($SP as $k => $v) {
-            $id = $v['FK_iNhanvienID']['$oid'];
-            $SalaryProcess[$id] = $v;
+        if (sizeof($SP) != 0) {
+            foreach ($SP as $k => $v) {
+                $id = $v['FK_iNhanvienID']['$oid'];
+                $SalaryProcess[$id] = $v;
+            }
         }
         foreach ($Part as $k => $v) {
             $PartList[$v['pK_iBophanID']] = $v;

@@ -1,23 +1,28 @@
 $(document).ready(function(){
     $(document).on('click', '.time-working tr td:not(:first-child)', function(){
+        var td = $(this).parent().children('td');
+        var text = "";
+        for (let i = 1; i < 4; i++) {
+            text = $(td[i]).text();
+            if (text != 'OFF') {
+                time_start = text.substr(0, 5);
+                time_end = text.substr(8, 9);
+            } else {
+                time_start = '00:00';
+                time_end = '00:00';
+            }
+            input_time_start = $('[name^="tthoigianbatdau"]').get(i-1);
+            input_time_end = $('[name^="tthoigiankethuc"]').get(i-1);
+            $(input_time_start).val(time_start);
+            $(input_time_end).val(time_end);
+        }
+        $('#time-working-modal').modal('show');
+        return;
         var id =$(this).get(0).id;
-        var text = $(this).text();
         var thu = id.substr(3, 1); 
         var ca = id.substr(4, 1); 
         $('#sngaytrongtuan').val(thu);
         $('#ca').val(ca);
-        if (text != 'OFF') {
-            time_start = text.substr(0, 5);
-            time_end = text.substr(8, 9);
-            $('#tthoigianbatdau').val(time_start);
-            $('#tthoigiankethuc').val(time_end);
-            $('#working').prop('checked', true);
-        } else {
-            time_start = '00:00';
-            time_end = '00:00';
-            $('#working').prop('checked', false);
-        }
-        $('#time-working-modal').modal('show');
     });
     $('#working').on('change', function(){
         if ($(this).prop('checked')) {
@@ -72,38 +77,38 @@ $(document).ready(function(){
             $('.loader-bg').fadeOut(100);
         });
     });
-    $('#btn-save').on('click', function(){
-        var tthoigianbatdau = $('#tthoigianbatdau').val() == '' ? '00:00' : $('#tthoigianbatdau').val();
-        var tthoigiankethuc = $('#tthoigiankethuc').val() == '' ? '00:00' : $('#tthoigiankethuc').val();
-        var data = {
-            action: 'add_new',
-            fk_ibophanid: $('#fk_ibophanid').val(),
-            sngaytrongtuan: $('#sngaytrongtuan').val(),
-            tthoigianbatdau: tthoigianbatdau,
-            tthoigiankethuc: tthoigiankethuc,
-            ca: $('#ca').val()
-        };
-        $.ajax({
-            method: "POST",
-            data: data,
-            dataType:'json',
-            url: "/thoi-gian-lam-viec",
-        }).done(function (res) {
-            td = $('#id-' + data.sngaytrongtuan + data.ca);
-            if (res == 1) {
-                if (data.tthoigianbatdau == "00:00" && data.tthoigiankethuc == "00:00") {
-                    $(td).text("OFF");
-                } else {
-                    $(td).text(data.tthoigianbatdau + ' : ' + data.tthoigiankethuc);
-                }
-                $('#time-working-modal').modal('hide');
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Cập nhật thời gian làm việc thành công!'
-                })
-            }
-        });
-    });
+    // $('#btn-save').on('click', function(){
+    //     var tthoigianbatdau = $('#tthoigianbatdau').val() == '' ? '00:00' : $('#tthoigianbatdau').val();
+    //     var tthoigiankethuc = $('#tthoigiankethuc').val() == '' ? '00:00' : $('#tthoigiankethuc').val();
+    //     var data = {
+    //         action: 'add_new',
+    //         fk_ibophanid: $('#fk_ibophanid').val(),
+    //         sngaytrongtuan: $('#sngaytrongtuan').val(),
+    //         tthoigianbatdau: tthoigianbatdau,
+    //         tthoigiankethuc: tthoigiankethuc,
+    //         ca: $('#ca').val()
+    //     };
+    //     $.ajax({
+    //         method: "POST",
+    //         data: data,
+    //         dataType:'json',
+    //         url: "/thoi-gian-lam-viec",
+    //     }).done(function (res) {
+    //         td = $('#id-' + data.sngaytrongtuan + data.ca);
+    //         if (res == 1) {
+    //             if (data.tthoigianbatdau == "00:00" && data.tthoigiankethuc == "00:00") {
+    //                 $(td).text("OFF");
+    //             } else {
+    //                 $(td).text(data.tthoigianbatdau + ' : ' + data.tthoigiankethuc);
+    //             }
+    //             $('#time-working-modal').modal('hide');
+    //             Toast.fire({
+    //                 icon: 'success',
+    //                 title: 'Cập nhật thời gian làm việc thành công!'
+    //             })
+    //         }
+    //     });
+    // });
     $(document).on('change', '#tthoigianbatdau', function() {
         if ($('#tthoigiankethuc').val() == '') {
             $('#tthoigiankethuc').val($(this).val());

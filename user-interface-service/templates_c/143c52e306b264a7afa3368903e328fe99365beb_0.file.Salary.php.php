@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-27 14:47:06
+/* Smarty version 3.1.38, created on 2021-03-28 20:44:05
   from 'D:\Project\_datn\user-interface-service\view\Salary.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605ee2fa90f986_59276485',
+  'unifunc' => 'content_606088256a4895_45458114',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '143c52e306b264a7afa3368903e328fe99365beb' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Salary.php',
-      1 => 1616830980,
+      1 => 1616939044,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605ee2fa90f986_59276485 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606088256a4895_45458114 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -107,11 +107,11 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_
 $_smarty_tpl->tpl_vars['JP']->do_else = false;
 ?>
                                             <?php if ($_smarty_tpl->tpl_vars['JP']->value['pK_iVitriCongviecID'] == $_smarty_tpl->tpl_vars['vitri']->value) {?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['JP']->value['pK_iVitriCongviecID'];?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['JP']->value['_id'];?>
 " selected><?php echo $_smarty_tpl->tpl_vars['JP']->value['sTenVitriCongviec'];?>
 </option>
                                             <?php } else { ?>
-                                                <option value="<?php echo $_smarty_tpl->tpl_vars['JP']->value['pK_iVitriCongviecID'];?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['JP']->value['_id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['JP']->value['sTenVitriCongviec'];?>
 </option>
                                             <?php }?>
@@ -197,8 +197,8 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
 echo $_smarty_tpl->tpl_vars['SalaryProcess']->value[$_smarty_tpl->tpl_vars['v']->value['_id']]['_id']['$oid'];
 } else { ?>0<?php }?>" data-NVID="<?php echo $_smarty_tpl->tpl_vars['v']->value['_id'];?>
 "
-                                                            class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button">
-                                                                Cập nhật
+                                                            class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button" title="Cập nhật">
+                                                            <i class="uil uil-file-edit-alt"></i>
                                                             </button>
                                                         </td>
                                                     </tr>

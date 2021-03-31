@@ -18,9 +18,10 @@ $(document).ready(function(){
             html = '';
             if (res != 'die') {
                 $.each(res, function( key, value ) {
-                    x = value.iLuongCoban.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-                    lbh = value.iLuongDongBaohiem.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-                    console.log(lbh);
+                    // x = .toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+                    // lbh = value.iLuongDongBaohiem.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+                    x = new Intl.NumberFormat('de-DE', { style : 'currency', currency : 'VND' }).format(value.iLuongCoban)
+                    lbh = new Intl.NumberFormat('de-DE', { style : 'currency', currency : 'VND' }).format(value.iLuongDongBaohiem)
                     html += `
                         <tr>
                             <td class="text-center">` + value.dNgayHetHan + `</td>

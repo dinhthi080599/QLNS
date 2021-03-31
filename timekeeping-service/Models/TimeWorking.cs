@@ -70,6 +70,7 @@ namespace timekeeping.Models
             string sql_command = "";
             // Tồn tại thì UPDATE
             List<TimeWorking> t = this.getByID(this.FK_iBophanID, this.sNgayTrongTuan);
+            Console.WriteLine(this.FK_iBophanID);
             if (t.Count > 0)
             {
                 string default_time = "00:00:00";

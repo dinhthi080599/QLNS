@@ -1,0 +1,1 @@
+pg_dump -U postgres --table=tbl_thoigian_lamviec --encoding utf8 --column-inserts QLNS > tbl_thoigian_lamviec.sql

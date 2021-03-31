@@ -66,6 +66,9 @@ function formatDateMDY($date) {
     if ($date == "") {
         return "";
     }
+    $date = str_replace("AM","", $date);
+    $date = str_replace("PM","", $date);
+    $date = str_replace("/","-", $date);
     $time = strtotime($date);
     $new_date = date('m-d-Y', $time);
     return $new_date;

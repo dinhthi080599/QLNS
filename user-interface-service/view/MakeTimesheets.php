@@ -134,7 +134,7 @@
                                                     {foreach $Users_Timesheets as $k => $v}
                                                     <tr>
                                                         <td class="text-center">{$v.STT}</td>
-                                                        <td>{$Users[$k]['sTenNV']}</td>
+                                                        <td>{$Users[$k]['sHoten']}</td>
                                                         <td>{formatDate($Users[$k]['dNgaysinh'])}</td=>
                                                         <td>{$v.SNC}</td>
                                                         <td class="text-center">
@@ -154,7 +154,7 @@
                             </div>
                             {else}
                             <div>
-                                <a><h5 class="mb-0">Chi tiết bảng chấm công: {$Users[$mnv]['sTenNV']}</h5></a>
+                                <a><h5 class="mb-0">Chi tiết bảng chấm công: {$Users[$mnv]['sHoten']}</h5></a>
                                 <div class="row mt-2">
                                     <div class="col-sm-3">
                                         <label for="thang">Số ngày công</label>

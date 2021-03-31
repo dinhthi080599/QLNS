@@ -1,0 +1,56 @@
+{ 
+    "_id" : ObjectId("604c3ef81019270d5c0a7c10"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(1), 
+    "sTieude" : NumberInt(1), 
+    "sNoidung" : NumberInt(2), 
+    "FK_iLoaiKhenthuongKyluatID" : NumberInt(1), 
+    "FK_iNguoiLapID" : NumberInt(1), 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(2), 
+    "tThoigianDuyet" : "13/03/2021", 
+    "iKinhphi" : NumberInt(80000), 
+    "sGhichu" : "", 
+    "iTrangthai" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("604c79bd679a3f4497a68ff6"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(2), 
+    "sTieude" : "Tiêu đề", 
+    "sNoidung" : "Nội dung", 
+    "FK_iLoaiKhenthuongKyluatID" : "1", 
+    "FK_iNguoiLapID" : "1", 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(0), 
+    "tThoigianDuyet" : "", 
+    "iKinhphi" : "123456789", 
+    "sGhichu" : "", 
+    "iTrangthai" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("604c79f5679a3f4497a68ff7"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(3), 
+    "sTieude" : "Tiêu đề", 
+    "sNoidung" : "Nội dung", 
+    "FK_iLoaiKhenthuongKyluatID" : "1", 
+    "FK_iNguoiLapID" : "1", 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(0), 
+    "tThoigianDuyet" : "", 
+    "iKinhphi" : "123456789", 
+    "sGhichu" : "", 
+    "iTrangthai" : NumberInt(2)
+}
+{ 
+    "_id" : ObjectId("604c7a70679a3f4497a68ff8"), 
+    "PK_iKhenthuongKyluatID" : NumberInt(4), 
+    "sTieude" : "Test nef", 
+    "sNoidung" : "Test nuax nef", 
+    "FK_iLoaiKhenthuongKyluatID" : "1", 
+    "FK_iNguoiLapID" : "1", 
+    "tThoigianLap" : "13/03/2021", 
+    "FK_iNguoiduyetID" : NumberInt(0), 
+    "tThoigianDuyet" : "", 
+    "iKinhphi" : "100000", 
+    "sGhichu" : "", 
+    "iTrangthai" : NumberInt(2)
+}

@@ -6,6 +6,13 @@ $(".flatpickr-input").flatpickr({
         "firstDayOfWeek": 1 // start week on Monday
     }
 });
+$(".flatpickr-time").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    defaultDate: "08:00"
+});
 var fp = $(".flatpickr-input");
 $.each( fp, function( key, value ) {
     var c = $(value).removeAttr('readonly');

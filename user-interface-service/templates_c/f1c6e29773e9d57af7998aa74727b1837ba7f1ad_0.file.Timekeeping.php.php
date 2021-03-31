@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-24 15:37:27
+/* Smarty version 3.1.38, created on 2021-03-28 16:30:19
   from 'D:\Project\_datn\user-interface-service\view\Timekeeping.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605afa4714e8d9_02950834',
+  'unifunc' => 'content_60604cabecf3a0_42530807',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1c6e29773e9d57af7998aa74727b1837ba7f1ad' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Timekeeping.php',
-      1 => 1616193569,
+      1 => 1616923818,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605afa4714e8d9_02950834 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60604cabecf3a0_42530807 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     .media:hover {
         background-color: #c6d0ff;
@@ -84,16 +84,6 @@ $_smarty_tpl->tpl_vars['v']->do_else = false;
                     <!-- stat 1 -->
                     <div class="media px-3 py-4 border-bottom" data-part-id="<?php echo $_smarty_tpl->tpl_vars['v']->value['pK_iBophanID'];?>
 ">
-                        <!-- <div class="media-body">
-                            <span class="text-muted font-size-12"><?php echo $_smarty_tpl->tpl_vars['v']->value['sTenBophan'];?>
-</span>
-                            <?php if ((isset($_smarty_tpl->tpl_vars['NV_PB']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iBophanID']]))) {?>
-                            <h4 class="mt-0 mb-1 font-size-18 font-weight-normal"><?php echo $_smarty_tpl->tpl_vars['NV_PB']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iBophanID']];?>
- nhân viên</h4>
-                            <?php } else { ?>
-                            <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">0 nhân viên</h4>
-                            <?php }?>
-                        </div> -->
                         <div class="media-body">
                             <?php if ((isset($_smarty_tpl->tpl_vars['NV_PB']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iBophanID']]))) {?>
                             <span class="text-muted font-size-12"><?php echo $_smarty_tpl->tpl_vars['NV_PB']->value[$_smarty_tpl->tpl_vars['v']->value['pK_iBophanID']];?>
@@ -121,7 +111,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <!-- <p class="sub-header ">Từ: 01/28/2021 [- đến: 08/05/2222]</p> -->
                 </label>
                 <h5 class="card-title mt-0 pb-0 header-title TitleTable">Thời gian làm việc bộ phận: </h5>
-                <input type="hidden" name="fk_ibophanid" id="fk_ibophanid" value="1">
                 <div class="table-responsive">
                     <table class="table table-dark mb-0 table-bordered time-working">
                         <thead>
@@ -137,6 +126,53 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <tr>
                                 <td class="text-center" colspan="100%">Chọn bộ phận</td>
                             </tr>
+                            <?php } else { ?>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['timeWorkingList']->value, 'v', false, 'k');
+$_smarty_tpl->tpl_vars['v']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+$_smarty_tpl->tpl_vars['v']->do_else = false;
+?>
+                            <tr>
+                                <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['v']->value['sTenThu'];?>
+</td>
+                                <td class="text-center" id="id-<?php echo $_smarty_tpl->tpl_vars['k']->value;
+echo $_smarty_tpl->tpl_vars['v']->value['ca'];?>
+">
+                                    <?php if ($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauSang'] == '00:00:00') {?>
+                                        OFF
+                                    <?php } else { ?>
+                                        <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauSang'],0,5);?>
+ - <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianKethucSang'],0,5);?>
+
+                                    <?php }?>
+                                </td>
+                                <td class="text-center" id="id-<?php echo $_smarty_tpl->tpl_vars['k']->value;
+echo $_smarty_tpl->tpl_vars['v']->value['ca'];?>
+">
+                                    <?php if ($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauChieu'] == '00:00:00') {?>
+                                        OFF
+                                    <?php } else { ?>
+                                        <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauChieu'],0,5);?>
+ - <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianKethucChieu'],0,5);?>
+
+                                    <?php }?>
+                                </td>
+                                <td class="text-center" id="id-<?php echo $_smarty_tpl->tpl_vars['k']->value;
+echo $_smarty_tpl->tpl_vars['v']->value['ca'];?>
+"> 
+                                    <?php if ($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauToi'] == '00:00:00') {?>
+                                        OFF
+                                    <?php } else { ?>
+                                        <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianBatdauToi'],0,5);?>
+ - <?php echo substr($_smarty_tpl->tpl_vars['v']->value['tThoigianKethucToi'],0,5);?>
+
+                                    <?php }?>
+                                </td>
+                            </tr>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <?php }?>
                         </tbody>
                     </table>
@@ -164,17 +200,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             aria-hidden="true">&times;</button>
                         <h5 class="modal-title" id="modal-title">Thời gian làm việc</h5>
                     </div>
-                    <div class="modal-body p-4">
-                        <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                    <div class="modal-body">
+                        <form method="POST" class="needs-validation" name="event-form" id="form-event" novalidate>
                             <div class="row">
-                                <div class="col-12"> 
-                                    <div class="custom-control custom-switch mb-2">
-                                        <input type="checkbox" class="custom-control-input" id="working" checked  data-off="Nghỉ" data-on="Làm việc">
-                                        <label class="custom-control-label no-select" for="working" id="label-working">
-                                            Làm việc
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6">
@@ -194,38 +222,78 @@ $_smarty_tpl->tpl_vars['val']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                                 </select>
+                                                <input type="hidden" name="fk_ibophanid" id="fk_ibophanid" value="<?php echo $_smarty_tpl->tpl_vars['PartID']->value;?>
+">   
                                                 <div class="invalid-feedback">Please provide a valid event name</div>
                                             </div>
                                         </div>
-                                        <div class="col-6">    
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">    
                                             <div class="form-group">
                                                 <label class="control-label">Ca</label>
-                                                <select name="ca" id="ca" class="form-control">
-                                                    <option value="0">Sáng</option>
-                                                    <option value="1">Chiều</option>
-                                                    <option value="2">Tối</option>
-                                                </select>
+                                                <input class="form-control" type="text" value="Sáng" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Bắt đầu</label>
+                                                <input class="form-control flatpickr-time" type="text" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Kết thúc</label>
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="control-label">Bắt đầu</label>
-                                        <input class="form-control" id="tthoigianbatdau" type="time" name="tthoigianbatdau">
+                                    <div class="row">
+                                        <div class="col-4">    
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" value="Chiều" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="control-label">Kết thúc</label>
-                                        <input class="form-control" id="tthoigiankethuc" type="time" name="tthoigiankethuc">
+                                    <div class="row">
+                                        <div class="col-4">    
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" value="Tối" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12 text-right">
                                     <button type="button" class="btn btn-light mr-1" data-dismiss="modal">Đóng</button>
-                                    <button type="button" class="btn btn-success" id="btn-save">Lưu lại</button>
+                                    <button type="submit" class="btn btn-success" id="btn-save" name="action" value="add_new">Lưu lại</button>
                                 </div>
                             </div>
                         </form>

@@ -161,9 +161,10 @@ app.post('/Request', (req, _res) => {
     var request = require('request');
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
     if (method == 'GET') {
-        request.get({url: url}, function(err, response, body) {
+        request.get({url: encodeURI(url)}, function(err, response, body) {
             if(err) { 
-                // console.log(err); return; 
+                _res.send('error_request');
+                console.log(err);
                 console.log('💀 _Error Request_ 💀'); return; 
             }
             _res.send(body);

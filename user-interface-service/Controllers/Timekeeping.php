@@ -8,6 +8,8 @@ class Timekeeping extends BaseController
     {
         $data = null;
         $action = get('action');
+        $data['PartID'] = "";
+        $data['timeWorkingList'] = array();
         if ($action == '') {
             $action = post('action');
         }
@@ -17,11 +19,15 @@ class Timekeeping extends BaseController
                 break;
             }
             case 'add_new': {
-                $this->add_new();
+                if ($_SESSION['load'] != 'load') {
+                    $data['PartID'] = $this->add_new();
+                    $data['timeWorkingList'] = $this->get_data_($data['PartID']);
+                } else {
+                    $_SESSION['load'] = 1;
+                }
                 break;
             }
         }
-        $data['timeWorkingList'] = array();
         $data['partList'] = GetAPI('GET', URLLLL.'Part')['partList'];
         $data['NV_PB'] = GetAPI('GET', URLLLL.'Part/NV_PB');
         $data['dm_thu'] = dm_thu();
@@ -39,35 +45,60 @@ class Timekeeping extends BaseController
         die();
     }
 
+    public function get_data_($PartID) {
+        $data = GetAPI('GET', URLLLL.'TimeWorking?PartID='.$PartID)['timeWorkingList'];
+        $NgayTrongTuan = dm_thu();
+        foreach ($data as $k => $v) {
+            $data[$k]['sTenThu'] = $NgayTrongTuan[$v['sNgayTrongTuan']];
+        }
+        return $data;
+    }
+
     public function add_new() {
+        $_SESSION['load'] = 'load';
+        $ca = post('ca');
+        $tthoigianbatdau = post('tthoigianbatdau');
+        $tthoigiankethuc = post('tthoigiankethuc');
         $ca = post('ca');
         $data = array(
             'fk_ibophanid' => post('fk_ibophanid'),
             'sngaytrongtuan' => post('sngaytrongtuan'),
             'FK_iNguoiTao' => session('id'),
-            // 'tthoigiantao' => "2021-02-23T00:01:38", #date("Y-m-d H:i:s"),
             'dNgayApdung' => date("Y-m-d H:i:s"),
             'ca' => (int) $ca
         );
         $data = array_merge($data, default_timeworking());
-        switch ($ca) {
-            case '0':{
-                $data['tthoigianbatdausang'] =  post('tthoigianbatdau').":00";
-                $data['tthoigiankethucsang'] = post('tthoigiankethuc').":00";
-                break;
-            }
-            case '1':{
-                $data['tthoigianbatdauchieu'] = post('tthoigianbatdau').":00";
-                $data['tthoigiankethucchieu'] = post('tthoigiankethuc').":00";
-                break;
-            }
-            case '2':{
-                $data['tthoigianbatdautoi'] = post('tthoigianbatdau').":00";
-                $data['tthoigiankethuctoi'] = post('tthoigiankethuc').":00";
-                break;
+        foreach ($ca as $k => $v) {
+            switch ($k) {
+                case '0':{
+                    if ($tthoigianbatdau[$k] != "")
+                    $data['tthoigianbatdausang'] =  $tthoigianbatdau[$k] . ":00";
+                    if ($tthoigiankethuc[$k] != "")
+                    $data['tthoigiankethucsang'] = $tthoigiankethuc[$k] . ":00";
+                    break;
+                }
+                case '1':{
+                    if ($tthoigianbatdau[$k] != "")
+                    $data['tthoigianbatdauchieu'] = $tthoigianbatdau[$k] . ":00";
+                    if ($tthoigiankethuc[$k] != "")
+                    $data['tthoigiankethucchieu'] = $tthoigiankethuc[$k] . ":00";
+                    break;
+                }
+                case '2':{
+                    if ($tthoigianbatdau[$k] != "")
+                        $data['tthoigianbatdautoi'] = $tthoigianbatdau[$k] . ":00";
+                    if ($tthoigiankethuc[$k] != "")
+                        $data['tthoigiankethuctoi'] = $tthoigiankethuc[$k] . ":00";
+                    break;
+                }
             }
         }
-        echo AddAPI('POST', URLLLL.'TimeWorking', $data);
-        die();
+        if(AddAPI('POST', URLLLL.'TimeWorking', $data) > 0) {
+            setMes('success', 'Thành công', 'Cập nhật ngày làm việc thành công!');
+        }
+        else {
+            setMes('error', 'Thất bại', 'Bạn chưa chọn phòng ban!');
+        }
+        return post('fk_ibophanid');
     }
 }

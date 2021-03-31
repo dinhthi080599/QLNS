@@ -42,13 +42,14 @@ class RewardPenance extends BaseController
 
         // Config Data
         $JobPosition = GetAPI('GET', URLLLL.'JobPosition/Get');
-        $Users = GetAPI('GET', URLLLL.'User')['users'];
+        $Users = GetAPI('POST', URLLLL.'User')['users'];
         $Part = GetAPI('GET', URLLLL.'Part')['partList'];
         $SP = AddAPI('POST', URLLLL_Salary.'SalaryProcess', ['id' => 0]);
         $_KTKL = AddAPI('POST', URLLLL_Salary.'GetKTKL', ['id' => 0]);
         $_StatusKTKL = AddAPI('POST', URLLLL_Salary.'GetStatusKTKL', ['id' => 0]);
         $_TypeKTKL = AddAPI('POST', URLLLL_Salary.'GetTypeKTKL', ['id' => 0]);
         $i = 1;
+        $StatusKTKL = $TypeKTKL = $KTKL = [];
         foreach ($_KTKL as $k => $v) {
             $v['i'] = $i++;
             $KTKL[$v['PK_iKhenthuongKyluatID']] = $v;
@@ -82,7 +83,8 @@ class RewardPenance extends BaseController
                 unset($Users[$k]);
                 continue;
             }
-            $Users[$k]['i'] = $i++;
+            $v['i'] = $i++;
+            $_Users[$v['_id']] = $v;
         }
         // End config data
         $data['KTKL'] = $KTKL;
@@ -91,7 +93,7 @@ class RewardPenance extends BaseController
         $data['SalaryProcess'] = $SalaryProcess;
         $data['bophan'] = get('bophan');
         $data['vitri'] = get('vitri');
-        $data['Users'] = $Users;
+        $data['Users'] = $_Users;
         $data['JobPosition'] = $JP;
         $data['PartList'] = $PartList;
         $data['dm_thu'] = dm_thu();

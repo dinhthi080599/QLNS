@@ -68,9 +68,9 @@
                                     {if $bophan != ""}
                                         {foreach $JobPosition as $k => $JP}
                                             {if $JP.pK_iVitriCongviecID == $vitri}
-                                                <option value="{$JP.pK_iVitriCongviecID}" selected>{$JP.sTenVitriCongviec}</option>
+                                                <option value="{$JP._id}" selected>{$JP.sTenVitriCongviec}</option>
                                             {else}
-                                                <option value="{$JP.pK_iVitriCongviecID}">{$JP.sTenVitriCongviec}</option>
+                                                <option value="{$JP._id}">{$JP.sTenVitriCongviec}</option>
                                             {/if}
                                         {/foreach}
                                     {/if}
@@ -136,8 +136,8 @@
                                                         </td>
                                                         <td class="text-center">
                                                             <button value="{if isset($SalaryProcess[$v._id])}{$SalaryProcess[$v._id]['_id']['$oid']}{else}0{/if}" data-NVID="{$v._id}"
-                                                            class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button">
-                                                                Cập nhật
+                                                            class="btn btn-info btn-sm SalaryProcess" data-toggle="modal" data-target="#capnhat" type="button" title="Cập nhật">
+                                                            <i class="uil uil-file-edit-alt"></i>
                                                             </button>
                                                         </td>
                                                     </tr>

@@ -55,14 +55,6 @@
                     {foreach $partList as $k => $v}
                     <!-- stat 1 -->
                     <div class="media px-3 py-4 border-bottom" data-part-id="{$v.pK_iBophanID}">
-                        <!-- <div class="media-body">
-                            <span class="text-muted font-size-12">{$v.sTenBophan}</span>
-                            {if isset($NV_PB[$v.pK_iBophanID])}
-                            <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">{$NV_PB[$v.pK_iBophanID]} nhân viên</h4>
-                            {else}
-                            <h4 class="mt-0 mb-1 font-size-18 font-weight-normal">0 nhân viên</h4>
-                            {/if}
-                        </div> -->
                         <div class="media-body">
                             {if isset($NV_PB[$v.pK_iBophanID])}
                             <span class="text-muted font-size-12">{$NV_PB[$v.pK_iBophanID]} nhân viên</span>
@@ -86,7 +78,6 @@
                     <!-- <p class="sub-header ">Từ: 01/28/2021 [- đến: 08/05/2222]</p> -->
                 </label>
                 <h5 class="card-title mt-0 pb-0 header-title TitleTable">Thời gian làm việc bộ phận: </h5>
-                <input type="hidden" name="fk_ibophanid" id="fk_ibophanid" value="1">
                 <div class="table-responsive">
                     <table class="table table-dark mb-0 table-bordered time-working">
                         <thead>
@@ -102,6 +93,33 @@
                             <tr>
                                 <td class="text-center" colspan="100%">Chọn bộ phận</td>
                             </tr>
+                            {else}
+                            {foreach $timeWorkingList as $k => $v}
+                            <tr>
+                                <td class="text-center">{$v.sTenThu}</td>
+                                <td class="text-center" id="id-{$k}{$v.ca}">
+                                    {if $v.tThoigianBatdauSang == '00:00:00'}
+                                        OFF
+                                    {else}
+                                        {substr($v.tThoigianBatdauSang, 0, 5)} - {substr($v.tThoigianKethucSang, 0, 5)}
+                                    {/if}
+                                </td>
+                                <td class="text-center" id="id-{$k}{$v.ca}">
+                                    {if $v.tThoigianBatdauChieu == '00:00:00'}
+                                        OFF
+                                    {else}
+                                        {substr($v.tThoigianBatdauChieu, 0, 5)} - {substr($v.tThoigianKethucChieu, 0, 5)}
+                                    {/if}
+                                </td>
+                                <td class="text-center" id="id-{$k}{$v.ca}"> 
+                                    {if $v.tThoigianBatdauToi == '00:00:00'}
+                                        OFF
+                                    {else}
+                                        {substr($v.tThoigianBatdauToi, 0, 5)} - {substr($v.tThoigianKethucToi, 0, 5)}
+                                    {/if}
+                                </td>
+                            </tr>
+                            {/foreach}
                             {/if}
                         </tbody>
                     </table>
@@ -129,17 +147,9 @@
                             aria-hidden="true">&times;</button>
                         <h5 class="modal-title" id="modal-title">Thời gian làm việc</h5>
                     </div>
-                    <div class="modal-body p-4">
-                        <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                    <div class="modal-body">
+                        <form method="POST" class="needs-validation" name="event-form" id="form-event" novalidate>
                             <div class="row">
-                                <div class="col-12"> 
-                                    <div class="custom-control custom-switch mb-2">
-                                        <input type="checkbox" class="custom-control-input" id="working" checked  data-off="Nghỉ" data-on="Làm việc">
-                                        <label class="custom-control-label no-select" for="working" id="label-working">
-                                            Làm việc
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6">
@@ -150,38 +160,77 @@
                                                     <option value="{$k}">{$val}</option>
                                                     {/foreach}
                                                 </select>
+                                                <input type="hidden" name="fk_ibophanid" id="fk_ibophanid" value="{$PartID}">   
                                                 <div class="invalid-feedback">Please provide a valid event name</div>
                                             </div>
                                         </div>
-                                        <div class="col-6">    
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">    
                                             <div class="form-group">
                                                 <label class="control-label">Ca</label>
-                                                <select name="ca" id="ca" class="form-control">
-                                                    <option value="0">Sáng</option>
-                                                    <option value="1">Chiều</option>
-                                                    <option value="2">Tối</option>
-                                                </select>
+                                                <input class="form-control" type="text" value="Sáng" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Bắt đầu</label>
+                                                <input class="form-control flatpickr-time" type="text" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Kết thúc</label>
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="control-label">Bắt đầu</label>
-                                        <input class="form-control" id="tthoigianbatdau" type="time" name="tthoigianbatdau">
+                                    <div class="row">
+                                        <div class="col-4">    
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" value="Chiều" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="control-label">Kết thúc</label>
-                                        <input class="form-control" id="tthoigiankethuc" type="time" name="tthoigiankethuc">
+                                    <div class="row">
+                                        <div class="col-4">    
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" value="Tối" name="ca[]" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigianbatdau[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input class="form-control flatpickr-time" type="time" name="tthoigiankethuc[]">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12 text-right">
                                     <button type="button" class="btn btn-light mr-1" data-dismiss="modal">Đóng</button>
-                                    <button type="button" class="btn btn-success" id="btn-save">Lưu lại</button>
+                                    <button type="submit" class="btn btn-success" id="btn-save" name="action" value="add_new">Lưu lại</button>
                                 </div>
                             </div>
                         </form>

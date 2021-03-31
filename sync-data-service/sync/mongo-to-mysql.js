@@ -33,7 +33,7 @@ module.exports.Update = function (msg) {
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "phpmyadmin",
+        user: "root",
         password: "",
         database: "qlns"
     });
@@ -99,7 +99,7 @@ module.exports.Insert = async function (msg) {
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "phpmyadmin",
+        user: "root",
         password: "",
         database: "qlns"
     });
@@ -188,7 +188,7 @@ module.exports.Delete = function (msg) {
     var mysql = require('mysql');
     var con = mysql.createConnection({
         host: "localhost",
-        user: "phpmyadmin",
+        user: "root",
         password: "",
         database: "qlns"
     });

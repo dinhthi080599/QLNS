@@ -18,6 +18,7 @@ KTKL = db.tbl_khenthuong_kyluat
 StatusKTKL = db.dm_trangthai_khenthuong_kyluat
 TypeKTKL = db.dm_loaikhenthuong_kyluat
 LUONG = db.tbl_luong
+THUE = db.tbl_mucthue
 
 @app.route('/UpdateSalary', methods = ['GET', 'POST'])
 def UpdateSalary():
@@ -180,6 +181,19 @@ def GetKTKL():
     json_data = dumps(list_ktkl)
     return json_data
 
+@app.route('/GetThue', methods = ['GET', 'POST'])
+def GetThue():
+    # Get Request
+    data = request.json
+
+    # Get DataGetStatusKTKL
+    thue = THUE.find()
+
+    # Parse To Json
+    list_thue = list(thue)
+    json_data = dumps(list_thue)
+    return json_data
+
 @app.route('/GetStatusKTKL', methods = ['GET', 'POST'])
 def GetStatusKTKL():
     # Get Data
@@ -311,7 +325,7 @@ def Payroll():
     salary = {}
     for x in list_hdld:
         # Tiền lương 1 ngày công
-        _salary_per_day = x['tbl_hopdong_laodong']['iLuongCoban']/24
+        _salary_per_day = int(x['tbl_hopdong_laodong']['iLuongCoban'])/24
         _salary = _salary_per_day * workdays[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])]
         _salary = _salary - int(time_late[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])]/6)*100
         salary[str(x['tbl_quatrinh_lamviec']['FK_iNhanvienID'])] = int(_salary)
@@ -376,6 +390,51 @@ def AddKTKL():
 
     # INSERT
     x = KTKL.insert_one(data_add)
+    return str(x.inserted_id)
+
+@app.route('/UpdateThue', methods = ['GET', 'POST'])
+def UpdateThue():
+    # Get Request
+    data = request.json
+    luong = data['luong']
+    thue = data['thue']
+    id = data['id']
+    nguoitao = data['nguoitao']
+    today = date.today()
+    d1 = today.strftime("%d/%m/%Y")
+
+    #UPDATE
+    query = { "_id": ObjectId(id) }
+    newvalues = { "$set": { 
+            "iMucLuongToiThieu": int(luong),
+            "fMucThue": int(thue),
+            "FK_iNguoiTao": nguoitao,
+            "tThoigianTao": d1
+        } 
+    }
+    result = THUE.update_one(query, newvalues)
+    return str(id)
+
+@app.route('/AddThue', methods = ['GET', 'POST'])
+def AddThue():
+    # Get Request
+    data = request.json
+    luong = data['luong']
+    thue = data['thue']
+    nguoitao = data['nguoitao']
+    today = date.today()
+    d1 = today.strftime("%d/%m/%Y")
+
+    # Config data
+    data_add = {
+        "iMucLuongToiThieu": int(luong),
+        "fMucThue": int(thue),
+        "FK_iNguoiTao": nguoitao,
+        "tThoigianTao": d1,
+    }
+
+    # INSERT
+    x = THUE.insert_one(data_add)
     return str(x.inserted_id)
 
 @app.route('/Insert', methods = ['GET', 'POST'])

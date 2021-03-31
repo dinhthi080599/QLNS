@@ -86,7 +86,7 @@
                                 <form action="http://export-excel.com/" method="POST">
                                     <input type="hidden" value="{htmlspecialchars($ThongKe)}" id="thong-ke-tong-hop" name="thong-ke-tong-hop">
                                     <button class="btn btn-success" name="action" value="thong-ke-tong-hop">Thống kê lương tổng hợp</button>
-                                    <button class="btn btn-primary" >Thống kê tiền phạt</button>
+                                    <!-- <button class="btn btn-primary" >Thống kê tiền phạt</button> -->
                                 </form>
                             </div>
                         </div>

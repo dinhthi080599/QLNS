@@ -1,12 +1,404 @@
-{ 
-    "_id" : ObjectId("604e51254b7ebd0020955d4c"), 
-    "PK_iTaikhoanID" : 1615745317440.0, 
-    "sMatkhau" : "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a", 
-    "tThoigianCap" : ISODate("2021-03-14T17:53:57.861+0000"), 
-    "sTenTaikhoan" : "admin", 
-    "FK_iQuyenID" : ObjectId("60380b5985e0692dd9038314"), 
-    "FK_iNhanvienID" : ObjectId("604e50f39c8b96835ba9ff97"), 
-    "FK_iNguoiCapID" : ObjectId("604e50f39c8b96835ba9ff97"), 
-    "FK_iTrangthaiTaikhoan" : ObjectId("60380b2a7eb02d2d9bd82fc9"), 
-    "__v" : NumberInt(0)
-}
+[{
+  "_id": {
+    "$oid": "604e51254b7ebd0020955d4c"
+  },
+  "PK_iTaikhoanID": 1615745317440,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-14T17:53:57.861Z"
+  },
+  "sTenTaikhoan": "admin",
+  "FK_iQuyenID": {
+    "$oid": "60380b5985e0692dd9038314"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "604e50f39c8b96835ba9ff97"
+  },
+  "FK_iNguoiCapID": {
+    "$oid": "604e50f39c8b96835ba9ff97"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087562a7f420020c8e2e9"
+  },
+  "PK_iTaikhoanID": 1616938838157,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "vanhung",
+  "FK_iQuyenID": {
+    "$oid": "60380b5985e0692dd9038316"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ea67db4c6befeb4b73e9d"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087652a7f420020c8e2ea"
+  },
+  "PK_iTaikhoanID": 1616938853239,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "duythanh",
+  "FK_iQuyenID": {
+    "$oid": "606087030cae6de3db2059f5"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed0c04f8b3c1689f19b88"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060876f2a7f420020c8e2eb"
+  },
+  "PK_iTaikhoanID": 1616938863739,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "tuyendo",
+  "FK_iQuyenID": {
+    "$oid": "606086b40cae6de3db2059ef"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed1094f8b3c1689f19b8a"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060877b2a7f420020c8e2ec"
+  },
+  "PK_iTaikhoanID": 1616938875086,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "quocthanh",
+  "FK_iQuyenID": {
+    "$oid": "6060866a0cae6de3db2059e8"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed1774f8b3c1689f19b8c"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087852a7f420020c8e2ed"
+  },
+  "PK_iTaikhoanID": 1616938885187,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "yenle",
+  "FK_iQuyenID": {
+    "$oid": "60380b5985e0692dd9038317"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed3534f8b3c1689f19b8e"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087912a7f420020c8e2ee"
+  },
+  "PK_iTaikhoanID": 1616938897685,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "thuythu",
+  "FK_iQuyenID": {
+    "$oid": "606086990cae6de3db2059ec"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed4ba4f8b3c1689f19b90"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060879a2a7f420020c8e2ef"
+  },
+  "PK_iTaikhoanID": 1616938906659,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "baonguyen",
+  "FK_iQuyenID": {
+    "$oid": "606086a40cae6de3db2059ed"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed6144f8b3c1689f19b92"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087a32a7f420020c8e2f0"
+  },
+  "PK_iTaikhoanID": 1616938915851,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "manhhung",
+  "FK_iQuyenID": {
+    "$oid": "606086df0cae6de3db2059f2"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed6684f8b3c1689f19b94"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087ac2a7f420020c8e2f1"
+  },
+  "PK_iTaikhoanID": 1616938924107,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "anhtuan",
+  "FK_iQuyenID": {
+    "$oid": "606087030cae6de3db2059f5"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed6ad4f8b3c1689f19b96"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087b42a7f420020c8e2f2"
+  },
+  "PK_iTaikhoanID": 1616938932529,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "vanlam",
+  "FK_iQuyenID": {
+    "$oid": "606086c60cae6de3db2059f0"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed7504f8b3c1689f19b98"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087c02a7f420020c8e2f3"
+  },
+  "PK_iTaikhoanID": 1616938944978,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "ntdung",
+  "FK_iQuyenID": {
+    "$oid": "6060865b0cae6de3db2059e6"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed80f4f8b3c1689f19b9a"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087ca2a7f420020c8e2f4"
+  },
+  "PK_iTaikhoanID": 1616938954322,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "ngocha",
+  "FK_iQuyenID": {
+    "$oid": "606086d50cae6de3db2059f1"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed9484f8b3c1689f19b9d"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087d42a7f420020c8e2f5"
+  },
+  "PK_iTaikhoanID": 1616938964425,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "thuyduong",
+  "FK_iQuyenID": {
+    "$oid": "606086d50cae6de3db2059f1"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605ed9884f8b3c1689f19b9f"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087dc2a7f420020c8e2f6"
+  },
+  "PK_iTaikhoanID": 1616938972888,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "ngthi",
+  "FK_iQuyenID": {
+    "$oid": "60380b5985e0692dd9038315"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605eda0e4f8b3c1689f19ba1"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087e82a7f420020c8e2f7"
+  },
+  "PK_iTaikhoanID": 1616938984336,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "duyhung",
+  "FK_iQuyenID": {
+    "$oid": "6060862f0cae6de3db2059e2"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605eda814f8b3c1689f19ba3"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606087fe2a7f420020c8e2f8"
+  },
+  "PK_iTaikhoanID": 1616939006536,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "bichphuong",
+  "FK_iQuyenID": {
+    "$oid": "606086500cae6de3db2059e5"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605edb09bd0d3a60ae2846ba"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060882c2a7f420020c8e2f9"
+  },
+  "PK_iTaikhoanID": 1616939052597,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "khanhlinh",
+  "FK_iQuyenID": {
+    "$oid": "606086990cae6de3db2059ec"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605edb4cbd0d3a60ae2846bc"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606088342a7f420020c8e2fa"
+  },
+  "PK_iTaikhoanID": 1616939060972,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "minhcham",
+  "FK_iQuyenID": {
+    "$oid": "606086440cae6de3db2059e4"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605edb94bd0d3a60ae2846be"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060883f2a7f420020c8e2fb"
+  },
+  "PK_iTaikhoanID": 1616939071046,
+  "sMatkhau": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+  "tThoigianCap": {
+    "$date": "2021-03-27T18:04:12.534Z"
+  },
+  "sTenTaikhoan": "lanngao",
+  "FK_iQuyenID": {
+    "$oid": "6060866a0cae6de3db2059e8"
+  },
+  "FK_iNhanvienID": {
+    "$oid": "605edbd1bd0d3a60ae2846c0"
+  },
+  "FK_iTrangthaiTaikhoan": {
+    "$oid": "60380b2a7eb02d2d9bd82fc9"
+  },
+  "__v": 0
+}]

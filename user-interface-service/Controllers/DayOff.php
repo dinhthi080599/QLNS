@@ -44,7 +44,7 @@ class DayOff extends BaseController
         foreach ($dayOffs as $k => $v) {
             // $v['dNgayBatdau'] = str_replace('/', '-', $v['dNgayBatdau']);
             // $v['dNgayKethuc'] = str_replace('/', '-', $v['dNgayKethuc']);
-            $_ngaynghi = strtotime($v['dNgayBatdau']);
+            $_ngaynghi = strtotime(formatDate($v['dNgayBatdau']));
             if ((int)$now > (int)$_ngaynghi) {
                 $dayOffList['daqua'][] = $v;
             } else {

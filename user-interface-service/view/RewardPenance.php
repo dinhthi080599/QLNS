@@ -83,41 +83,41 @@
                     <form action="" method="GET">
                         <div class="row">
                             <div class="col-auto">
-                                <label>Hiển thị: </label>
+                                <!-- <button class="btn btn-sm btn-info">Lọc</button> -->
+                                <button class="btn btn-sm btn-info" name="add" value="1">Thêm mới</button>
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <label>Hiển thị: </label> -->
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="tatca" name="show" value="all">
                                     <label class="custom-control-label" for="tatca">Tất cả</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="khenthuong" name="show" value="khenthuong">
                                     <label class="custom-control-label" for="khenthuong">Khen thưởng</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="kyluat" name="show" value="kyluat">
                                     <label class="custom-control-label" for="kyluat">Kỷ luật</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="dapheduyet" name="show" value="dapheduyet">
                                     <label class="custom-control-label" for="dapheduyet">Đã được phê duyệt</label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-auto">
-                                <div class="custom-control custom-checkbox mb-2">
+                                <!-- <div class="custom-control custom-checkbox mb-2">
                                     <input type="checkbox" class="custom-control-input" id="chuapheduyet" name="show" value="chuapheduyet">
                                     <label class="custom-control-label" for="chuapheduyet">Chưa được phê duyệt</label>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-sm btn-info">Lọc</button>
-                                <button class="btn btn-sm btn-info" name="add" value="1">Thêm mới</button>
+                                </div> -->
                             </div>
                         </div>
                     </form>
@@ -126,14 +126,14 @@
                             <a class="text-dark" data-toggle="collapse" href="#dsnv"
                                 aria-expanded="false" aria-controls="dsnv">
                                 <h5 class="mb-0"><i class='uil uil-angle-down font-size-18'>
-                                    </i> Danh sách nhân viên
-                                    <span class="text-muted font-size-14">({sizeof($Users)})</span>
+                                    </i> Danh sách loại khen thưởng/kỷ luật
+                                    <span class="text-muted font-size-14">({sizeof($KTKL)})</span>
                                 </h5>
                             </a>
                             <div class="collapse show" id="dsnv">
                                 <div class="card mb-0 shadow-none">
                                     <div class="card-body p-0 pt-3">
-                                        {if sizeof($Users) == 0}
+                                        {if sizeof($KTKL) == 0}
                                         <div class="row justify-content-sm-between mt-2 pt-2">
                                             <div class="col-lg-6 mb-2 mb-lg-0">
                                                 <div class="custom-control custom-checkbox">
@@ -169,9 +169,9 @@
                                                         <td>{$StatusKTKL[$v.iTrangthai]['sTenTrangThai']}</td>
                                                         <td>
                                                             <form action="" method="POST">
-                                                                <a href="/muc-thuong-phat?id={$v.PK_iKhenthuongKyluatID}" class="btn btn-info btn-sm">
+                                                                <!-- <a href="/muc-thuong-phat?id={$v._id}" class="btn btn-info btn-sm">
                                                                     Chi tiết
-                                                                </a>
+                                                                </a> -->
                                                             {if $v.iTrangthai == 1}
                                                                 <button type="submit" name="action" value="duyet" class="btn btn-success btn-sm">
                                                                     Duyệt
