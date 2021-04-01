@@ -105,6 +105,10 @@ app.post('/', function(req, res) {
                 if(err) throw err;    
                 if (items.length > 0){
                     it = items[0];
+                    console.log({
+                        'sTenTaikhoan': UserName,
+                        'sMatKhau': Password,
+                    });
                     var query = {
                         'PK_iTaikhoanID': it._id,
                         'sTenTaikhoan': UserName,

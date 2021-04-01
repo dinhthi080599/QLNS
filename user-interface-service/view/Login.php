@@ -93,7 +93,7 @@
         <script src="assets/js/app.min.js"></script>
         <style>
             .auth-page-sidebar{
-                background-image: url('assets/images/Logo-Locifa.png');
+                background-image: url('assets/images/logo11.png');
             }
         </style>
         <script src="assets/js/sweetalert.min.js"></script>

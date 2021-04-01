@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-26 16:51:52
+/* Smarty version 3.1.38, created on 2021-03-31 21:52:44
   from 'D:\Project\_datn\user-interface-service\view\Login.php' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_605daeb84c1ec1_58573887',
+  'unifunc' => 'content_60648cbcccc9a8_27344357',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e9167d251e68f9f1daff1316e30583b723a7d7c2' => 
     array (
       0 => 'D:\\Project\\_datn\\user-interface-service\\view\\Login.php',
-      1 => 1616752311,
+      1 => 1617202362,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605daeb84c1ec1_58573887 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60648cbcccc9a8_27344357 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -120,7 +120,7 @@ function content_605daeb84c1ec1_58573887 (Smarty_Internal_Template $_smarty_tpl)
 >
         <style>
             .auth-page-sidebar{
-                background-image: url('assets/images/Logo-Locifa.png');
+                background-image: url('assets/images/logo11.png');
             }
         </style>
         <?php echo '<script'; ?>
